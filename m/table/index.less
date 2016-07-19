@@ -1,0 +1,42 @@
+.mo-table{
+	min-width: 1180px;
+	width: 100%;
+	overflow-x:auto;
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	thead tr{
+		border-bottom: 1px solid #aaa;
+		th{
+			padding-top: 13px;
+			padding-bottom: 13px;
+			padding-left: 10px;
+			padding-right: 10px;
+			height: 35px;
+			line-height: 35px;
+			font-size: 14px;
+			text-align: left;
+		}
+	}
+	tbody tr{
+		border-bottom:1px solid #ddd;
+		&:hover{
+			background-color: #fff;
+		}
+		td{
+			min-width: 130px;
+			position: relative;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			line-height: 35px;
+			height: 35px;
+			color: #666;
+			font-size: 14px;
+			&:last-child{
+				color: #000;
+			}
+		}
+	}
+}

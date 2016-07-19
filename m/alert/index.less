@@ -1,0 +1,81 @@
+.mo-alert{
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: relative;
+    padding-right: 40px;
+}
+html .mo-alert--success{
+	color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    a {
+    	color: #2b542c;
+    	font-weight: 700;
+    	&:hover{
+    		cursor: pointer;
+    		text-decoration: underline;
+    	}
+    }
+}
+html .mo-alert--info{
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    a{
+    	color: #245269;
+    	font-weight: 700;
+    	&:hover{
+    		cursor: pointer;
+    		text-decoration: underline;
+    	}
+    }
+}
+html .mo-alert--warning{
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    a{
+    	color: #66512c;
+    	font-weight: 700;
+    	&:hover{
+    		cursor: pointer;
+    		text-decoration: underline;
+    	}
+    }
+
+}
+html .mo-alert--danger{
+	color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    a{
+    	color: #843534;
+    	font-weight: 700;
+    	&:hover{
+    		cursor: pointer;
+    		text-decoration: underline;
+    	}
+    }
+
+}
+.mo-alert-close{
+	color: inherit;
+	opacity: 0.2;
+	position: absolute;
+    top: 50%;
+    font-size: 14px;
+    right: 21px;
+    margin-top: -7px;
+    cursor: pointer;
+    &:hover{
+    	opacity: 1;
+    }
+}
+button.mo-alert-close{
+	-webkit-appearance: none;
+    padding: 0;
+    background: 0 0;
+    border: 0;
+}
