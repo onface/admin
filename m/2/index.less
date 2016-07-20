@@ -1,0 +1,139 @@
+@import "../../base/mixins";
+.mo-2 {
+    height: 100%;
+}
+.mo-2-head {
+    position: relative;
+    z-index: 2;
+    height: 40px;
+    line-height:40px;
+    background-color:#252525;
+    color:white;
+    .CLEAR();
+    -ms-filter: "progid: DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = '#000000', endColorstr = '#333333')";
+    /*Element must have a height (not auto)*/
+    /*All filters must be placed together*/
+    background-image: -moz-linear-gradient(top, #222222, #000000);
+    background-image: -ms-linear-gradient(top, #222222, #000000);
+    background-image: -o-linear-gradient(top, #222222, #000000);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#000000));
+    background-image: -webkit-linear-gradient(top, #222222, #000000);
+    background-image: linear-gradient(top, #222222, #000000);
+    /*--IE9 DOES NOT SUPPORT GRADIENT BACKGROUNDS--*/
+}
+.mo-2-head-logo {
+    font-size:1.5em;
+    float: left;
+    padding-left: 1em;
+}
+.mo-2-head-logo-pic {
+    height: 1em;
+    vertical-align: middle;
+    margin-right: .2em;
+}
+.mo-2-head-more {
+    float: right;
+    padding-right: 20px;
+}
+.mo-2-head-more-link {
+    margin-right: 12px;
+    color:#999999;
+    text-decoration: none;
+    .fa {
+        color:white;
+        margin-right: .5em;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.mo-2-side {
+    width:260px;
+    background-color:#252525;
+    float: left;
+    box-sizing: border-box;
+    height: 100%;
+    margin-top: -40px;
+    padding-top: 40px;
+    -ms-filter: "progid: DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = '#000000', endColorstr = '#333333')";
+    /*Element must have a height (not auto)*/
+    /*All filters must be placed together*/
+    background-image: -moz-linear-gradient(left, #000000, #222222);
+    background-image: -ms-linear-gradient(left, #000000, #222222);
+    background-image: -o-linear-gradient(left, #000000, #222222);
+    background-image: -webkit-gradient(linear, left top, right top, from(#000000), to(#222222));
+    background-image: -webkit-linear-gradient(left, #000000, #222222);
+    background-image: linear-gradient(left, #000000, #222222);
+    /*--IE9 DOES NOT SUPPORT GRADIENT BACKGROUNDS--*/
+
+}
+.mo-2-side-item-hd {
+    cursor: pointer;
+    color:white;
+    text-decoration: none;
+    display: block;
+    &>.fa {
+        color:#999;
+    }
+    &:hover>.fa {
+        color:white;
+    }
+}
+.mo-2-side-item-bd {
+    display: none;
+}
+.mo-2-side-item-bd-link {
+    display: block;
+    color:#CCC;
+    padding-left: 2em;
+    cursor: pointer;
+    &:hover {
+        color:white;
+    }
+}
+.mo-2-side-item {
+    border-top: 1px solid black;
+    border-bottom: 1px solid #222;
+    line-height: 38px;
+    display: block;
+    color:white;
+    .fa {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
+html .mo-2-side-item--on {
+    .mo-2-side-item-bd {
+        display: block;
+        background-color: #111;
+    }
+    .mo-2-side-item-hd>.fa {
+        color:white;
+    }
+}
+.mo-2-cnt {
+    padding-left: 270px;
+    padding-top: 10px;
+}
+.mo-2-sub-body {
+    background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTc0MzQ1NkE0Njg1MTFFNkFGRkFFMEIxMjM0QjdFNUYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTc0MzQ1Njk0Njg1MTFFNkFGRkFFMEIxMjM0QjdFNUYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSIzRkYwODhEMDc5M0QwMUU3M0QwQTU5OTRENjA1MzMyNiIgc3RSZWY6ZG9jdW1lbnRJRD0iM0ZGMDg4RDA3OTNEMDFFNzNEMEE1OTk0RDYwNTMzMjYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6a38dxAAAAIVBMVEX4+Pj6+vrq6ur5+fnp6ens7Ozr6+v7+/v39/fo6Ojn5+cwtvHXAAAASElEQVR42pzNyQ3AQAwCQDDrY9N/wcEpIa9BMsI4BEPg6oRQOlsACU1p3cvpUqzuqB/yE8op5uTqXolze/WmAtn388efV4ABAHd3AY4F3CK2AAAAAElFTkSuQmCC") repeat;
+}
+.mo-2-foot {
+    height: 50px;
+    line-height: 50px;
+    color:#ddd;
+    clear: both;
+    background-color:#111;
+    a {
+        color:#ddd;
+    }
+    .CLEAR();
+}
+.mo-2-foot-side {
+    float: left;
+    padding-left: 1em;
+}
+.mo-2-foot-copyright {
+    float: right;
+    padding-right: 1em;
+}

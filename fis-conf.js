@@ -1,10 +1,10 @@
 var conf = {
     // require 被替换的全局变量
     webpackExternals: {
-        // var $ = require('jquery') 等于 var $ = window.__WOKE_EXTERNALS_.jQuery
-        'jquery': '__WOKE_EXTERNALS_.jQuery',
-        'react': '__WOKE_EXTERNALS_.React',
-        'react-dom': '__WOKE_EXTERNALS_.ReactDOM'
+        // var $ = require('jquery') 等于 var $ = window.__FAST_EXTERNALS_.jQuery
+        'jquery': '__FAST_EXTERNALS_.jQuery',
+        'react': '__FAST_EXTERNALS_.React',
+        'react-dom': '__FAST_EXTERNALS_.ReactDOM'
     },
     // markdown 可运行代码的配置模板
     markrun: {
@@ -12,12 +12,16 @@ var conf = {
             js: function (source) {
                 var result = require('babel-core').transform(source, {
                     presets: [
-                         require('babel-preset-es2015'),
-                         require('babel-preset-react')
+                         "es2015"
                     ],
                     plugins: [
-                        "babel-plugin-transform-decorators-legacy",
-                        "babel-plugin-transform-class-properties"
+                       ["transform-react-jsx", {pragma: 'require("react").createElement'}],
+                       "transform-flow-strip-types",
+                       "syntax-flow",
+                       "syntax-jsx",
+                       "transform-react-display-name",
+                       "transform-decorators-legacy",
+                       "transform-class-properties"
                     ]
                 })
                 return {
@@ -38,6 +42,7 @@ var conf = {
 </head>
 <body>
 <%- content %>
+<script src="/fast-admin-deps.js" ></script>
 <script src="/fast-admin.js" ></script>
 </body>
 </html>`
@@ -54,7 +59,9 @@ var conf = {
         },
         module: {
             // 通过 noParse 给 moment 打包提速
-            noParse: [/moment-with-locales/],
+            noParse: [
+                /moment-with-locales/
+            ],
             postLoaders: [
                 // 如果不需要兼容IE8请去掉 es3ify
                 {
@@ -67,8 +74,16 @@ var conf = {
                     test: /\.js$/,
                     loader: 'babel-loader',
                     query: {
-                        presets: ['es2015', 'react'],
-                        plugins: ["transform-decorators-legacy","transform-class-properties"]
+                        presets: ['es2015'],
+                        plugins: [
+                           ["transform-react-jsx", {pragma: 'require("react").createElement'}],
+                           "transform-flow-strip-types",
+                           "syntax-flow",
+                           "syntax-jsx",
+                           "transform-react-display-name",
+                           "transform-decorators-legacy",
+                           "transform-class-properties"
+                        ]
                     }
                 },
                 {
@@ -119,7 +134,9 @@ fis.match('/fast-admin.js', {
 fis.match('{package.json,mobe.js,fis-conf.js}', {
     release: false
 })
-
+fis.match('/node_modules/**', {
+    release: false
+})
 fis.media('qa').match('*.js', {
   optimizer: fis.plugin('uglify-js')
 });

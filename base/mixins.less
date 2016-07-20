@@ -1,0 +1,11 @@
+.CLEAR() {
+    zoom:1; /* for IE6 IE7 */
+    &:after {
+        visibility:hidden;
+        display:block;
+        font-size:0;
+        content:" ";
+        clear:both;
+        height:0;
+    }
+}

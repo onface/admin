@@ -46,7 +46,7 @@
             </span>
         </div>
         <div class="mo-form-item">
-            <button class="mo-btn mo-btn--info fa fa-search mo-form-btn"></button>
+            <button class="mo-btn mo-btn--info mo-form-btn"><span class="fa fa-search" ></span></button>
         </div>
     </form>
 </div>

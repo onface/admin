@@ -26,7 +26,13 @@
     "less-plugin-functions": "0.0.2",
     "markrun": "^0.0.1",
     "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "babel-plugin-syntax-flow": "^6.3.13",
+    "babel-plugin-syntax-jsx": "^6.3.13",
+    "babel-plugin-transform-flow-strip-types": "^6.3.13",
+    "babel-plugin-transform-react-display-name": "^6.3.13",
+    "babel-plugin-transform-react-jsx": "^6.3.13",
+    "babel-plugin-transform-react-jsx-source": "^6.3.13"
   },
   "dependencies": {
     "jquery": "^1.12.0",
