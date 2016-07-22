@@ -5,3 +5,5 @@
 - [按钮](./m/btn/README.md)
 - [盒子](./m/box/README.md)
 - [table](./m/table/README.md)
+- [form](./m/form-input/README.md)
+- [ajax](./m/ajax/README.md)

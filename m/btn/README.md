@@ -101,14 +101,24 @@
 > .mo-btn-icon 默认是第一个子元素
 
 ````html
-<span class="mo-btn mo-btn--7"><span class="mo-btn-icon">&hearts;</span>default</span>
-<span class="mo-btn mo-btn--7 mo-btn--info"><span class="mo-btn-icon">&hearts;</span>default</span>
+<span class="mo-btn mo-btn--7">
+    <span class="mo-btn-icon">
+        <i class="fa fa-edit"></i>
+    </span>
+    default
+</span>
+<span class="mo-btn mo-btn--7 mo-btn--info"><span class="mo-btn-icon"><i class="fa fa-list"></i></span>default</span>
 ````
 > 如果 .mo-btn-icon 是最后一个子元素应该加上 mo-btn-icon--before
 
 ````html
-<span class="mo-btn mo-btn--7">before<span class="mo-btn-icon mo-btn-icon--before">×</span></span>
-<span class="mo-btn mo-btn--7 mo-btn--danger">before<span class="mo-btn-icon mo-btn-icon--before">×</span></span>
+<span class="mo-btn mo-btn--7">
+    before
+    <span class="mo-btn-icon mo-btn-icon--before">
+        <i class="fa fa-user"></i>
+    </span>
+</span>
+<span class="mo-btn mo-btn--7 mo-btn--danger">before<span class="mo-btn-icon mo-btn-icon--before"><i class="fa fa-close"></i></span></span>
 ````
 
 ### loading

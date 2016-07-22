@@ -176,7 +176,10 @@ html .mo-btn--14 {
 // icon 默认放在左边
 .mo-btn-icon {
     margin-right: .2em;
-    vertical-align: middle;
+    vertical-align: top;
+    .fa {
+        font-size: 1em;
+    }
 }
 html .mo-btn-icon--before {
     margin-right: 0;
@@ -186,6 +189,8 @@ html .mo-btn-icon--before {
 // loading
 html .mo-btn--loading {
     &:before {
+        background: url(./loading.svg?__inline) no-repeat center;
+        background-size: 1em;
         border-radius: 3px;
         content: ' ';
         display: block;
@@ -195,7 +200,7 @@ html .mo-btn--loading {
         height:100%;
         padding-bottom: 2px;
         padding-right: 2px;
-        background-color: rgba(255,255,255,.5);
+        background-color: rgba(255,255,255,.2);
         background-repeat: no-repeat;
         background-position: center;
     }

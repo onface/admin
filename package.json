@@ -35,8 +35,10 @@
     "babel-plugin-transform-react-jsx-source": "^6.3.13"
   },
   "dependencies": {
+    "fast-artdialog": "^6.0.5",
     "jquery": "^1.12.0",
     "normalize.css": "^4.2.0",
+    "noty": "^2.3.8",
     "react": "^0.14.8",
     "react-dom": "^0.14.8"
   }

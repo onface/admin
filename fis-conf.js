@@ -1,10 +1,10 @@
 var conf = {
     // require 被替换的全局变量
     webpackExternals: {
-        // var $ = require('jquery') 等于 var $ = window.__FAST_EXTERNALS_.jQuery
-        'jquery': '__FAST_EXTERNALS_.jQuery',
-        'react': '__FAST_EXTERNALS_.React',
-        'react-dom': '__FAST_EXTERNALS_.ReactDOM'
+        // var $ = require('jquery') 等于 var $ = window.__FAST_ADMIN_EXTERNALS_.jQuery
+        'jquery': '__FAST_ADMIN_EXTERNALS_.jQuery',
+        'react': '__FAST_ADMIN_EXTERNALS_.React',
+        'react-dom': '__FAST_ADMIN_EXTERNALS_.ReactDOM'
     },
     // markdown 可运行代码的配置模板
     markrun: {
@@ -38,6 +38,7 @@ var conf = {
 <meta http-equiv="X-UA-Compatible" content="IE=edge" ></meta>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
 <link rel="stylesheet" href="/fast-admin.less" />
+<link rel="stylesheet" href="/m/doc/index.less" />
 <title> <%- title %></title>
 </head>
 <body>
@@ -54,7 +55,8 @@ var conf = {
         resolve: {
             alias: {
                 // 通过别名给 moment 打包提速
-                moment: "moment/min/moment-with-locales.min.js"
+                moment: "moment/min/moment-with-locales.min.js",
+                '../css/ui-dialog.css': "artdialog/css/ui-dialog.css"
             }
         },
         module: {
