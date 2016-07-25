@@ -121,8 +121,9 @@ data-ajax-url="/some.php"
         data-ajax-data="id=1"  
         data-ajax-url="/m/json/ok.json"
 >remove</span>
+````
 
-
+````html
 <div id="ajaxremovetarget2">
     <h2>目标</h2>
     <span>我要被干掉了</span>

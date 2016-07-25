@@ -7,12 +7,10 @@ $(function () {
 		if ($this.data('_ajax-busy')) {
 			return false
 		}
-		var data = $this.data()
-		// defaultData
-		var defaultData = {
+		var data = {
 			ajaxMethod: 'get'
 		}
-		$.extend(true, data, defaultData)
+		$.extend(true, data, $this.data())
 		// confirm
 		if (data.ajaxConfirm) {
 			if (!confirm(data.ajaxConfirm)) {
