@@ -59,5 +59,5 @@
     }
 ]
 </script>
-<span class="mo-linkage" data-data='prev' ></span>
+<span class="mo-linkage" data-linkage-data='prev' ></span>
 ````

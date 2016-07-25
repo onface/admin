@@ -1,11 +1,14 @@
 import {Component} from 'react'
 class Linkage extends Component {
     render () {
-        console.log(this.props.data)
+        var self = this
+        var optionsNodes = this.props.linkageData.map(function (item, key) {
+            return <option value={item.value} key={key} >{item.name}</option>
+        })
         return (
             <span>
-                <select name="" id="">
-                    <option value=""></option>
+                <select name="">
+                {optionsNodes}
                 </select>
             </span>
         )

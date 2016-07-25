@@ -81,6 +81,7 @@ data-ajax-url="/some.php"
 
 ````html
 <div class="js-list" >
+    abcdef
     <span   class="mo-btn mo-btn--danger mo-ajax"
             data-ajax-remove="closest&.js-list"
             data-ajax-data="id=1"  
