@@ -33,16 +33,34 @@ $(function () {
 			type: data.ajaxMethod,
 			dataType: 'json'
 		}).done(function (res) {
+			res.data = res.data || {}
 			if (res.status === 'success') {
-				message.setText('操作成功')
 				message.setType('success')
+				res.msg = res.msg || '操作成功'
 			}
 			else {
-				message.setText(res.msg)
 				message.setType('error')
+				res.msg = res.msg || '操作失败'
+			}
+			message.setText(res.msg)
+
+			var hrefTimeout = 0
+			if (res.data.href) {
+				if (res.data.timeout) {
+					hrefTimeout = parseInt(res.data.timeout, 10)
+				}
+				var timeoutSecond = hrefTimeout/1000
+				noty({
+					text: timeoutSecond + '秒后，跳转至' + res.data.href,
+					type:'success'
+				})
+				setTimeout(function () {
+					location.href = res.data.href
+				}, hrefTimeout)
+
 			}
 			// remove
-			if (data.ajaxRemove) {
+			if (data.ajaxRemove && res.status === 'success') {
 				var selectors = data.ajaxRemove.split('&')
 				var $deleteTarget = $this
 				// 第一个选择器开头是 # 或者 . 则不适用 当前元素作为起始元素
@@ -66,7 +84,6 @@ $(function () {
 				setTimeout(function () {
 					$deleteTarget.remove()
 				}, removeTimeout)
-
 			}
 		}).always(function () {
 			$this.data('_ajax-busy', false)

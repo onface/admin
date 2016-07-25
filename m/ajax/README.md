@@ -8,6 +8,11 @@
         data-ajax-url="/m/json/ok.json"
 >ok</span>
 
+<span   class="mo-btn mo-btn--info mo-ajax"
+        data-ajax-method="get"
+        data-ajax-data="action=ok"
+        data-ajax-url="/m/json/ok-msg.json"
+>ok-msg</span>
 <span   class="mo-btn mo-btn--danger mo-ajax"
         data-ajax-method="get"
         data-ajax-data="action=error&id=1"
@@ -19,6 +24,11 @@
 /m/json/ok.json
 {
     "status": "success"
+}
+/m/json/ok-msg.json
+{
+    "status": "success",
+    "msg": "成功提示"
 }
 /m/json/err.json
 {
@@ -124,22 +134,41 @@ data-ajax-url="/some.php"
         data-ajax-url="/m/json/ok.json"
 >remove</span>
 ````
-<!--
-## data-ajax-form 弹出表单
+
+## data-ajax-href
+
+```js
+// m/json/ok-href.json
+{
+    "status": "success",
+    "data": {
+        "href": "/"
+    }
+}
+```
 
 ````html
-<script type="text/javascript">
-[
-    {
-        "label": "用户名",
-        "name": "user",
-        "value": ""        
+<span class="mo-ajax mo-btn" data-ajax-url="/m/json/ok-href.json">href</span>
+````
+
+AJAX响应的JSON中存在 `data.href` ，且 `status` 等于 `success` 时候会根据 `data.href` 的地址跳转。
+
+
+### timeout
+
+```js
+// m/json/ok-href-timeout.json
+{
+    "status": "success",
+    "data": {
+        "href": "/",
+        "timeout": 1000
     }
-]
-</script>
-<span   class="mo-btn mo-btn--info mo-ajax"
-        data-ajax-form="prev"
-        data-ajax-data="id=1"  
-        data-ajax-url="/m/json/ok.json"
->form</span>
-```` -->
+}
+```
+
+响应的JSON中存在 `data.timeout` 则会延迟跳转到 `data.href`，延迟的时间是 `timeout` 的值
+
+````html
+<span class="mo-ajax mo-btn" data-ajax-url="/m/json/ok-href-timeout.json">timeout</span>
+````
