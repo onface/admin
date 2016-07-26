@@ -1,0 +1,61 @@
+@import "/base/gradient";
+@import "/base/mixins";
+.mo-upload {
+    border:1px solid #EEE;
+    border-radius: 3px;
+    display: inline-block;
+}
+.mo-upload-title {
+    font-size:16px;
+    line-height: 30px;;
+    border-bottom: 1px solid #EEE;
+    padding-left: 10px;
+    padding-right: 10px;
+    .gradient-white();
+}
+.mo-upload-bd {
+    padding:10px;
+    padding-bottom: 0;
+    text-align: center;
+}
+.mo-upload-bd-picker {
+    display: none;
+    text-align: center;
+    line-height: 100%;
+    cursor: pointer;
+    width:100%;
+    font-size:80px;
+    color:#ddd;
+}
+.mo-upload-bd-preview {
+    display: none;
+    text-align: center;
+    img {
+        display: inline-block;
+        vertical-align: middle;
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+html .mo-upload-bd--preview {
+    .mo-upload-bd-preview {
+        display: block;
+    }
+}
+html .mo-upload-bd--picker {
+    .mo-upload-bd-picker {
+        display: block;
+    }
+}
+.mo-upload-tool {
+    padding:10px;
+    .CLEAR();
+}
+.mo-upload-tool-text {
+    margin-top: -15px;
+    line-height: 30px;
+    word-break:break-all;
+}
+.mo-upload-tool-delete {
+    float: right;
+}

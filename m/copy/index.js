@@ -1,7 +1,7 @@
 var $ = require('jquery')
 $(function () {
 
-    $('body').on('click', '.mo-clone',function () {
+    $('body').on('click', '.mo-copy',function () {
         var $this = $(this)
         var data = {
             copyMethod: 'append'
@@ -13,6 +13,14 @@ $(function () {
         if (data.copyFilter) {
             window[data.copyFilter]($clone)
         }
+        $clone
+        mo._allowCopy.forEach(function (name) {
+            let className = 'mo-' + name
+            if ($clone.hasClass(className)) {
+                $clone.html('')
+                mo[name]($clone)
+            }
+        })
         $target[data.copyMethod]($clone)
     })
 })

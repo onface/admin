@@ -56,13 +56,42 @@
 }
 ```
 
-data-form-timeout 控制当成功后跳转延迟时间，不填则立即跳转
-
-
 ````html
 <div class="mo-form"  >
     <form method="get" action="/m/json/ok-href.json" data-form-ajax="true" data-form-timeout="2000" >
-        <div class="mo-form-title">error</div>
+        <div class="mo-form-title">href</div>
+        <div class="mo-form-item">
+            <span class="mo-form-item-label">text</span>
+            <span class="mo-form-item-form">
+                <input type="text" name="user" class="mo-input" placeholder="输入用户名／邮箱">
+            </span>
+        </div>
+        <div class="mo-form-item">
+            <button class="mo-btn mo-btn--info"> 提交</button>
+        </div>
+    </form>
+</div>
+````
+
+### timeout
+
+```js
+// /m/json/ok-href-timeout.json
+{
+    "status": "success",
+    "data": {
+        "href": "/",
+        "timeout": 1000
+    }
+}
+```
+
+响应的JSON中存在 `data.timeout` 则会延迟跳转到 `data.href`，延迟的时间是 `timeout` 的值
+
+````html
+<div class="mo-form"  >
+    <form method="get" action="/m/json/ok-href-timeout.json" data-form-ajax="true" data-form-timeout="2000" >
+        <div class="mo-form-title">timeout</div>
         <div class="mo-form-item">
             <span class="mo-form-item-label">text</span>
             <span class="mo-form-item-form">

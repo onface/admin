@@ -7,7 +7,7 @@
 </div>
 <div id="box" >
 </div>
-<span class="mo-clone mo-btn" data-copy-clone="#copy1" data-copy-target="#box" >新建步骤</span>
+<span class="mo-copy mo-btn" data-copy-clone="#copy1" data-copy-target="#box" >新建步骤</span>
 ````
 | data-copy-clone | 复制的元素 |
 | data-copy-target | 复制元素新位置 |
@@ -21,7 +21,7 @@
 </div>
 <div id="box2" >
 </div>
-<span class="mo-clone mo-btn" data-copy-clone="#copy2" data-copy-target="#box2" data-copy-filter="copy2filter" >新建步骤</span>
+<span class="mo-copy mo-btn" data-copy-clone="#copy2" data-copy-target="#box2" data-copy-filter="copy2filter" >新建步骤</span>
 <script type="text/javascript">
 var copy2filterCount = 1
 function copy2filter ($clone) {
@@ -40,7 +40,7 @@ function copy2filter ($clone) {
         <input type="text" name="step[]" />
     </div>
 </div>
-<span class="mo-clone mo-btn" data-copy-clone="#copy3" data-copy-target="#box3" data-copy-method="prepend" data-copy-filter="copy3filter" >新建步骤</span>
+<span class="mo-copy mo-btn" data-copy-clone="#copy3" data-copy-target="#box3" data-copy-method="prepend" data-copy-filter="copy3filter" >新建步骤</span>
 <script type="text/javascript">
 var copy3filterCount = 1
 function copy3filter ($clone) {
@@ -49,3 +49,5 @@ function copy3filter ($clone) {
 }
 </script>
 ````
+
+`method: append | prepend`

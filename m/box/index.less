@@ -1,3 +1,4 @@
+@import "/base/gradient";
 .mo-box {
     margin-bottom: 10px;
 }
@@ -6,13 +7,7 @@
     line-height: 35px;
     border: 1px solid #ddd;
     margin-bottom: -1px;
-    background-color: #fafafa;
-    background-image: -moz-linear-gradient(top, #fafafa, #efefef);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#efefef));
-    background-image: -webkit-linear-gradient(top, #fafafa, #efefef);
-    background-image: -o-linear-gradient(top, #fafafa, #efefef);
-    background-image: linear-gradient(to bottom, #fafafa, #efefef);
-    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fafafa', endColorstr='#efefef', GradientType=0);
+    .gradient-white();
     box-shadow: none;
     border-radius: 2px 2px 0px 0px;
 }

@@ -139,6 +139,11 @@ fis.match('{package.json,mobe.js,fis-conf.js}', {
 fis.match('/node_modules/**', {
     release: false
 })
+
+fis.match('*.js', {
+    useHash: true
+})
+
 fis.media('qa').match('*.js', {
   optimizer: fis.plugin('uglify-js')
 });
