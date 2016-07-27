@@ -1,0 +1,28 @@
+.mo-crumb {
+    margin:0;
+    padding:0;
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+
+
+    li {
+        display: inline;
+        color:#777;
+        &:after {
+            padding-left: .5em;
+            font-size: .8em;
+            font-weight: bold;
+            content: '/';
+        }
+    }
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    span {
+        color:#777;
+    }
+}
