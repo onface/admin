@@ -73,7 +73,7 @@ class Upload extends Component {
             height:self.props.uploadHeight + 'px'
         }
         return (
-            <div className="mo-upload">
+            <div>
                 <div className="mo-upload-title">
                     {props.uploadTitle}
                 </div>
@@ -97,7 +97,10 @@ class Upload extends Component {
                     </div>
                 </div>
                 <div className="mo-upload-tool">
-                    <span className="mo-btn mo-btn--danger mo-upload-tool-delete" onClick={this.clear.bind(this)}>删除</span>
+                    <span className={cls({
+                        'mo-btn mo-btn--danger mo-upload-tool-delete': true,
+                        'mo-hide': !self.state.id
+                    })} onClick={this.clear.bind(this)}>删除</span>
                 </div>
                 <input type="hidden" name={self.props.uploadName} value={self.state.id} />
             </div>

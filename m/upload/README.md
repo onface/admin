@@ -27,7 +27,6 @@
     data-upload-url="/m/json/ok-upload.json"
     data-upload-name="pic"
     data-upload-value="prev"
-    data-upload-max="4"
 >
 </div>
 ````
@@ -42,12 +41,29 @@
 }
 </script>
 <div class="mo-upload"
-    data-upload-type="file" 
+    data-upload-type="file"
     data-upload-url="/m/json/ok-upload-file.json"
     data-upload-name="abc"
     data-upload-value="prev"
 >
 </div>
+````
+
+## 多图上传
+
+````html
+<form class="mo-form" data-form-ajax="true" action="/m/json/ok.json" method="get">
+<div id="copyuploadbox" >
+    <div id="copyupload" class="mo-upload"
+        data-upload-url="/m/json/ok-upload.json"
+        data-upload-name="pics[]"
+    >
+    </div>
+</div>
+<span class="mo-btn mo-copy" data-copy-clone="#copyupload" data-copy-target="#copyuploadbox">增加图片</span>
+<hr>
+<button type="submit" class="mo-btn mo-btn--info">提交</button>
+</form>
 ````
 
 
