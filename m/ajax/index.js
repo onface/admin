@@ -9,7 +9,7 @@ $(function () {
 		}
 		var data = {
 			ajaxMethod: 'get',
-			data: ''
+			ajaxData: ''
 		}
 		$.extend(true, data, $this.data())
 		// confirm
