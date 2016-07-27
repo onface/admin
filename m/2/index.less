@@ -1,6 +1,7 @@
 @import "../../base/mixins";
 .mo-2 {
     height: 100%;
+    position: relative;
 }
 .mo-2-head {
     position: relative;
@@ -48,13 +49,11 @@
     }
 }
 .mo-2-side {
+    position: absolute;
+    left:0;
+    top:40px;
     width:260px;
     background-color:#252525;
-    float: left;
-    box-sizing: border-box;
-    height: 100%;
-    margin-top: -40px;
-    padding-top: 40px;
     -ms-filter: "progid: DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = '#000000', endColorstr = '#333333')";
     /*Element must have a height (not auto)*/
     /*All filters must be placed together*/
