@@ -1,8 +1,6 @@
 # upload
 
 
-<link rel="stylesheet" href="./index.less">
-
 ````html
 <div class="mo-upload"
     data-upload-url="/m/json/ok-upload.json"

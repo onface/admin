@@ -8,7 +8,8 @@ __inline('/node_modules/jquery/dist/jquery.min.js')
     for (i = 0; i < globalVariable.length; i++) {
         var variableName = globalVariable[i]
         window.__FAST_ADMIN_EXTERNALS_[variableName] = window[variableName]
-        window[variableName] = null
+        // 为避免与其他框架冲突不取消全局变量
+        // window[variableName] = null
     }
 })(
     [

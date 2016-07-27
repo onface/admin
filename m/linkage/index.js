@@ -85,4 +85,6 @@ function linkage ($ele) {
     })
 }
 window.mo.linkage = linkage
-mo.linkage($('.mo-linkage'))
+$(function () {
+    mo.linkage($('.mo-linkage'))
+})

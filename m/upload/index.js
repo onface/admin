@@ -129,4 +129,6 @@ mo.upload = function ($ele) {
         render(<Upload {...data} />, this)
     })
 }
-mo.upload($('.mo-upload'))
+$(function () {
+    mo.upload($('.mo-upload'))
+})

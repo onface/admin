@@ -141,7 +141,7 @@ fis.match('/node_modules/**', {
 })
 
 fis.match('*.js', {
-    useHash: true
+    // useHash: true
 })
 
 fis.media('qa').match('*.js', {

@@ -9,25 +9,32 @@ $(function () {
         $.extend(true, data, $this.data())
         let $clone = $(data.copyClone).clone()
         $clone.removeAttr('id')
+        $clone.find('*').removeAttr('id')
         let $target= $(data.copyTarget)
         if (data.copyFilter) {
             window[data.copyFilter]($clone)
         }
-        let dataMethod = []
+        let initMethod = []
         mo._allowCopy.forEach(function (name) {
-            let className = 'mo-' + name
-            if ($clone.hasClass(className)) {
-                dataMethod.push(name)
-                $clone.html('')
-
+            var $component = $clone.find('.mo-' + name )
+            if ($component.length) {
+                initMethod.push({
+                    element: $component,
+                    method: name
+                })
+            }
+            if ($clone.hasClass('mo-' + name)) {
+                initMethod.push({
+                    element: $clone,
+                    method: name
+                })
             }
         })
         $target[data.copyMethod]($clone)
-        if (dataMethod.length) {
-            // 需要在渲染后再执行，否则某些差距获取不到在dom中的宽高
-            dataMethod.forEach(function (name) {
-                mo[name]($clone)
-            })
-        }
+        // 必须添加到 dom 后再做init处理，否则有些组件获取不到高度
+        initMethod.forEach(function (control) {
+            control.element.html('')
+            mo[control.method](control.element)
+        })
     })
 })
