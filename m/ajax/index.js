@@ -34,7 +34,7 @@ $(function () {
 			$checkbox.each(function () {
 				checkboxValues.push(this.value)
 			})
-			data.ajaxData = data.ajaxData + $checkbox.attr('name') + '=' + checkboxValues.join('|')
+			data.ajaxData = data.ajaxData + $checkbox.attr('name') + '=' + checkboxValues.join(',')
 		}
 		$.ajax({
 			url: data.ajaxUrl,

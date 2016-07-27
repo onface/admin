@@ -84,7 +84,7 @@
 
     <span class="mo-linkage"
     data-linkage-name="city"
-    data-linkage-value="2|2-1|2-1-2"
+    data-linkage-value="2,2-1,2-1-2"
     data-linkage-options='#linkageJSON'
     ></span>
     <br />
@@ -95,7 +95,7 @@
 | 值 | 描述 |
 |---|-----|
 | name | 隐藏 input 的name值 |
-| value | 选中项数据，通过 &#124; 连接 |
+| value | 选中项数据，通过 , 连接 |
 | width | input 的宽度 |
 | options | 选项json， 当值为 `prev` 时选择上一个 `<script>` ，当值为选择器时选择选择器对应的数据
 

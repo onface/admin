@@ -21,9 +21,11 @@ class Linkage extends Component {
     render () {
         let self = this
         let defaultOptions = []
-        let linkageValue
-        if (self.props.linkageValue) {
-            linkageValue = self.props.linkageValue.split('|')
+        let linkageValue = self.props.linkageValue
+        if (linkageValue) {
+            // 老版本 api 是 | 作为分隔符
+            linkageValue = linkageValue.replace(/\|/,',')
+            linkageValue = self.props.linkageValue.split(',')
         }
         else {
             linkageValue = []
@@ -60,7 +62,7 @@ class Linkage extends Component {
              >
                 <input type="text" className="mo-input" placeholder={this.props.linkagePlaceholder} style={{width:this.props.linkageWidth}} value={inputText} readOnly />
             </Cascader>
-            <input type="hidden" value={this.state.inputValue.join('|')} name={this.props.linkageName} />
+            <input type="hidden" value={this.state.inputValue.join(',')} name={this.props.linkageName} />
             </span>
         )
     }
