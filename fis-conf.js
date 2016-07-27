@@ -113,6 +113,11 @@ var conf = {
                     <a class="mo-2-side-item-bd-link"  href="/m/linkage/README.md" ><span class="fa fa-list"></span>层级选择</a>
                 </div>
             </div>
+            <div class="mo-2-side-item">
+                <a class="mo-2-side-item-hd" href="/m/grid/README.md" >
+                    <span class="fa fa-star"></span>24等分布局
+                </a>
+            </div>
         </div>
         <div class="mo-2-cnt">
             <%- content %>
