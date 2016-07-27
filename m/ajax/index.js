@@ -8,7 +8,8 @@ $(function () {
 			return false
 		}
 		var data = {
-			ajaxMethod: 'get'
+			ajaxMethod: 'get',
+			data: ''
 		}
 		$.extend(true, data, $this.data())
 		// confirm
@@ -25,6 +26,16 @@ $(function () {
 			text: 'loading'
 		})
 		$this.data('_ajax-busy', true)
+		// checkbox
+		let $checkbox
+		let checkboxValues = []
+		if (data.ajaxCheckbox) {
+			$checkbox = $(data.ajaxCheckbox)
+			$checkbox.each(function () {
+				checkboxValues.push(this.value)
+			})
+			data.ajaxData = data.ajaxData + $checkbox.attr('name') + '=' + checkboxValues.join('|')
+		}
 		$.ajax({
 			url: data.ajaxUrl,
 			data: data.ajaxData,

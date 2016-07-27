@@ -68,6 +68,7 @@
 
 }
 .mo-2-side-item-hd {
+    position: relative;
     cursor: pointer;
     color:white;
     text-decoration: none;
@@ -78,11 +79,30 @@
     &:hover>.fa {
         color:white;
     }
+    &:after {
+        color:#666;
+        position: absolute;
+        right:10px;
+        top:10px;
+        display: inline-block;
+        font: normal normal normal 1em FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\f103";
+    }
+}
+a.mo-2-side-item-hd {
+    &::after{
+        display: none;
+    }
 }
 .mo-2-side-item-bd {
     display: none;
 }
 .mo-2-side-item-bd-link {
+    text-decoration: none;
     display: block;
     color:#CCC;
     padding-left: 2em;

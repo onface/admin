@@ -18,6 +18,9 @@ app.run({
     static: './output',
     port: '2000',
     read: [''],
+    urlRewrite: [
+        '/', '/README.html'
+    ],
     view: {
         server: 'http://127.0.0.1:2009',
         templateDir: './output/view/'

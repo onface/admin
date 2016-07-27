@@ -174,3 +174,21 @@ AJAX响应的JSON中存在 `data.href` ，且 `status` 等于 `success` 时候�
 ````html
 <span class="mo-ajax mo-btn" data-ajax-url="/m/json/ok-href-timeout.json">timeout</span>
 ````
+
+
+## checkbox 删除选中项
+<!-- 未来如果有更好的方式，则换一个方法名，并建议用户不要使用 checkbox  -->
+
+````html
+<span class="mo-btn mo-btn--danger mo-ajax" data-ajax-url="/m/json/ok.json" data-ajax-checkbox=".js-people:checked" data-ajax-remove=".js-people:checked&closest&.js-item" >删除选中项目</span>
+<div class="js-item" >
+    <input name="id" value="1" type="checkbox" class="mo-input js-people" /> 张三
+</div>
+<div class="js-item" >
+    <input name="id" value="2" type="checkbox" class="mo-input js-people" /> 李四
+</div>
+<div class="js-item" >
+    <input name="id" value="3" type="checkbox" class="mo-input js-people" /> 王五
+</div>
+
+````

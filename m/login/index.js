@@ -1,31 +1,21 @@
-var $ = require('jquery')
-module.exports = function () {
-	$(function(){
-		$('.mo-login-form').on('submit',function(){
-			var $this = $(this)
-			var loginUrl = $this.attr('action')
-			var loginType = $this.attr('method')
-			var data = $this.serializeArray()
-			$.ajax({
-	            url: loginUrl,
-	            type: loginType,
-	            data: data,
-	            dataType: 'json'
-	        }).done(function (res) {
-	        	if(res.status === 'success'){
-					location.href = res.data.href
-	        	}
-	        	else if(res.status === 'error'){
-	        		alert(res.msg)
-	        	}
-	        })
-			return false
-		})
-		$('.mo-login-item-code').on('click',function(){
-			var $this = $(this)
-			var src = $this.attr('src')
-			src = src.replace(/\?.*$/,'?t=' + new Date().getTime())
-			$this.attr('src', src)
-		})
-	})
-}
+let $ = require('jquery')
+$(function(){
+	function createTimestamp (ele) {
+		let $this = $(this)
+		let src = $this.data().loginVerifySrc
+		if (/\?/.test(src)) {
+			src = src + '&'
+		}
+		else {
+			src = src + '?'
+		}
+		src = src + 'timestamp=' + new Date().getTime()
+		$this.attr('src', src)
+	}
+	let $code = $('.mo-login-item-code')
+	$code.each(function () {
+		let $this = $(this)
+		createTimestamp.bind(this)()
+	}).on('click',createTimestamp)
+
+})

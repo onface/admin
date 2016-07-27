@@ -17,9 +17,8 @@
 ```
 
 ````html
-
 <div class="mo-login">
-    <form class="mo-login-form" data-ui="form" action="/login/" method="post">
+    <form class="mo-login-form mo-form" data-form-ajax="true"  action="/m/json/ok-href.json" method="get">
     <div class="mo-login-title">后台管理</div>
 
     <div class="mo-login-item">
@@ -46,8 +45,7 @@
         </span>
         <div class="mo-login-item-form">
             <input type="text" class="mo-login-item-form-input" name="code" required placeholder="请输入右侧验证码">
-            <!-- 务必给验证码加上时间戳 -->
-            <img src="http://dummyimage.com/50x28?t=398217481274" alt="点击刷新" class="mo-login-item-code" />
+            <img data-login-verify-src="/verify/" alt="点击刷新" class="mo-login-item-code" />
         </div>
     </div>
 
