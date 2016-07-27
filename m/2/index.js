@@ -6,5 +6,14 @@ $(function () {
         console.log($item)
         $item.toggleClass('mo-2-side-item--on')
     })
-    $('.mo-2-side').height($(document).height() - $('.mo-2-head').height() - $('.mo-2-foot').height())
+    var docHeight = $(document).height()
+    var windowHeight = $(window).height()
+    var pageHeight
+    if (windowHeight >= docHeight) {
+        pageHeight = windowHeight
+    }
+    else {
+        pageHeight = docHeight
+    }
+    $('.mo-2-side,.mo-2-cnt').height(pageHeight - $('.mo-2-head').height() - $('.mo-2-foot').height())
 })
