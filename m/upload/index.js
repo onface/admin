@@ -44,7 +44,7 @@ class Upload extends Component {
                     self.setState(newState)
                 }
                 else {
-                    if (res.msg) {
+                    if (!res.msg) {
                         let throwError = '开发人员注意: 操作错误后错误原因必须在 ajax 响应 JSON 中的 msg 中配置'
     					alert(throwError)
     					throw new Error(throwError)

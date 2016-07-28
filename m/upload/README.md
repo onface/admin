@@ -52,13 +52,13 @@
 ````html
 <form class="mo-form" data-form-ajax="true" action="/m/json/ok.json" method="get">
 <div id="copyuploadbox" >
-    <div id="copyupload" class="mo-upload"
+    <div  class="mo-upload js-upload-clone"
         data-upload-url="/m/json/ok-upload.json"
         data-upload-name="pics[]"
     >
     </div>
 </div>
-<span class="mo-btn mo-copy" data-copy-clone="#copyupload" data-copy-target="#copyuploadbox">增加图片</span>
+<span class="mo-btn mo-copy" data-copy-clone=".js-upload-clone:first" data-copy-target="#copyuploadbox">增加图片</span>
 <hr>
 <button type="submit" class="mo-btn mo-btn--info">提交</button>
 </form>

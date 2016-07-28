@@ -107,13 +107,13 @@
 ````html
 <form class="mo-form" data-form-ajax="true" action="/m/json/ok.json" method="get">
     <div id="linkagecopybox">
-        <span id="linkClone" class="mo-linkage"
+        <span class="mo-linkage js-linkage-copy"
         data-linkage-name="city[]"
         data-linkage-options='#linkageJSON'
         data-linkage-placeholder="请选择城市"
          ></span>
     </div>
-    <span class="mo-btn mo-copy" data-copy-target="#linkagecopybox" data-copy-clone="#linkClone">新建城市</span>
+    <span class="mo-btn mo-copy" data-copy-target="#linkagecopybox" data-copy-clone=".js-linkage-copy:first">新建城市</span>
     <br>
     <br>
     <button class="mo-btn" type="submit">提交</button>
