@@ -1,3 +1,4 @@
+require('babel-core/register')
 var conf = {
     // require 被替换的全局变量
     webpackExternals: {
