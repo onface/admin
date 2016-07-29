@@ -31,119 +31,124 @@ var conf = {
                 }
             }
         },
-        template: `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/fast-admin.less">
-    <link rel="stylesheet" href="/m/doc/index.less" />
-    <title> <%- title %></title>
-</head>
-<body class="mo-2-sub-body" >
-    <div class="mo-2">
-        <div class="mo-2-head">
-            <div class="mo-2-head-logo"><img class="mo-2-head-logo-pic" src="http://oajxfbadi.bkt.clouddn.com/admin/images/flow-logo-white.png" alt="">管理后台</div>
-            <div class="mo-2-head-more">
-                <a class="mo-2-head-more-link" href="#" >
-                    <span class="fa fa-user"></span>Hi,admin
-                </a>
-                <a class="mo-2-head-more-link" href="#" >
-                    <span class="fa fa-home"></span>返回网站首页
-                </a>
-            </div>
-        </div>
-        <div class="mo-2-side">
-        <div class="mo-2-side-item">
-            <a class="mo-2-side-item-hd" href="/" >
-                <span class="fa fa-home"></span>首页
-            </a>
-        </div>
-            <div class="mo-2-side-item">
-                <a class="mo-2-side-item-hd" href="/m/login/README.html" >
-                    <span class="fa fa-user"></span>登录
-                </a>
-            </div>
-            <div class="mo-2-side-item">
-                <a class="mo-2-side-item-hd" href="/m/1/README.html" >
-                    <span class="fa fa-desktop"></span>布局1
-                </a>
-            </div>
-            <div class="mo-2-side-item">
-                <a class="mo-2-side-item-hd" href="/m/2/README.html" >
-                    <span class="fa fa-desktop"></span>布局2
-                </a>
-            </div>
-            <div class="mo-2-side-item">
-                <div class="mo-2-side-item-hd">
-                    <span class="fa fa-wpforms"></span>按钮和表单
+        template: function () {
+        /*!
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="/fast-admin.less">
+            <link rel="stylesheet" href="/m/doc/index.less" />
+            <title> <%- title %></title>
+        </head>
+        <body class="mo-2-sub-body" >
+            <div class="mo-2">
+                <div class="mo-2-head">
+                    <div class="mo-2-head-logo"><img class="mo-2-head-logo-pic" src="http://oajxfbadi.bkt.clouddn.com/admin/images/flow-logo-white.png" alt="">管理后台</div>
+                    <div class="mo-2-head-more">
+                        <a class="mo-2-head-more-link" href="#" >
+                            <span class="fa fa-user"></span>Hi,admin
+                        </a>
+                        <a class="mo-2-head-more-link" href="#" >
+                            <span class="fa fa-home"></span>返回网站首页
+                        </a>
+                    </div>
                 </div>
-                <div class="mo-2-side-item-bd">
-                    <a class="mo-2-side-item-bd-link" href="/m/btn/README.md" ><span class="fa fa-edit"></span>按钮</a>
-                    <a class="mo-2-side-item-bd-link"  href="/m/form-input/README.md" ><span class="fa fa-list"></span>表单</a>
+                <div class="mo-2-side">
+                <div class="mo-2-side-item">
+                    <a class="mo-2-side-item-hd" href="/" >
+                        <span class="fa fa-home"></span>首页
+                    </a>
                 </div>
-            </div>
-            <div class="mo-2-side-item">
-                <div class="mo-2-side-item-hd">
-                    <span class="fa fa-list"></span>盒子/列表/面包屑
-                </div>
-                <div class="mo-2-side-item-bd">
-                    <a class="mo-2-side-item-bd-link" href="/m/box/README.md" ><span class="fa fa-edit"></span>盒子</a>
-                    <a class="mo-2-side-item-bd-link"  href="/m/table/README.md" ><span class="fa fa-list"></span>列表</a>
-                    <a class="mo-2-side-item-bd-link"  href="/m/crumb/README.md" ><span class="fa fa-info-circle"></span>面包屑</a>
+                    <div class="mo-2-side-item">
+                        <a class="mo-2-side-item-hd" href="/m/login/README.html" >
+                            <span class="fa fa-user"></span>登录
+                        </a>
+                    </div>
+                    <div class="mo-2-side-item">
+                        <a class="mo-2-side-item-hd" href="/m/1/README.html" >
+                            <span class="fa fa-desktop"></span>布局1
+                        </a>
+                    </div>
+                    <div class="mo-2-side-item">
+                        <a class="mo-2-side-item-hd" href="/m/2/README.html" >
+                            <span class="fa fa-desktop"></span>布局2
+                        </a>
+                    </div>
+                    <div class="mo-2-side-item">
+                        <div class="mo-2-side-item-hd">
+                            <span class="fa fa-wpforms"></span>按钮和表单
+                        </div>
+                        <div class="mo-2-side-item-bd">
+                            <a class="mo-2-side-item-bd-link" href="/m/btn/README.md" ><span class="fa fa-edit"></span>按钮</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/form-input/README.md" ><span class="fa fa-list"></span>表单</a>
+                        </div>
+                    </div>
+                    <div class="mo-2-side-item">
+                        <div class="mo-2-side-item-hd">
+                            <span class="fa fa-list"></span>盒子/列表/面包屑
+                        </div>
+                        <div class="mo-2-side-item-bd">
+                            <a class="mo-2-side-item-bd-link" href="/m/box/README.md" ><span class="fa fa-edit"></span>盒子</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/table/README.md" ><span class="fa fa-list"></span>列表</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/crumb/README.md" ><span class="fa fa-info-circle"></span>面包屑</a>
 
+                        </div>
+                    </div>
+                    <div class="mo-2-side-item">
+                        <div class="mo-2-side-item-hd">
+                            <span class="fa fa-tags"></span>提示和标签
+                        </div>
+                        <div class="mo-2-side-item-bd">
+                            <a class="mo-2-side-item-bd-link" href="/m/alert/README.md" ><span class="fa fa-edit"></span>提交条</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/tipbox/README.md" ><span class="fa fa-list"></span>提示框</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/tag/README.md" ><span class="fa fa-list"></span>标签</a>
+                        </div>
+                    </div>
+                    <div class="mo-2-side-item">
+                        <div class="mo-2-side-item-hd">
+                            <span class="fa fa-rocket"></span>功能组件
+                        </div>
+                        <div class="mo-2-side-item-bd">
+                            <a class="mo-2-side-item-bd-link" href="/m/ajax/README.md" ><span class="fa fa-edit"></span>ajax</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/upload/README.md" ><span class="fa fa-list"></span>图片上传</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/linkage/README.md" ><span class="fa fa-list"></span>层级选择</a>
+                        </div>
+                    </div>
+                    <div class="mo-2-side-item">
+                        <a class="mo-2-side-item-hd" href="/m/grid/README.md" >
+                            <span class="fa fa-star"></span>24等分布局
+                        </a>
+                    </div>
+                </div>
+                <div class="mo-2-cnt">
+                    <%- content %>
+                </div>
+                <div class="mo-2-foot">
+                    <div class="mo-2-foot-side">
+                        <a href="https://github.com/fast-flow/admin" target="_blank" >https://github.com/fast-flow/admin</a>
+                    </div>
+                    <div class="mo-2-foot-copyright">
+                        Create By <a href="https://github.com/fast-flow/admin" target="_blank" >fast-flow</a>
+                    </div>
                 </div>
             </div>
-            <div class="mo-2-side-item">
-                <div class="mo-2-side-item-hd">
-                    <span class="fa fa-tags"></span>提示和标签
-                </div>
-                <div class="mo-2-side-item-bd">
-                    <a class="mo-2-side-item-bd-link" href="/m/alert/README.md" ><span class="fa fa-edit"></span>提交条</a>
-                    <a class="mo-2-side-item-bd-link"  href="/m/tipbox/README.md" ><span class="fa fa-list"></span>提示框</a>
-                    <a class="mo-2-side-item-bd-link"  href="/m/tag/README.md" ><span class="fa fa-list"></span>标签</a>
-                </div>
-            </div>
-            <div class="mo-2-side-item">
-                <div class="mo-2-side-item-hd">
-                    <span class="fa fa-rocket"></span>功能组件
-                </div>
-                <div class="mo-2-side-item-bd">
-                    <a class="mo-2-side-item-bd-link" href="/m/ajax/README.md" ><span class="fa fa-edit"></span>ajax</a>
-                    <a class="mo-2-side-item-bd-link"  href="/m/upload/README.md" ><span class="fa fa-list"></span>图片上传</a>
-                    <a class="mo-2-side-item-bd-link"  href="/m/linkage/README.md" ><span class="fa fa-list"></span>层级选择</a>
-                </div>
-            </div>
-            <div class="mo-2-side-item">
-                <a class="mo-2-side-item-hd" href="/m/grid/README.md" >
-                    <span class="fa fa-star"></span>24等分布局
-                </a>
-            </div>
-        </div>
-        <div class="mo-2-cnt">
-            <%- content %>
-        </div>
-        <div class="mo-2-foot">
-            <div class="mo-2-foot-side">
-                <a href="https://github.com/fast-flow/admin" target="_blank" >https://github.com/fast-flow/admin</a>
-            </div>
-            <div class="mo-2-foot-copyright">
-                Create By <a href="https://github.com/fast-flow/admin" target="_blank" >fast-flow</a>
-            </div>
-        </div>
-    </div>
-    <script src="/fast-admin-deps.js"></script>
-    <script src="/fast-admin.js"></script>
-    <script>
-    ;(function ($) {
-        var $currentItem = $('.mo-2-side-item-bd-link,.mo-2-side-item-hd').filter('[href="' + location.pathname + '"]')
-        $currentItem.closest('.mo-2-side-item').addClass('mo-2-side-item--on')
-    })(__FAST_ADMIN_EXTERNALS_.$)
-    </script>
-</html>
-`
+            <script src="/fast-admin-deps.js"></script>
+            <script src="/fast-admin.js"></script>
+            <script>
+            ;(function ($) {
+                var $currentItem = $('.mo-2-side-item-bd-link,.mo-2-side-item-hd').filter('[href="' + location.pathname + '"]')
+                $currentItem.closest('.mo-2-side-item').addClass('mo-2-side-item--on')
+            })(__FAST_ADMIN_EXTERNALS_.$)
+            </script>
+        </html>
+        */
+        }.toString()
+               .replace(/^[^\/]+\/\*!?/, '')
+               .replace(/\*\/[^\/]+$/, '')
+               .replace(/^[\s\xA0]+/, '').replace(/[\s\xA0]+$/, '') // .trim()
     },
     // webpack 的配置
     webpack: {
