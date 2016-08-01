@@ -23,8 +23,7 @@ class Linkage extends Component {
         let defaultOptions = []
         let linkageValue = self.props.linkageValue
         if (linkageValue) {
-            // 老版本 api 是 | 作为分隔符
-            linkageValue = linkageValue.replace(/\|/,',')
+            linkageValue = linkageValue.toString()
             linkageValue = self.props.linkageValue.split(',')
         }
         else {
