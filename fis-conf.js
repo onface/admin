@@ -241,10 +241,6 @@ fis.match('/node_modules/**', {
     release: false
 })
 
-fis.match('*.js', {
-    // useHash: true
-})
-
 fis.media('qa').match('*.js', {
   optimizer: fis.plugin('uglify-js')
 });
@@ -255,8 +251,4 @@ fis.media('qa').match('*.css', {
 
 fis.media('qa').match('*.png', {
   optimizer: fis.plugin('png-compressor')
-});
-// 发布时非 html 资源都进行 hash 处理
-fis.media('qa').match('*', {
-  useHash: true
 });
