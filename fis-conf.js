@@ -260,6 +260,3 @@ fis.media('qa').match('*.png', {
 fis.media('qa').match('*', {
   useHash: true
 });
-fis.media('qa').match('*.html', {
-  useHash: false
-});
