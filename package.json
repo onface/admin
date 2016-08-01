@@ -6,7 +6,7 @@
     "update": "npm update --registry=https://registry.npm.taobao.org",
     "push": "fis3 release qa -d ./output"
   },
-  "devDependencies": {
+  "dependencies": {
     "babel-core": "^6.7.6",
     "babel-loader": "^6.2.4",
     "babel-plugin-syntax-flow": "^6.3.13",
@@ -33,9 +33,7 @@
     "less-plugin-functions": "0.0.2",
     "markrun": "^0.0.1",
     "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7"
-  },
-  "dependencies": {
+    "url-loader": "^0.5.7",
     "classnames": "^2.2.5",
     "fast-upload": "^1.2.7",
     "jquery": "^1.12.0",
