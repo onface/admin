@@ -2,18 +2,18 @@
 
 
 ````html
-<span   class="mo-btn mo-btn--info mo-ajax"
+<span   class="mo-btn mo-btn--info"
         data-ajax-method="get"
         data-ajax-data="action=ok"
         data-ajax-url="/m/json/ok.json"
 >ok</span>
 
-<span   class="mo-btn mo-btn--info mo-ajax"
+<span   class="mo-btn mo-btn--info"
         data-ajax-method="get"
         data-ajax-data="action=ok"
         data-ajax-url="/m/json/ok-msg.json"
 >ok-msg</span>
-<span   class="mo-btn mo-btn--danger mo-ajax"
+<span   class="mo-btn mo-btn--danger"
         data-ajax-method="get"
         data-ajax-data="action=error&id=1"
         data-ajax-url="/m/json/err.json"

@@ -2,7 +2,7 @@ var $ = require('jquery')
 var noty = require('noty')
 var dialog = require('fast-artdialog')
 $(function () {
-	$('body').on('click', '.mo-ajax', function () {
+	$('body').on('click', '[data-ajax-url]', function () {
 		var $this = $(this)
 		if ($this.data('_ajax-busy')) {
 			return false
