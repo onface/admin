@@ -114,6 +114,9 @@ var conf = {
                             <a class="mo-2-side-item-bd-link" href="/m/ajax/README.md" ><span class="fa fa-edit"></span>ajax</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/upload/README.md" ><span class="fa fa-list"></span>图片上传</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/linkage/README.md" ><span class="fa fa-list"></span>层级选择</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/copy/README.md" ><span class="fa fa-copy"></span>复制组件</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/remove/README.md" ><span class="fa fa-remove"></span>删除功能</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/filter/README.md" ><span class="fa fa-search"></span>filter</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
