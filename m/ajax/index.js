@@ -1,6 +1,7 @@
 var $ = require('jquery')
 var noty = require('noty')
 var dialog = require('fast-artdialog')
+var filter = require('../filter/index')
 $(function () {
 	$('body').on('click', '[data-ajax-url]', function () {
 		var $this = $(this)
@@ -72,24 +73,7 @@ $(function () {
 			}
 			// remove
 			if (data.ajaxRemove && res.status === 'success') {
-				var selectors = data.ajaxRemove.split('&')
-				var $deleteTarget = $this
-				// 第一个选择器开头是 # 或者 . 则不适用 当前元素作为起始元素
-				if (/^[#/.]/.test(selectors[0])) {
-					$deleteTarget = $(selectors[0])
-					// 移除第一个选择器
-					selectors.shift()
-				}
-				if (selectors.length%2) {
-					alert('data-ajax-remove 配置错误，请检查最后一个参数是否是目标而不是方法。  例子 方法：find 目标：li')
-				}
-				selectors.forEach(function (item, index) {
-					if (index%2 === 0) {
-						let method = item
-						let target = selectors[index+1]
-						$deleteTarget = $deleteTarget[method](target)
-					}
-				})
+				let $deleteTarget = filter($this, data.ajaxRemove)
 				let removeTimeout = 500
 				$deleteTarget.fadeOut(removeTimeout)
 				setTimeout(function () {

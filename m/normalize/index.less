@@ -425,3 +425,29 @@ body {
 html,body {
     height: 100%;
 }
+
+blockquote {
+    padding: 12px 24px 12px 30px;
+    margin: 2em 0 2em 10px;
+    border-left: 4px solid #fac769;
+    background-color: #f9f9f9;
+    position: relative;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+blockquote:before {
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    left: -17px;
+    background-color: #fac769;
+    color: #fff;
+    content: "i";
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 700;
+    font-family: Georgia;
+}
