@@ -12,7 +12,10 @@ $(function () {
         $clone.find('*').removeAttr('id')
         let $target= $(data.copyTarget)
         if (data.copyFilter) {
-            window[data.copyFilter]($clone)
+            // 如果filter 返回 false 则不生产 copy 的 dom
+            if (window[data.copyFilter]($clone) === false) {
+                return false
+            }
         }
         let initMethod = []
         mo._allowCopy.forEach(function (name) {
