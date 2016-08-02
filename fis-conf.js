@@ -117,6 +117,7 @@ var conf = {
                             <a class="mo-2-side-item-bd-link"  href="/m/copy/README.md" ><span class="fa fa-copy"></span>复制组件</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/remove/README.md" ><span class="fa fa-remove"></span>删除功能</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/filter/README.md" ><span class="fa fa-search"></span>filter</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/sort/README.md" ><span class="fa fa-arrows"></span>排序</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
