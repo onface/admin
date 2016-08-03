@@ -1,7 +1,7 @@
 var $ = require('jquery')
 $(function () {
 
-    $('body').on('click', '.mo-copy',function () {
+    $('body').on('click', '[data-copy-clone]',function () {
         let $this = $(this)
         let data = {
             copyMethod: 'append'

@@ -69,6 +69,7 @@ class Linkage extends Component {
 function linkage ($ele) {
     $ele.each(function () {
         var $this = $(this)
+        $this.addClass('mo-linkage')
         var data = {
             linkageOptions: 'prev'
         }
@@ -87,5 +88,5 @@ function linkage ($ele) {
 }
 window.mo.linkage = linkage
 $(function () {
-    mo.linkage($('.mo-linkage'))
+    mo.linkage($('[data-linkage-options]'))
 })

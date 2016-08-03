@@ -1,6 +1,7 @@
 # select 联动
 
 ````html
+
 <script id="linkageJSON" type="text/json" >
 [
     {
@@ -73,7 +74,7 @@
     }
 ]
 </script>
-<span class="mo-linkage"
+<span
     data-linkage-name="city"
     data-linkage-width="200"
     data-linkage-options='prev'
@@ -82,20 +83,17 @@
 
      <br />
 
-    <span class="mo-linkage"
+    <span class=""
     data-linkage-name="city"
     data-linkage-value="2,2-1,2-1-2"
     data-linkage-options='#linkageJSON'
     ></span>
-    <br />
-    this.props.linkageValue
-         一定要是 <code>data-linkage-value='JSON'</code> 的格式
 ````
 
 | 值 | 描述 |
 |---|-----|
-| name | 隐藏 input 的name值 |
-| value | 选中项数据，通过 , 连接 |
+| name | 隐藏 input 的name值  例如选择 `上海，黄浦区，def` 后隐藏的 input 是 `<input name="city" value="2,2-1,2-1-2" />` |
+| value | 选中项数据，通过 `,` 连接 |
 | width | input 的宽度 |
 | options | 选项json， 当值为 `prev` 时选择上一个 `<script>` ，当值为选择器时选择选择器对应的数据
 
@@ -107,13 +105,13 @@
 ````html
 <form class="mo-form" data-form-ajax="true" action="/m/json/ok.json" method="get">
     <div id="linkagecopybox">
-        <span class="mo-linkage js-linkage-copy"
+        <span class="js-linkage-copy"
         data-linkage-name="city[]"
         data-linkage-options='#linkageJSON'
         data-linkage-placeholder="请选择城市"
          ></span>
     </div>
-    <span class="mo-btn mo-copy" data-copy-target="#linkagecopybox" data-copy-clone=".js-linkage-copy:first">新建城市</span>
+    <span class="mo-btn" data-copy-target="#linkagecopybox" data-copy-clone=".js-linkage-copy:first">新建城市</span>
     <br>
     <br>
     <button class="mo-btn" type="submit">提交</button>

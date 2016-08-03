@@ -103,7 +103,6 @@ var conf = {
                         <div class="mo-2-side-item-bd">
                             <a class="mo-2-side-item-bd-link" href="/m/alert/README.md" ><span class="fa fa-edit"></span>提交条</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/tipbox/README.md" ><span class="fa fa-list"></span>提示框</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/tag/README.md" ><span class="fa fa-list"></span>标签</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">

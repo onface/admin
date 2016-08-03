@@ -8,7 +8,7 @@
 ## data-ajax
 
 ````html
-<span class="mo-btn mo-btn--info mo-ajax" data-ajax-url="/m/json/ok.json" data-ajax-data="id=2&type=del" data-ajax-method="post" >审核通过</span>
+<span class="mo-btn mo-btn--info" data-ajax-url="/m/json/ok.json" data-ajax-data="id=2&type=del" data-ajax-method="post" >审核通过</span>
 ````
 
 ## data-form
@@ -30,7 +30,7 @@
 ## data-upload
 
 ````html
-<div class="mo-upload"
+<div 
     data-upload-url="/m/json/ok-upload.json"
     data-upload-name="pic"
     data-upload-title="上传头像"
@@ -117,7 +117,7 @@
 
 ````html
 <!-- 为了方便预览隐藏了 script#linkageJSON  -->
-<span class="mo-linkage"
+<span 
     data-linkage-name="city"
     data-linkage-width="200"
     data-linkage-options='#linkageJSON'
@@ -136,7 +136,7 @@
         </span>
     </div>
     <div class="mo-form-item" id="copytarget1">
-        <span class="mo-btn mo-copy" data-copy-clone=".js-copydemo1:first" data-copy-target="#copytarget1" data-copy-method="before" > 新增邮箱</span>
+        <span class="mo-btn" data-copy-clone=".js-copydemo1:first" data-copy-target="#copytarget1" data-copy-method="before" > 新增邮箱</span>
     </div>
     <div class="mo-form-item">
         <button class="mo-btn mo-btn--info"> 提交</button>
@@ -157,4 +157,3 @@
 - [图片上传](./m/upload/README.md)
 - [提示条](./m/alert/README.md)
 - [提示框](./m/tipbox/README.md)
-- [标签](./m/tag/README.md)
