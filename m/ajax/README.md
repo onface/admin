@@ -68,7 +68,7 @@ data-ajax-url="/some.php"
 ## data-ajax-confirm 确认
 
 ````html
-<span   class="mo-btn mo-btn--danger mo-ajax"
+<span   class="mo-btn mo-btn--danger"
         data-ajax-confirm="确认删除？"
         data-ajax-method="get"
         data-ajax-data="id=1"  
@@ -82,7 +82,7 @@ data-ajax-url="/some.php"
 ````html
 <div class="js-list" >
     abcdef
-    <span   class="mo-btn mo-btn--danger mo-ajax"
+    <span   class="mo-btn mo-btn--danger"
             data-ajax-remove="closest&.js-list"
             data-ajax-data="id=1"  
             data-ajax-url="/m/json/ok.json"
@@ -117,7 +117,7 @@ data-ajax-url="/some.php"
 ````html
 <div id="ajaxremovetarget">ajaxremovetarget</div>
 
-<span   class="mo-btn mo-btn--danger mo-ajax"
+<span   class="mo-btn mo-btn--danger"
         data-ajax-remove="#ajaxremovetarget"
         data-ajax-data="id=1"  
         data-ajax-url="/m/json/ok.json"
@@ -130,7 +130,7 @@ data-ajax-url="/some.php"
     <span>我要被干掉了</span>
 </div>
 
-<span   class="mo-btn mo-btn--danger mo-ajax"
+<span   class="mo-btn mo-btn--danger"
         data-ajax-remove="#ajaxremovetarget2&find&span"
         data-ajax-data="id=1"  
         data-ajax-url="/m/json/ok.json"
@@ -150,7 +150,7 @@ data-ajax-url="/some.php"
 ```
 
 ````html
-<span class="mo-ajax mo-btn" data-ajax-url="/m/json/ok-href.json">href</span>
+<span class="mo-btn" data-ajax-url="/m/json/ok-href.json">href</span>
 ````
 
 AJAX响应的JSON中存在 `data.href` ，且 `status` 等于 `success` 时候会根据 `data.href` 的地址跳转。
@@ -172,7 +172,7 @@ AJAX响应的JSON中存在 `data.href` ，且 `status` 等于 `success` 时候�
 响应的JSON中存在 `data.timeout` 则会延迟跳转到 `data.href`，延迟的时间是 `timeout` 的值
 
 ````html
-<span class="mo-ajax mo-btn" data-ajax-url="/m/json/ok-href-timeout.json">timeout</span>
+<span class="mo-btn" data-ajax-url="/m/json/ok-href-timeout.json">timeout</span>
 ````
 
 
@@ -180,7 +180,7 @@ AJAX响应的JSON中存在 `data.href` ，且 `status` 等于 `success` 时候�
 <!-- 未来如果有更好的方式，则换一个方法名，并建议用户不要使用 checkbox  -->
 
 ````html
-<span class="mo-btn mo-btn--danger mo-ajax" data-ajax-url="/m/json/ok.json" data-ajax-checkbox=".js-people:checked" data-ajax-remove=".js-people:checked&closest&.js-item" >删除选中项目</span>
+<span class="mo-btn mo-btn--danger" data-ajax-url="/m/json/ok.json" data-ajax-checkbox=".js-people:checked" data-ajax-remove=".js-people:checked&closest&.js-item" >删除选中项目</span>
 <div class="js-item" >
     <input name="id" value="1" type="checkbox" class="mo-input js-people" /> 张三
 </div>
