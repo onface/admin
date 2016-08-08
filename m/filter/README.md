@@ -29,6 +29,20 @@ filter 是通用模块，用于根据字符串查找元素
 </div>
 2
 ````
+## prev
+
+prev 会查找上一个 script，一般用于查找JSON配置的 script ,一般不用于删除操作。
+
+
+````html
+<script style="display:block;">{"name":"script"}</script>
+<span class="mo-btn" 
+		data-ajax-url="/m/json/ok.json"
+		data-ajax-remove="prev"
+		>
+		remove
+	</span>
+````
 
 ## 基于函数
 
