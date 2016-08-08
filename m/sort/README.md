@@ -10,22 +10,22 @@
 	<input type="hidden" name="start_index" value="1"  />
 	<div class="item" >
 		<span class="mo-sort-handle fa fa-sort"></span>
-		a
+		1
 		<input name="id[]" type="hidden" value="a" />
 	</div>
 	<div class="item" >
 		<span class="mo-sort-handle fa fa-sort"></span>
-		b
+		2
 		<input name="id[]" type="hidden" value="b" />
 	</div>
 	<div class="item" >
 		<span class="mo-sort-handle fa fa-sort"></span>
-		c
+		3
 		<input name="id[]" type="hidden" value="c" />
 	</div>
 	<div class="item" >
 		<span class="mo-sort-handle fa fa-sort"></span>
-		d
+		4
 		<input name="id[]" type="hidden" value="d" />
 	</div>
 </div>
