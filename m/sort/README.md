@@ -8,22 +8,22 @@
 	 >
 	 <!-- start_index 的值是当前显示的第一项的索引值 -->
 	<div class="item" >
-		<span class="mo-sort-handle fa fa-sort"></span>
+		<span class="mo-sort-handle fa fa-sort" style="font-size:1.5em;"></span>
 		1
 		<input name="id[]" type="hidden" value="a" />
 	</div>
 	<div class="item" >
-		<span class="mo-sort-handle fa fa-sort"></span>
+		<span class="mo-sort-handle fa fa-sort" style="font-size:1.5em;"></span>
 		2
 		<input name="id[]" type="hidden" value="b" />
 	</div>
 	<div class="item" >
-		<span class="mo-sort-handle fa fa-sort"></span>
+		<span class="mo-sort-handle fa fa-sort" style="font-size:1.5em;"></span>
 		3
 		<input name="id[]" type="hidden" value="c" />
 	</div>
 	<div class="item" >
-		<span class="mo-sort-handle fa fa-sort"></span>
+		<span class="mo-sort-handle fa fa-sort" style="font-size:1.5em;"></span>
 		4
 		<input name="id[]" type="hidden" value="d" />
 	</div>
@@ -63,7 +63,7 @@
 
     >
         <tr>
-        	<td><span class="mo-sort-handle fa fa-sort"></span></td>
+        	<td><span class="mo-sort-handle fa fa-sort" style="font-size:1.5em;"></span></td>
             <td>
                 1
                 <input name="id[]" type="hidden" value="a" />
@@ -72,13 +72,13 @@
                 523623
             </td>
             <td>
-                <a class="mo-btn mo-btn--link"><i class="fa fa-edit"></i>编辑</a>
+                <a class="mo-btn mo-btn--link"><i class="fa fa-edit" ></i>编辑</a>
                 <a class="mo-btn mo-btn--link">修改</a>
                 <button type="button" class="mo-btn mo-btn--success">登录</button>
             </td>
         </tr>
         <tr>
-        	<td><span class="mo-sort-handle fa fa-sort"></span></td>
+        	<td><span class="mo-sort-handle fa fa-sort" style="font-size:1.5em;"></span></td>
             <td>
                 2
                 <input name="id[]" type="hidden" value="b" />
@@ -93,7 +93,7 @@
             </td>
         </tr>
         <tr>
-        	<td><span class="mo-sort-handle fa fa-sort"></span></td>
+        	<td><span class="mo-sort-handle fa fa-sort" style="font-size:1.5em;"></span></td>
             <td>
                 3
                 <input name="id[]" type="hidden" value="c" />
