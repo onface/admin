@@ -2,8 +2,8 @@ import $ from 'jquery'
 import {render} from "react-dom"
 import {Component} from 'react'
 import Cascader from 'rc-cascader'
-import 'rc-cascader/assets/index.css';
-
+import 'rc-cascader/assets/index.css'
+import filter from '../filter/index'
 class Linkage extends Component {
     static defaultProps = {
         linkageValue: ''
@@ -68,21 +68,12 @@ class Linkage extends Component {
 }
 function linkage ($ele) {
     $ele.each(function () {
-        var $this = $(this)
+        let $this = $(this)
         $this.addClass('mo-linkage')
-        var data = {
-            linkageOptions: 'prev'
-        }
         let json
-        var data = $.extend(true, data, $this.data())
-        if (data.linkageOptions == 'prev') {
-            json = $this.prev('script').html()
-
-        }
-        else {
-            json = $(data.linkageOptions).html()
-        }
-        data.linkageOptions = JSON.parse(json)
+        let data = $this.data()
+        let $options = filter(this, data.linkageOptions)
+        data.linkageOptions = JSON.parse($options.html())
         render(<Linkage {...data} />, $this.get(0))
     })
 }
