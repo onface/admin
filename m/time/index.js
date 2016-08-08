@@ -16,7 +16,7 @@ class Time extends React.Component {
         timeHasDate: true
     }
     state = {
-        value: this.props.value
+        value: this.props.timeValue.replace(/\s/g,'')
     }
     change (data) {
         let value = dateFormatter.format(data)
@@ -77,7 +77,7 @@ class Time extends React.Component {
             {
                function () {
                    return (
-                       <input type="text" name={self.props.timeName} readOnly={true} value={self.state.value} />
+                       <input className="mo-input" type="text" name={self.props.timeName} readOnly={true} value={self.state.value} />
                    )
                }
            }
@@ -90,7 +90,7 @@ mo.time = function ($target) {
         let $this = $(this)
         $this.addClass('mo-time')
         let data = $this.data()
-        ReactDOM.render(<Time {...data} value={$this.html().replace(/\s/g,'')} />, this)
+        ReactDOM.render(<Time {...data}  />, this)
     })
 }
 $(function () {
