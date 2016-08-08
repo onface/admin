@@ -2,7 +2,9 @@ function filter (target, selectors) {
 	let $target = $(target)
 	if (selectors[0] === '@') {
 		$target = window[selectors.slice(1)].apply($target.get(0))
-		console.log(selectors.slice(1))
+	}
+	else if (selectors === 'prev') {
+		$target = $target.prev('script')
 	}
 	else {
 		selectors = selectors.split('&')
