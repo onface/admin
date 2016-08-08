@@ -40,24 +40,23 @@ class Time extends React.Component {
     render () {
         let self = this
         let calendar
+        let currentDate = new GregorianCalendar(zhCN)
+        if (this.state.value) {
+            currentDate.setTime(new Date(this.state.value))
+        }
+        else {
+            currentDate = false
+        }
         // data-time-hasTime="true"
         if (this.props.timeHasDate) {
             // data-time-hasDate="ture"
             // data-time-hasTime="true"
-            if (this.props.timeHasTime) {
+            if (this.props.timeHastime) {
 
             }
             // data-time-hasDate="ture"
             // data-time-hasTime="false"
             else {
-                let currentDate = new GregorianCalendar(zhCN)
-                if (this.state.value) {
-                    currentDate.setTime(new Date(this.state.value))
-                }
-                else {
-                    currentDate = false
-                }
-
                 calendar = (<Calendar
                     formatter={dateFormatter}
                     value={currentDate}

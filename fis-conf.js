@@ -15,7 +15,10 @@ var conf = {
                          "es2015"
                     ],
                     plugins: [
-                       ["transform-react-jsx", {pragma: 'require("react").createElement'}],
+                       [
+                        "transform-react-jsx",
+                        {pragma: 'require("react").createElement'}
+                       ],
                        "transform-flow-strip-types",
                        "syntax-flow",
                        "syntax-jsx",
@@ -117,6 +120,7 @@ var conf = {
                             <a class="mo-2-side-item-bd-link"  href="/m/remove/README.md" ><span class="fa fa-remove"></span>删除功能</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/filter/README.md" ><span class="fa fa-search"></span>filter</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/sort/README.md" ><span class="fa fa-arrows"></span>排序</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/tree/README.md" ><span class="fa fa-tree"></span>树级菜单</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
@@ -161,7 +165,8 @@ var conf = {
                 // 通过别名给 moment 打包提速
                 moment: "moment/min/moment-with-locales.min.js",
                 '../css/ui-dialog.css': "artdialog/css/ui-dialog.css"
-            }
+            },
+            modulesDirectories: ['node_modules']
         },
         module: {
             // 通过 noParse 给 moment 打包提速
@@ -181,6 +186,10 @@ var conf = {
                     loader: 'babel-loader',
                     query: {
                         presets: ['es2015'],
+                        exclude: function (path) {
+                            var isNpmModule = !!path.match(/node_modules/);
+                            return isNpmModule;
+                        },
                         plugins: [
                            ["transform-react-jsx", {pragma: 'require("react").createElement'}],
                            "transform-flow-strip-types",
