@@ -13,7 +13,9 @@ const dateFormatter = new DateTimeFormat('yyyy-MM-dd');
 const formatter = new DateTimeFormat('yyyy-MM-dd HH:mm:ss');
 class Time extends React.Component {
     static defaultProps = {
-        timeHasDate: true
+        timeHasDate: true,
+        timeValue: '',
+        timeWidth: 150
     }
     state = {
         value: this.props.timeValue.replace(/\s/g,'')
@@ -77,7 +79,7 @@ class Time extends React.Component {
             {
                function () {
                    return (
-                       <input className="mo-input" type="text" name={self.props.timeName} readOnly={true} value={self.state.value} />
+                       <input className="mo-input" style={{width: self.props.timeWidth}}  type="text" name={self.props.timeName} readOnly={true} value={self.state.value} />
                    )
                }
            }
