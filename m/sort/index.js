@@ -5,7 +5,7 @@ import noty from 'noty'
 mo.sort = function (target) {
 	let $target = $(target)
 	let data = $target.data()
-	let startIndex = $target.find(`[name="${data.sortStartIndex}"]`).eq(0).val()
+	let startIndex = data.sortStartIndex
 	startIndex = parseInt(startIndex, 10)
 	$target.data('_sortStartIndex', startIndex)
 	let $ids
