@@ -1,6 +1,7 @@
 __inline('/node_modules/react/dist/react.js')
 __inline('/node_modules/react-dom/dist/react-dom.min.js')
 __inline('/node_modules/jquery/dist/jquery.min.js')
+__inline('/m/editor/simditor.js')
 ;(function (globalVariable) {
     var variableName
     var i

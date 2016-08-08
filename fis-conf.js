@@ -87,6 +87,7 @@ var conf = {
                             <a class="mo-2-side-item-bd-link" href="/m/btn/README.md" ><span class="fa fa-edit"></span>按钮</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/form-input/README.md" ><span class="fa fa-list"></span>表单</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/time/README.md" ><span class="fa fa-arrows"></span>日历</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/editor/README.md" ><span class="fa fa-edit"></span>编辑器</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
