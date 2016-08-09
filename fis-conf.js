@@ -81,7 +81,7 @@ var conf = {
                     </div>
                     <div class="mo-2-side-item">
                         <div class="mo-2-side-item-hd">
-                            <span class="fa fa-wpforms"></span>按钮和表单
+                            <span class="fa fa-list-alt"></span>按钮和表单
                         </div>
                         <div class="mo-2-side-item-bd">
                             <a class="mo-2-side-item-bd-link" href="/m/btn/README.md" ><span class="fa fa-edit"></span>按钮</a>
@@ -106,7 +106,7 @@ var conf = {
                             <span class="fa fa-tags"></span>提示和标签
                         </div>
                         <div class="mo-2-side-item-bd">
-                            <a class="mo-2-side-item-bd-link" href="/m/alert/README.md" ><span class="fa fa-edit"></span>提交条</a>
+                            <a class="mo-2-side-item-bd-link" href="/m/alert/README.md" ><span class="fa fa-edit"></span>提示条</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/tipbox/README.md" ><span class="fa fa-list"></span>提示框</a>
                         </div>
                     </div>

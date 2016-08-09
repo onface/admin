@@ -144,7 +144,7 @@
 </form>
 ````
 
-> 全站使用 font-awesome 4.6.3 作为图标库，字体索引： http://font-awesome.nimojs.com/icons/
+> 全站使用 font-awesome 4.4.0 作为图标库，字体索引： http://font-awesome.nimojs.com/icons/
 
 ````html
 <i class="fa fa-user"></i><i class="fa fa-edit"></i>
