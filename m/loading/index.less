@@ -1,0 +1,14 @@
+@import "../icon/index";
+.mo-loading {
+	&:before {
+		.fa();
+		.fa-pulse();
+		content: '\f110';
+		font-size:1em;
+	}
+}
+html .mo-loading--off {
+	&:before {
+		display:none;
+	}
+}
