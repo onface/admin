@@ -111,7 +111,7 @@ class Upload extends Component {
 mo.upload = function ($ele) {
     $ele.each(function () {
         let $this = $(this)
-        $this.addClass('mo-upload')
+        $this.addClass('mo-upload').addClass('mo-loading--off')
         let data = $.extend(true, data, $this.data())
         let json
         if (data.uploadValue) {

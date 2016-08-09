@@ -1,6 +1,5 @@
 # btn
 
-<link rel="stylesheet" href="./index.less">
 
 
 ## a/span/button

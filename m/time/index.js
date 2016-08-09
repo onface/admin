@@ -90,7 +90,7 @@ class Time extends React.Component {
 mo.time = function ($target) {
     $target.each(function () {
         let $this = $(this)
-        $this.addClass('mo-time')
+        $this.addClass('mo-time').addClass('mo-loading--off')
         let data = $this.data()
         ReactDOM.render(<Time {...data}  />, this)
     })

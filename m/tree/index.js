@@ -33,8 +33,8 @@ class TreeApp extends Component {
 		return (
 			<div>
 				<Tree
-			        className="myCls" 
-			        showLine checkable 
+			        className="myCls"
+			        showLine checkable
 			        checkedKeys={self.state.treeValue}
 			        onCheck={self.onCheck.bind(self)}
 			      >
@@ -49,7 +49,7 @@ class TreeApp extends Component {
 mo.tree = function (target) {
 	var $target = $(target)
 	$target.each(function () {
-		$target.addClass('mo-tree')
+		$target.addClass('mo-tree').addClass('mo-loading--off')
 		let $this = $(this)
 		let data = $this.data()
 		let $options = filter(this,data.treeOptions)

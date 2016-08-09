@@ -69,7 +69,7 @@ class Linkage extends Component {
 function linkage ($ele) {
     $ele.each(function () {
         let $this = $(this)
-        $this.addClass('mo-linkage')
+        $this.addClass('mo-linkage').addClass('mo-loading--off')
         let json
         let data = $this.data()
         let $options = filter(this, data.linkageOptions)

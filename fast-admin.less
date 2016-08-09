@@ -16,3 +16,21 @@
 @import "./m/grid/index.less";
 @import "./m/crumb/index.less";
 @import "./m/clear/index.less";
+@import "./m/loading/index.less";
+
+// loading
+
+[data-time-name],
+[data-upload-url],
+[data-linkage-name],
+[data-editor-name],
+[data-tree-name] {
+	.mo-loading();
+}
+script[data-editor-name] {
+	display:block;
+	font-size:0;
+	&:before {
+		font-size:20px;
+	}
+}

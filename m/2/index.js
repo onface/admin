@@ -5,4 +5,5 @@ $(function () {
         var $item = $this.closest('.mo-2-side-item')
         $item.toggleClass('mo-2-side-item--on')
     })
+    $('.mo-2-sub-status').addClass('mo-2-sub-status--done').fadeOut(2000)
 })

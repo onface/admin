@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "woke": "fis3 release -wL -d ./output",
-    "dev": "fis3 release -wL -d ./output",
+    "dev": "fis3 release -w -d ./output",
     "mobe": "nodemon -w mobe.js mobe.js",
     "update": "npm update --registry=https://registry.npm.taobao.org",
     "push": "fis3 release qa -d ./output"

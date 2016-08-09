@@ -239,18 +239,24 @@ fis.match('*.md', {
 })
 
 conf.webpack.externals = conf.webpackExternals
+fis.match('{package.json,**.js}', {
+    release: false
+})
 fis.match('/fast-admin.js', {
+    release: true,
     parser: [
         fis.plugin('webpack', conf.webpack),
         fis.plugin('inlinecss')
     ]
 })
-
-
-
-fis.match('{package.json,mobe.js,fis-conf.js}', {
+fis.match('{**.less,**.css}', {
     release: false
 })
+fis.match('{/fast-admin.less,/m/doc/index.less,/fast-admin-deps.js}', {
+    release: true
+})
+
+
 fis.match('/node_modules/**', {
     release: false
 })

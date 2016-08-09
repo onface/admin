@@ -30,7 +30,7 @@
 ## data-upload
 
 ````html
-<div 
+<div
     data-upload-url="/m/json/ok-upload.json"
     data-upload-name="pic"
     data-upload-title="上传头像"
@@ -117,7 +117,7 @@
 
 ````html
 <!-- 为了方便预览隐藏了 script#linkageJSON  -->
-<span 
+<span
     data-linkage-name="city"
     data-linkage-width="200"
     data-linkage-options='#linkageJSON'
@@ -142,6 +142,12 @@
         <button class="mo-btn mo-btn--info"> 提交</button>
     </div>
 </form>
+````
+
+> 全站使用 font-awesome 4.6.3 作为图标库，字体索引： http://font-awesome.nimojs.com/icons/
+
+````html
+<i class="fa fa-user"></i><i class="fa fa-edit"></i>
 ````
 
 - [登录](./m/login/README.md)
