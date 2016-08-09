@@ -15,9 +15,11 @@ $(function () {
 	$('[data-editor-name]').each(function () {
 		let $this = $(this)
 		let data = $this.data()
-		$this.addClass('mo-editor')
+		$this.addClass('mo-editor').addClass('mo-loading--off')
+		let $textarea = $(`<textarea name="${data.editorName}">${$this.html()}</textarea>`)
+		$this.after($textarea.hide())
 		let editor = new Simditor({
-		textarea: this,
+		textarea: $textarea,
 		toolbar: [
 		  'title'
 		  ,
