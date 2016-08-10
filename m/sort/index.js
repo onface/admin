@@ -43,11 +43,9 @@ mo.sort = function (target) {
 				type: 'post',
 				dataType: 'json',
 				data: {
-					id: id,
 					index: $id.data('_sortIndex'),
 					method: 'after',
-					target_index: index,
-					target_id: $prevId.val()
+					target_index: index
 				}
 			}).done(function (res) {
 				if (res.status === 'success') {
@@ -57,10 +55,8 @@ mo.sort = function (target) {
 					})
 				}
 				else {
-					noty({
-						text: res.msg,
-						type: 'error'
-					})
+					alert(res.msg)
+					location.href = location.href
 				}
 			})
 			countIndex()
