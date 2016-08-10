@@ -3,7 +3,6 @@
 ````html
 <div
 	data-sort-id="id[]"
-	data-sort-start-index="1"
 	data-sort-url="/m/json/ok.json"
 	 >
 	 <!-- start_index 的值是当前显示的第一项的索引值 -->
