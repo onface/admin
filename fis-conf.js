@@ -1,3 +1,4 @@
+fis.hook('relative');
 var conf = {
     // require 被替换的全局变量
     webpackExternals: {
@@ -248,6 +249,9 @@ fis.match('/fast-admin.js', {
         fis.plugin('webpack', conf.webpack),
         fis.plugin('inlinecss')
     ]
+})
+fis.match('/fast-admin.less', {
+    relative: true
 })
 fis.match('{**.less,**.css}', {
     release: false
