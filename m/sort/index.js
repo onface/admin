@@ -38,15 +38,21 @@ mo.sort = function (target) {
 			else {
 				index = $prevId.data('_sortIndex')
 			}
+			let sendData = {
+				index: $id.data('_sortIndex'),
+				id: id,
+				method: 'after',
+				target_index: index,
+				target_id: null
+			}
+			if (sendData.target_index !== 0) {
+				sendData.target_id = $prevId.val()
+			}
 			$.ajax({
 				url: data.sortUrl,
 				type: 'post',
 				dataType: 'json',
-				data: {
-					index: $id.data('_sortIndex'),
-					method: 'after',
-					target_index: index
-				}
+				data: sendData
 			}).done(function (res) {
 				if (res.status === 'success') {
 					noty({
