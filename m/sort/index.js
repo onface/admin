@@ -24,18 +24,18 @@ mo.sort = function (target) {
 	})
 	if (data.sortUrl) {
 		drake.on('dragend', function (el) {
+			// 重新选择DOM便于获取 index
+			let $ids = $target.find(`[name="${data.sortId}"]`)
 			let $el = $(el)
 			let $id = $el.find(`[name="${data.sortId}"]`)
 			let id = $id.val()
 			let index
-			// 重新选择DOM便于获取 index
-			$ids = $target.find(`[name="${data.sortId}"]`)
 			let prevIndex = $ids.index($id) - 1
+			let $prevId = $ids.eq(prevIndex)
 			if (prevIndex === -1) {
 				index = 0
 			}
 			else {
-				let $prevId = $ids.eq(prevIndex)
 				index = $prevId.data('_sortIndex')
 			}
 			$.ajax({
@@ -44,8 +44,10 @@ mo.sort = function (target) {
 				dataType: 'json',
 				data: {
 					id: id,
+					index: $id.data('_sortIndex'),
 					method: 'after',
-					index: index
+					target_index: index,
+					target_id: $prevId.val()
 				}
 			}).done(function (res) {
 				if (res.status === 'success') {
@@ -61,7 +63,6 @@ mo.sort = function (target) {
 					})
 				}
 			})
-
 			countIndex()
 		})
 	}

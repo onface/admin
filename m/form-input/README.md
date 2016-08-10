@@ -99,7 +99,7 @@
 ````
 
 
-## 默认（上下 有标签）
+## 默认（上下 有标签） & 尺寸
 
 ````html
 <div class="mo-box">
@@ -143,6 +143,12 @@
                 </span>
             </div>
             <div class="mo-form-item">
+                <span class="mo-form-item-label">textarea</span>
+                <span class="mo-form-item-form">
+                    <textarea class="mo-textarea" ></textarea>
+                </span>
+            </div>
+            <div class="mo-form-item">
                 <button class="mo-btn mo-btn--info"> 提交</button>
             </div>
         </form>
@@ -151,6 +157,22 @@
 
     </div>
 </div>
+````
+
+## size
+
+````html
+<input type="text" class="mo-input mo-size--2word" value="宽度2个字" >
+<br>
+<input type="text" class="mo-input mo-size--10word" value="宽度10个字" >
+<br>
+<input type="text" class="mo-input mo-size--50word" value="宽度50个字" >
+<hr>
+<input type="text" class="mo-input mo-size--10" value="10%" >
+<br>
+<input type="text" class="mo-input mo-size--50" value="50%" >
+<br>
+<input type="text" class="mo-input mo-size--100" value="100%" >
 ````
 
 ## 横向 `mo-form--inline`

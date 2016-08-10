@@ -1,0 +1,17 @@
+.generate-size-word(200);
+
+.generate-size-word(@n, @i: 1) when (@i =< @n) {
+  html .mo-size--@{i}word {
+    width: @i+1.2em !important;
+  }
+  .generate-size-word(@n, (@i + 1));
+}
+
+.generate-size(100);
+
+.generate-size(@n, @i: 1) when (@i =< @n) {
+  html .mo-size--@{i} {
+    width: @i+0% !important;
+  }
+  .generate-size(@n, (@i + 1));
+}
