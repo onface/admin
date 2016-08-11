@@ -50,7 +50,7 @@ class Ts extends Component {
                   dropdownPopupAlign={{ overflow: { adjustY: 0, adjustX: 0 }, offset: [0, 2] }}
                   onDropdownVisibleChange={this.onDropdownVisibleChange.bind(this)}
                   placeholder={<i>请下拉选择</i>}
-                  searchPlaceholder="please search"
+                  searchPlaceholder="search"
                   treeLine maxTagTextLength={10}
                   value={this.state.value}
                   treeData={this.props.data}
