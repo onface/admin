@@ -11,8 +11,17 @@ class Ts extends Component {
         tsValue: '',
         tsWidth: 300
     }
-    state = {
-        value: this.props.tsValue.toString().split(',')
+    constructor (props) {
+        super(props)
+        let value
+        if (props.tsSingle) {
+            value = props.tsValue.toString()
+        }
+        else {
+            value = props.tsValue.toString().split(',')
+        }
+
+        this.state = {value}
     }
     onDropdownVisibleChange () {
         return true
@@ -21,6 +30,15 @@ class Ts extends Component {
         this.setState({value})
     }
     render () {
+        let props = this.props
+        let state = this.state
+        let value
+        if (props.tsSingle) {
+            value = state.value
+        }
+        else {
+            value = state.value.join(',')
+        }
         return (
             <span>
                 <TreeSelect
@@ -37,10 +55,10 @@ class Ts extends Component {
                   value={this.state.value}
                   treeData={this.props.data}
                   treeNodeFilterProp="title"
-                  treeCheckable showCheckedStrategy={SHOW_PARENT}
+                  treeCheckable={!props.tsSingle} showCheckedStrategy={SHOW_PARENT}
                   onChange={this.onChange.bind(this)}
                 />
-                <input type="hidden" name={this.props.tsName} value={this.state.value.join(',')} />
+                <input type="hidden" name={this.props.tsName} value={value} />
             </span>
         )
     }

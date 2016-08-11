@@ -81,17 +81,28 @@
     }
 ]
 </script>
+默认
 <span
     data-ts-name="some"
     data-ts-options="prev"
 ></span>
 <br>
+编辑
 <span
     data-ts-name="someedit"
     data-ts-value="2-1,2-2"
     data-ts-options="#tsJSON"
 ></span>
 <br>
+单选
+<span
+    data-ts-name="someedit"
+    data-ts-value="2-1"
+    data-ts-single="true" 
+    data-ts-options="#tsJSON"
+></span>
+<br>
+定宽
 <span
     data-ts-name="someedit"
     data-ts-value="2-1,2-2"
