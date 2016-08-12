@@ -38,3 +38,15 @@
 	data-time-value="2016-12-19"
  ></span>
 ````
+
+### 开始结束时间
+
+````html
+<span
+	data-time-name="date"
+	data-time-type="range"
+	data-time-min="2016-12-02"
+	data-time-max="2016-12-28"
+	data-time-value="2016-12-06~2016-12-20"
+ ></span>
+````

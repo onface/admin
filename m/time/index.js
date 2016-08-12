@@ -43,34 +43,22 @@ class Time extends React.Component {
         let self = this
         let calendar
         let currentDate = new GregorianCalendar(zhCN)
-        if (this.state.value) {
+        if (self.state.value) {
             currentDate.setTime(new Date(this.state.value))
         }
         else {
             currentDate = false
         }
-        // data-time-hasTime="true"
-        if (this.props.timeHasDate) {
-            // data-time-hasDate="ture"
-            // data-time-hasTime="true"
-            if (this.props.timeHastime) {
+        if (self.props.timeType === 'range') {
 
-            }
-            // data-time-hasDate="ture"
-            // data-time-hasTime="false"
-            else {
-                calendar = (<Calendar
-                    formatter={dateFormatter}
-                    value={currentDate}
-                    disabledDate={self.disabledDate.bind(this)} 
-                    onChange={this.change.bind(this)}
-                     />)
-            }
         }
-        // data-time-hasDate="false"
-        // data-time-hasTime="true"
         else {
-
+            calendar = (<Calendar
+                formatter={dateFormatter}
+                value={currentDate}
+                disabledDate={self.disabledDate.bind(this)}
+                onChange={this.change.bind(this)}
+                 />)
         }
         return (
             <DatePicker
