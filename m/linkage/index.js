@@ -10,7 +10,7 @@ class Linkage extends Component {
     }
     state = {
         inputText: '',
-        inputValue: []
+        inputValue: this.props.linkageValue.split(',')
     }
     onChange (value, selectedOptions) {
         this.setState({
