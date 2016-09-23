@@ -12,7 +12,7 @@
     </div>
     <div class="mo-box-bd">
         <!-- Start -->
-        <div class="mo-tablebox">
+        <div class="mo-tablescroll">
             <table class="mo-table">
                 <thead>
                     <tr>
