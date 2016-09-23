@@ -98,7 +98,7 @@
 <span
     data-ts-name="someedit"
     data-ts-value="2-1"
-    data-ts-single="true" 
+    data-ts-single="true"
     data-ts-options="#tsJSON"
 ></span>
 <br>
