@@ -12,49 +12,60 @@
     </div>
     <div class="mo-box-bd">
         <!-- Start -->
-        <table class="mo-table">
-            <thead>
-                <tr>
-                    <th>
-                        用户名
-                    </th>
-                    <th>
-                        id
-                    </th>
-                    <th>
-                        操作
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        nimo
-                    </td>
-                    <td>
-                        523623
-                    </td>
-                    <td>
-                        <a class="mo-btn mo-btn--link"><i class="fa fa-edit"></i>编辑</a>
-                        <a class="mo-btn mo-btn--link">修改</a>
-                        <button type="button" class="mo-btn mo-btn--success">登录</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        nimo
-                    </td>
-                    <td>
-                        523623
-                    </td>
-                    <td>
-                        <a class="mo-btn mo-btn--link"><i class="fa fa-edit"></i>编辑</a>
-                        <a class="mo-btn mo-btn--link">修改</a>
-                        <button type="button" class="mo-btn mo-btn--success">登录</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="mo-tablebox">
+            <table class="mo-table">
+                <thead>
+                    <tr>
+                        <th>
+                            用户名
+                        </th>
+                        <th>
+                            id
+                        </th>
+                        <th>
+                            标题
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            nimo
+                        </td>
+                        <td>
+                            离离原上草，一岁一枯荣。
+                        </td>
+                        <td>
+                            523623
+                        </td>
+                        <td>
+                            <a class="mo-btn mo-btn--link"><i class="fa fa-edit"></i>编辑</a>
+                            <a class="mo-btn mo-btn--link">修改</a>
+                            <button type="button" class="mo-btn mo-btn--success">登录</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            nimo
+                        </td>
+                        <td>
+                            野火烧不尽，春风吹又生。
+                        </td>
+                        <td>
+                            523623
+                        </td>
+                        <td>
+                            <a class="mo-btn mo-btn--link"><i class="fa fa-edit"></i>编辑</a>
+                            <a class="mo-btn mo-btn--link">修改</a>
+                            <button type="button" class="mo-btn mo-btn--success">登录</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <!-- End -->
         <div class="mo-paging">
             <a href="#" class="mo-paging-prev">
