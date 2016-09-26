@@ -10,6 +10,6 @@ $(function () {
         dialog({
             title: $this.data('dialogTitle') || 'dialog',
             content: $target.eq(0).val()
-        }).show()
+        }).showModal()
     })
 })
