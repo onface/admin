@@ -126,6 +126,7 @@ var conf = {
                             <a class="mo-2-side-item-bd-link"  href="/m/sort/README.md" ><span class="fa fa-arrows"></span>排序</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/tree/README.md" ><span class="fa fa-tree"></span>树级菜单</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/tree-select/README.md" ><span class="fa fa-tree"></span>树级下拉菜单</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/dialog/README.md" ><span class="fa fa-checkbox"></span>弹窗</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
