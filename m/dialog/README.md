@@ -14,4 +14,7 @@
         </td>
     </tr>
 </table>
+
+<span class="mo-btn" data-dialog-title="Hello" data-dialog-content="#demotext" >click</span>
+<textarea id="demotext" class="mo-hide" >abc</textarea>
 ````
