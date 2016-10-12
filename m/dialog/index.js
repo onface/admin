@@ -8,6 +8,7 @@ $(function () {
         let $this = $(this)
         let $target = filter(this, $this.data('dialogContent'))
         dialog({
+            quickClose: true,
             title: $this.data('dialogTitle') || 'dialog',
             content: $target.eq(0).val()
         }).showModal()

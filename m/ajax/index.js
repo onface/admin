@@ -1,6 +1,5 @@
 var $ = require('jquery')
 var noty = require('noty')
-var dialog = require('fast-artdialog')
 var filter = require('../filter/index')
 $(function () {
 	$('body').on('click', '[data-ajax-url]', function () {

@@ -1,5 +1,29 @@
 @import "../../base/mixins";
 @import "../icon/index";
+
+@media screen and (max-width: 640px) {
+    body {
+        .mo-2-side {
+            box-sizing: border-box;
+            width:100%;
+            position: relative;
+            top:0;
+            left:0;
+            .CLEAR;
+            padding-bottom: 0;
+            padding-left: 1%;
+        }
+        .mo-2-side-item {
+            min-width: 49%;
+            border-left: 1px solid #111;
+            border-right: 1px solid #222;
+            float: left;
+        }
+        .mo-2-cnt {
+            padding-left: 10px;
+        }
+    }
+}
 .mo-2 {
     position: relative;
 }
