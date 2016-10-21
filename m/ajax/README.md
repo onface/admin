@@ -190,5 +190,8 @@ AJAX响应的JSON中存在 `data.href` ，且 `status` 等于 `success` 时候�
 <div class="js-item" >
     <input name="id" value="3" type="checkbox" class="mo-input js-people" /> 王五
 </div>
-
 ````
+
+## 全选反选
+
+[请查看 checkall 模块](../checkall/README.md)
