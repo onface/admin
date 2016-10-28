@@ -1,4 +1,5 @@
 var $ = require('jquery')
+var filter = require('../filter/index')
 $(function () {
 
     $('body').on('click', '[data-copy-clone]',function () {
@@ -10,7 +11,7 @@ $(function () {
         let $clone = $(data.copyClone).clone()
         $clone.removeAttr('id')
         $clone.find('*').removeAttr('id')
-        let $target= $(data.copyTarget)
+        let $target= filter($this, data.copyTarget)
         if (data.copyFilter) {
             // 如果filter 返回 false 则不生产 copy 的 dom
             if (window[data.copyFilter]($clone) === false) {
