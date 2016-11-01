@@ -84,6 +84,11 @@ var conf = {
                         </a>
                     </div>
                     <div class="mo-2-side-item">
+                        <a class="mo-2-side-item-hd" href="/m/3/README.html" >
+                            <span class="fa fa-desktop"></span>布局3
+                        </a>
+                    </div>
+                    <div class="mo-2-side-item">
                         <div class="mo-2-side-item-hd">
                             <span class="fa fa-list-alt"></span>按钮和表单
                         </div>
