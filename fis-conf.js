@@ -101,13 +101,14 @@ var conf = {
                     </div>
                     <div class="mo-2-side-item">
                         <div class="mo-2-side-item-hd">
-                            <span class="fa fa-list"></span>盒子/列表/面包屑
+                            <span class="fa fa-list"></span>盒子/列表/面包屑/分页
                         </div>
                         <div class="mo-2-side-item-bd">
                             <a class="mo-2-side-item-bd-link" href="/m/box/README.md" ><span class="fa fa-edit"></span>盒子</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/table/README.md" ><span class="fa fa-list"></span>列表</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/crumb/README.md" ><span class="fa fa-info-circle"></span>面包屑</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/tab/README.md" ><span class="fa fa-info-circle"></span>tab切换</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/paging/README.md" ><span class="fa fa-list"></span>分页</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">

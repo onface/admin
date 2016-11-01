@@ -66,3 +66,27 @@
     </span>
 </div>
 ````
+
+## 简单风格分页
+
+````html
+<div class="mo-paging mo-paging--simple">
+    共23123条信息
+    <a href="#" class="mo-paging-prev">
+        <i class="fa fa-angle-left" title="左三角形"></i>
+    </a>
+    <a href="#" class="mo-paging-item">1</a>
+    <a href="#" class="mo-paging-item mo-paging-current">2</a>
+    <a href="#" class="mo-paging-item">3</a>
+    <a href="#" class="mo-paging-item">4</a>
+    <a href="#" class="mo-paging-item">5</a>
+    <a href="#" class="mo-paging-item">6</a>
+    <a href="#" class="mo-paging-item">7</a>
+    <span class="mo-paging-ellipsis">...</span>
+    <a href="#" class="mo-paging-item">24</a>
+    <a href="#" class="mo-paging-next">
+        <i class="fa fa-angle-right" title="右三角形"></i>
+    </a>
+    <span class="mo-paging-info"><span class="mo-paging-bold">5/7</span>页</span>
+</div>
+````

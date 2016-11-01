@@ -25,3 +25,15 @@
     </div>
 </div>
 ````
+
+
+## box2
+
+````html
+<div class="mo-box2">
+    <div class="mo-box2-hd">标题</div>
+    <div class="mo-box2-bd">
+        bd
+    </div>
+</div>
+````
