@@ -16,7 +16,7 @@ exec('php -S 127.0.0.1:2009 -t view/mock/', function(err, out, code) {
 var app = require('fms')
 app.run({
     static: './output',
-    port: '2000',
+    port: '61214',
     read: [''],
     urlRewrite: [
         '/', '/README.html'
