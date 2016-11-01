@@ -9,13 +9,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://unpkg.com/admin@latest/fast-admin.css">
+    <link rel="stylesheet" href="https://unpkg.com/fast-admin@latest/fast-admin.css">
     <title>______</title>
 </head>
 <body>
     ________
-    <script src="https://unpkg.com/admin@latest/fast-admin-deps.js"></script>
-    <script src="https://unpkg.com/admin@latest/fast-admin.js"></script>
+    <script src="https://unpkg.com/fast-admin@latest/fast-admin-deps.js"></script>
+    <script src="https://unpkg.com/fast-admin@latest/fast-admin.js"></script>
 </body>
 </html>
 ```
