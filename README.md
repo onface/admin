@@ -1,6 +1,24 @@
 # fast-admin
 
+## 使用
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/admin@latest/fast-admin.css">
+    <title>______</title>
+</head>
+<body>
+    ________
+    <script src="https://unpkg.com/admin@latest/fast-admin-deps.js"></script>
+    <script src="https://unpkg.com/admin@latest/fast-admin.js"></script>
+</body>
+</html>
+```
 
 > 给后端程序员使用的 `data-api` 管理后台框架
 
@@ -144,7 +162,7 @@
 </form>
 ````
 
-> 全站使用 font-awesome 4.6 作为图标库，字体索引： http://font-awesome.nimojs.com/icons/
+> 全站使用 font-awesome 4.6 作为图标库，字体索引： http://fontawesome.io/icons/
 
 ````html
 <i class="fa fa-user"></i><i class="fa fa-edit"></i>

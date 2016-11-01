@@ -1,4 +1,7 @@
 fis.hook('relative');
+fis.match('**', {
+  relative: true
+})
 var conf = {
     // require 被替换的全局变量
     webpackExternals: {

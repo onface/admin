@@ -1,4 +1,7 @@
 {
+  "name": "fast-admin",
+  "version": "0.1.0",
+  "repository":"fast-flow/admin",
   "scripts": {
     "dev": "fis3 release -w -d ./output",
     "mobe": "nodemon -w mobe.js mobe.js",
