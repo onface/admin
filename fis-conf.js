@@ -248,9 +248,6 @@ fis.match('*.md', {
 })
 
 conf.webpack.externals = conf.webpackExternals
-fis.match('package.json', {
-    release: false
-})
 fis.match('/fast-admin.js', {
     release: true,
     parser: [
