@@ -65,6 +65,21 @@
     box-shadow: 0px 1px 0px #18181c;
     font-size:16px;
 }
+.mo-3-side-item {
+    &:first-child {
+        .mo-3-side-item-hd {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+.mo-3-side-item.on .mo-3-side-item-hd{
+    &:after {
+        content: "\f0d8";
+        color:#f47e43;
+    }
+}
 .mo-3-side-item.on {
     .mo-3-side-item-hd {
         color:#f47e43;
@@ -78,6 +93,19 @@
     height: 50px;line-height: 50px;
     color:#999999;
     text-decoration: none;
+    &:after {
+        color:#666;
+        position: absolute;
+        right:10px;
+        top:15px;
+        display: inline-block;
+        font: normal normal normal 1em FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\f0d7";
+    }
     &:hover {
         background-color: #313139;
     }
