@@ -1,7 +1,7 @@
 var $ = require('jquery')
 var noty = require('noty')
 $(function(){
-	$('body').on('submit', '.mo-form form[data-form-ajax="true"],form.mo-form[data-form-ajax="true"]', function () {
+	$('body').on('submit', '[data-form-ajax="true"]', function () {
 		var $this = $(this)
 		var url = $this.attr('action')
 		var method = $this.attr('method')
