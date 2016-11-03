@@ -1,7 +1,16 @@
+.mo-3 {
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 62px;
+}
 .mo-3Body {
     background-color:#f2f3f8;
 }
 .mo-3-head {
+    width:100%;
+    position: absolute;
+    top:0;
+    left:0;
     height: 62px;
     line-height:62px;
     background-color:#17171b;
@@ -56,12 +65,13 @@
 }
 
 .mo-3-wrap {
-    padding-left: 272px;
     position: relative;
+    min-height: 100%;
+    border-left:272px solid #222226;
 }
 .mo-3-side {
     position: absolute;
-    left:0;top:0;
+    left:-272px;top:0;
     width:272px;
     background: #222226;
 }
@@ -159,6 +169,7 @@
     }
 }
 .mo-3-cnt {
+    height: 100%;
     padding-top: 1em;
     padding-left: 1em;
     padding-right: 1em;
@@ -187,10 +198,11 @@
 }
 html .mo-3--min {
     .mo-3-side {
+        left:-48px;
         width: 48px;
     }
     .mo-3-wrap {
-        padding-left: 48px;
+        border-left: 48px solid #222226;
     }
     .mo-3-side-item-hd {
         font-size: 0;
