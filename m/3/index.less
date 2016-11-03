@@ -1,3 +1,6 @@
+.mo-3Body {
+    background-color:#f2f3f8;
+}
 .mo-3-head {
     height: 62px;
     line-height:62px;
@@ -27,7 +30,7 @@
     padding-right: 30px;
     color:#999999;
     text-decoration: none;
-    .fa {
+    &>.fa {
         margin-right: .5em;
     }
 }
@@ -131,6 +134,10 @@
     height: 50px;
     line-height: 50px;
     color:#999;
+    text-decoration: none;
+    &>.fa {
+        margin-right: 10px;
+    }
     &.on {
         background-color:#313139;
         color:#f47e43;
@@ -152,6 +159,7 @@
     }
 }
 .mo-3-cnt {
+    padding-top: 1em;
     padding-left: 1em;
     padding-right: 1em;
 }
@@ -178,17 +186,15 @@
     }
 }
 html .mo-3--min {
-    .mo-3-logo,
     .mo-3-side {
-        width: 64px;
+        width: 48px;
     }
     .mo-3-wrap {
-        padding-left: 64px;
+        padding-left: 48px;
     }
     .mo-3-side-item-hd {
-        padding-top: 8px;
-        padding-bottom: 9px;
         font-size: 0;
+        text-align: center;
         &:hover {
             background: none;
             .fa {
@@ -196,8 +202,8 @@ html .mo-3--min {
             }
         }
         .fa {
+            width: auto;
             font-size: 16px;
-            margin-left: 8px;
         }
     }
     .mo-3-side-item:hover {
@@ -211,11 +217,11 @@ html .mo-3--min {
     .mo-3-side-item-bd {
         width:184px;
         position: absolute;
-        left:64px;
+        left:48px;
         top:0;
     }
     .mo-3-side-toggle {
-        left:64 - 16px;
+        left:48 - 16px;
     }
     .mo-3-side-item.on  {
         .mo-3-side-item-bd {
