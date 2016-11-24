@@ -17,9 +17,6 @@ $(function(){
 			if (dataJSON === $this.data('_dataAutosubmitValue')) {
 				return false
 			}
-			else {
-				$this.data('_dataAutosubmitValue', dataJSON)
-			}
 		}
 		if (dataConfirm) {
 			if (!confirm(dataConfirm)) {
@@ -36,6 +33,7 @@ $(function(){
 			if (!res.msg) {
 				if (res.status === 'success') {
 					res.msg = "操作成功"
+					$this.data('_dataAutosubmitValue', dataJSON)
 				}
 				else {
 					let throwError = '开发人员注意: 操作错误后错误原因必须在 ajax 响应 JSON 中的 msg 中配置'
