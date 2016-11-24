@@ -1,11 +1,31 @@
 var $ = require('jquery')
 var noty = require('noty')
 $(function(){
-	$('body').on('submit', '[data-form-ajax="true"]', function () {
+	$('body').on('blur', '[data-form-autosubmit="true"] input,textarea', function (event) {
+		$(event.target).closest('form').trigger('submit')
+	})
+	$('body').on('submit', '[data-form-ajax="true"]', function (event) {
+		event.preventDefault()
 		var $this = $(this)
 		var url = $this.attr('action')
 		var method = $this.attr('method')
 		var data = $this.serializeArray()
+		var dataAutosubmit = $this.data('formAutosubmit')
+		var dataConfirm = $this.data('formConfirm')
+		var dataJSON = JSON.stringify(data)
+		if (dataAutosubmit) {
+			if (dataJSON === $this.data('_dataAutosubmitValue')) {
+				return false
+			}
+			else {
+				$this.data('_dataAutosubmitValue', dataJSON)
+			}
+		}
+		if (dataConfirm) {
+			if (!confirm(dataConfirm)) {
+				return
+			}
+		}
 		$.ajax({
             url: url,
             type: method,

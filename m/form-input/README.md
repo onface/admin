@@ -7,7 +7,6 @@
 
 ### ajax-成功
 ````html
-
 <form class="mo-form"  method="get" action="/m/json/ok.json" data-form-ajax="true" >
     <div class="mo-form-title">success</div>
     <div class="mo-form-item">
@@ -256,4 +255,13 @@
 
 </div>
 </div>
+````
+
+## onBlur & Shift enter (失去焦点或 Shift + Enter 时提交)
+
+````html
+<form method="get" action="/m/json/ok.json" data-form-ajax="true" data-form-autosubmit
+="true" data-form-confirm="确认修改？" style="display:inline-block;" >
+    <input type="text" name="user" class="mo-input" placeholder="失去焦点 和 Shift + Eneter提交">
+</form>
 ````
