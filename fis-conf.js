@@ -137,6 +137,7 @@ var conf = {
                             <a class="mo-2-side-item-bd-link"  href="/m/tree-select/README.md" ><span class="fa fa-tree"></span>树级下拉菜单</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/dialog/README.md" ><span class="fa fa-file-text-o"></span>弹窗</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/ajaxtable/README.md" ><span class="fa fa-table"></span>ajax table</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/ajaxselect/README.md" ><span class="fa fa-table"></span>ajax select</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
