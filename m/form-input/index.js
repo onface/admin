@@ -43,7 +43,8 @@ $(function(){
 			}
 			noty({
 				type: res.status,
-				text: res.msg
+				text: res.msg,
+				timeout: 3000
 			})
 			var hrefTimeout = 0
 			res.data = res.data || {}
