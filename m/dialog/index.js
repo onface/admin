@@ -10,7 +10,7 @@ $(function () {
         dialog({
             quickClose: true,
             title: $this.data('dialogTitle') || 'dialog',
-            content: $target.eq(0).val()
+            content: $target.eq(0).html()
         }).showModal()
     })
 })
