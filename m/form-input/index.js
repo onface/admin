@@ -1,7 +1,7 @@
 var $ = require('jquery')
 var noty = require('noty')
 $(function(){
-	$('body').on('blur', '[data-form-autosubmit="true"] input,textarea', function (event) {
+	$('body').on('blur', '[data-form-autosubmit="true"] input,[data-form-autosubmit="true"] textarea', function (event) {
 		$(event.target).closest('form').trigger('submit')
 	})
 	$('body').on('submit', '[data-form-ajax="true"]', function (event) {
