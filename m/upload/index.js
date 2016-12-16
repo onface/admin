@@ -121,6 +121,7 @@ mo.upload = function ($ele) {
             else {
                 json = $(data.uploadValue).html()
             }
+            json = json || '{}'
             data.uploadValue = JSON.parse(json)
         }
         else {
