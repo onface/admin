@@ -7,10 +7,18 @@ $(function () {
     $('body').on('click', '[data-dialog-content]', function () {
         let $this = $(this)
         let $target = filter(this, $this.data('dialogContent'))
+        let $cloneELmeent
+        if ($target.data('__fast-admin-dialog-clone-element')) {
+            $cloneELmeent = $target.data('__fast-admin-dialog-clone-element')
+        }
+        else {
+            $cloneELmeent = $($target.eq(0).html())
+            $target.data('__fast-admin-dialog-clone-element', $cloneELmeent)
+        }
         dialog({
             quickClose: true,
             title: $this.data('dialogTitle') || 'dialog',
-            content: $target.eq(0).html()
+            content: $cloneELmeent
         }).showModal()
     })
 })
