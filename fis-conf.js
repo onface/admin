@@ -277,14 +277,14 @@ fis.match('/node_modules/**', {
     release: false
 })
 
-fis.media('qa').match('*.js', {
+fis.media('online').match('*.js', {
   optimizer: fis.plugin('uglify-js')
 });
 
-fis.media('qa').match('*.css', {
+fis.media('online').match('*.css', {
   optimizer: fis.plugin('clean-css')
 });
 
-fis.media('qa').match('*.png', {
+fis.media('online').match('*.png', {
   optimizer: fis.plugin('png-compressor')
 });
