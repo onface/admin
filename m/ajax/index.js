@@ -79,6 +79,9 @@ $(function () {
 					$deleteTarget.remove()
 				}, removeTimeout)
 			}
+			if (data.ajaxCallback) {
+				window[data.ajaxCallback](res, $this)
+			}
 		}).always(function () {
 			$this.data('_ajax-busy', false)
 			setTimeout(function () {

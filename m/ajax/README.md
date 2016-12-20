@@ -195,3 +195,23 @@ AJAX响应的JSON中存在 `data.href` ，且 `status` 等于 `success` 时候�
 ## 全选反选
 
 [请查看 checkall 模块](../checkall/README.md)
+
+
+## ajax 响应后回调
+
+````html
+<span   class="mo-btn mo-btn--info"
+        data-ajax-method="get"
+        data-ajax-data="action=ok"
+        data-ajax-url="/m/json/ok-msg.json"
+        data-ajax-callback="ajaxsome"
+>callback</span>
+<script>
+window.ajaxsome = function (res, $element) {
+    console.log('ajax-callback')
+    console.log(res)
+    console.log($element)
+    // 根据 res 做一些事情
+}
+</script>
+````
