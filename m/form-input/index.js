@@ -1,9 +1,24 @@
 var $ = require('jquery')
 var noty = require('noty')
+var _ = require('lodash')
 $(function(){
-	$('body').on('blur', '[data-form-autosubmit="true"] input,[data-form-autosubmit="true"] textarea', function (event) {
-		$(event.target).closest('form').trigger('submit')
-	})
+	let blurSettings = {
+		selector: '[data-form-autosubmit="true"] input,[data-form-autosubmit="true"] textarea',
+		eventName: 'blur.fastAdminFormInputBlur'
+	}
+	blurSettings.callback = function (event) {
+		// 控制频率
+		_.debounce(function () {
+			// 触发 submit 前取消所有 blur，目的是防止 blur的触发方式是点击另外一个 input,这样会导致一直触发 blur，因为 comfrim 被弹出
+			$('body').off(blurSettings.eventName, blurSettings.selector)
+			$(event.target).closest('form').trigger('submit')
+			// 触发 submit 后绑定 blur
+			setTimeout(function () {
+				$('body').on(blurSettings.eventName, blurSettings.selector, blurSettings.callback)
+			}, 200)
+		}, 200)()
+	}
+	$('body').on(blurSettings.eventName, blurSettings.selector, blurSettings.callback)
 	$('body').on('submit', '[data-form-ajax="true"]', function (event) {
 		event.preventDefault()
 		var $this = $(this)

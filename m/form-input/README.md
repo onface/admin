@@ -264,4 +264,8 @@
 ="true" data-form-confirm="确认修改？" style="display:inline-block;" >
     <input type="text" name="user" class="mo-input" placeholder="失去焦点 和 Shift + Eneter提交">
 </form>
+<form method="get" action="/m/json/ok.json" data-form-ajax="true" data-form-autosubmit
+="true" data-form-confirm="修改？" style="display:inline-block;" >
+    <input type="text" name="user" class="mo-input" placeholder="2">
+</form>
 ````

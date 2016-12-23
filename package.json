@@ -43,6 +43,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "less-plugin-functions": "0.0.2",
+    "lodash": "^4.17.2",
     "markrun": "^0.0.1",
     "normalize.css": "^4.2.0",
     "noty": "^2.3.8",
