@@ -42,7 +42,7 @@ class TreeNode extends Component {
 								<input type="checkbox" checked={checked} onChange={function (){
 									props.change(item.id,checked)
 								}} />
-								{item.id +'  '+ item.value}
+								{item.value}
 								{node}
 							</li>
 						)
