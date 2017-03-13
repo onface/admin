@@ -1,23 +1,23 @@
-.expand ul {
+.tree ul {
     padding-left: 0;
 }
-.expand ul,li {
+.tree ul,li {
     list-style-type:none;
 }
-.li-false {
+.tree-li-false {
     height:24px;
     line-height: 24px;
     overflow-y:hidden;
     padding-left: 18px;
     position: relative;
 }
-.li-true {
+.tree-li-true {
     height:auto;
     padding-left: 18px;
     line-height: 24px;
     position: relative;
 }
-.li-span{
+.tree-li-span{
     width:12px;
     height:12px;
     line-height:12px;
@@ -28,7 +28,7 @@
     display:inline-block;
     vertical-align: middle;
 }
-.li-span:before {
+.tree-li-span:before {
     position:absolute;
     top:0px;
     left:0px;
@@ -39,9 +39,9 @@
     width:100%;
     text-align:center;
 }
-.li-false > .li-span:before{
+.tree-li-false > .tree-li-span:before{
     content:'+';
 }
-.li-true > .li-span:before{
+.tree-li-true > .tree-li-span:before{
     content:'-';
 }

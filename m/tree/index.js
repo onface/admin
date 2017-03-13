@@ -6,12 +6,12 @@ import TreeStore from "tree-store" ;
 import classNames from "classnames" ;
 import filter from '../filter/index';
 
-$('body').on('click','.li-span',function(e){
+$('body').on('click','.tree-li-span',function(e){
 	e.stopPropagation();e.preventDefault();
     let $this = $(this)
-    let $parent = $this.closest('.li')
-    $parent.toggleClass('li-true')
-    $parent.toggleClass('li-false')
+    let $parent = $this.closest('.tree-li')
+    $parent.toggleClass('tree-li-true')
+    $parent.toggleClass('tree-li-false')
 })
 
 class TreeNode extends Component {
@@ -31,12 +31,12 @@ class TreeNode extends Component {
 						if (item.child) {
 							node = (<TreeNode data={item.child} checked_ids={props.checked_ids} change={props.change} />)
                             btn = (
-                                <span className={'li-span'} 
+                                <span className={'tree-li-span'} 
                                 ></span>
                             )
 						}
 						return (
-							<li key={key} className={'li li-false'} 
+							<li key={key} className={'tree-li tree-li-false'} 
 							>
                                 {btn}
 								<input type="checkbox" checked={checked} onChange={function (){
@@ -108,7 +108,7 @@ class TreeApp extends Component {
 		let self = this
 		let state = this.state
 		return (
-			<div className="expand">
+			<div className="tree">
 				<TreeNode data={state.data} checked_ids={state.checked_ids}  change={this.change.bind(this)} />
                 <input name={self.props.treeName} type="hidden" value={self.state.checked_ids.join(',')} />
 			</div>
