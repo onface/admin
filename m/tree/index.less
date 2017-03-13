@@ -1,3 +1,47 @@
-html .rc-tree-iconEle {
-	display:none !important;
+.expand ul {
+    padding-left: 0;
+}
+.expand ul,li {
+    list-style-type:none;
+}
+.li-false {
+    height:24px;
+    line-height: 24px;
+    overflow-y:hidden;
+    padding-left: 18px;
+    position: relative;
+}
+.li-true {
+    height:auto;
+    padding-left: 18px;
+    line-height: 24px;
+    position: relative;
+}
+.li-span{
+    width:12px;
+    height:12px;
+    line-height:12px;
+    font-size: 12px;
+    position:absolute;
+    top: 7px;
+    left: 0;
+    display:inline-block;
+    vertical-align: middle;
+}
+.li-span:before {
+    position:absolute;
+    top:0px;
+    left:0px;
+    cursor:pointer;
+    display:inline-block;
+    border:1px solid black;
+    height:100%;
+    width:100%;
+    text-align:center;
+}
+.li-false > .li-span:before{
+    content:'+';
+}
+.li-true > .li-span:before{
+    content:'-';
 }
