@@ -1,5 +1,7 @@
 import $ from "jquery"
-import './simditor.css'	
+import './simditor.css'
+var Base64 = require("js-base64").Base64
+
 window.Simditor_Upload_AJAX_filter = function (res) {
 	if (res.status === 'success') {
 	    res.success = true
@@ -16,7 +18,11 @@ $(function () {
 		let $this = $(this)
 		let data = $this.data()
 		$this.addClass('mo-editor').addClass('mo-loading--off')
-		let $textarea = $(`<textarea name="${data.editorName}">${$this.html()}</textarea>`)
+		let html = $this.html()
+		if (data.editorBase64) {
+			html = Base64.decode(html)
+		}
+		let $textarea = $(`<textarea name="${data.editorName}">${html}</textarea>`)
 		$this.after($textarea.hide())
 		let editor = new Simditor({
 		textarea: $textarea,
