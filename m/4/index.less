@@ -1,0 +1,109 @@
+.mo-4-body {
+    background-color: RGB(243,244,245);
+}
+.mo-4 {
+    height: 100%;
+    width:100%;
+    border-collapse:collapse;
+}
+.mo-4-side {
+    width: 253px;
+    background-color: #191f28;
+    color:white;
+    vertical-align: top;
+}
+.mo-4-side-logo {
+    width:130px;
+    padding-top: 37px;
+    padding-bottom: 53px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mo-4-side-user {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.mo-4-side-user-avatar {
+    display: block;
+    width:70px;
+    height:70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mo-4-side-user-name {
+    line-height: 30px;
+}
+.mo-4-side-nav {
+    font-size:14px;
+}
+.mo-4-side-nav-item {
+    height: 43px;
+    line-height: 43px;
+    text-decoration: none;
+    display: block;
+    color:white;
+    position: relative;
+    padding-left: 60px;
+    .fa {
+        font-size:18px;
+        position: absolute;
+        left:0;
+        top:0;
+        height: 43px;
+        line-height: 43px;
+        display: inline-block;
+        width:60px;
+        text-align: center;
+    }
+}
+html .mo-4-side-nav-item--on {
+    .fa {
+        color:#009bff;
+        background: linear-gradient(to right, rgba(32,77,133,1), rgba(32,77,133,0));
+    }
+}
+.mo-4-cnt {
+    vertical-align: top;
+}
+.mo-4-cnt-hd {
+    position: relative;
+    line-height: 58px;
+    border-bottom: 1px solid RGB(226,226,226);
+    background-color:white;
+    padding-left: 1em;
+}
+.mo-4-cnt-hd-title {
+    font-size:16px;
+    color:#333333;
+}
+.mo-4-cnt-hd-crumbs {
+
+}
+.mo-4-cnt-hd-crumbs-link {
+    text-decoration: none;
+    position: relative;
+    margin-left: 1.3em;
+    &:after {
+        position: absolute;
+        display: block;
+        overflow: hidden;
+        content: "/";
+        left: -14px;
+        top:0;
+        line-height: 20px;
+        color:#888;
+        font-size:12px;
+    }
+}
+.mo-4-cnt-hd-tool {
+    position: absolute;
+    right:0;top:0;
+    padding-right: 10px;
+}
+.mo-4-cnt-hd-tool-link {
+    text-decoration: none;
+}
+.mo-4-cnt-box {
+    padding:10px;
+}
