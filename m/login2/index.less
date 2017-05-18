@@ -1,0 +1,135 @@
+@import "../../base/mixins";
+
+.m-login2 {
+    .CLEAR;
+    height: 100%;
+}
+.m-login2-form,
+.m-login2-banner {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.m-login2-form {
+    position: relative;
+    background-color: white;
+    text-align: center;
+    &:after {
+        content: " ";
+        display:inline-block;
+        width:0;
+        height:100%;
+        overflow:hidden;
+        margin-left:-1px;
+        font-size:0;
+        line-height:0;
+        vertical-align:middle;
+    }
+}
+.m-login2-form-inner {
+    width:378px;
+    position: relative;
+    display: inline-block;
+    vertical-align:middle;
+}
+.m-login2-form-logo {
+    position: absolute;
+    left:30px;top:30px;
+    width:145px;
+}
+.m-login2-form-title {
+    font-size:24px;
+    color:#333333;
+    line-height: 54px;
+    margin-bottom: 70px;
+}
+.m-login2-form-input {
+    height: 40px;
+    line-height: 40px;
+    font-size:14px;
+    text-indent: 1em;
+    border:1px solid #e2e2e2;
+    border-radius: 3px;
+    padding:0;
+    display: block;
+    width:100%;
+    box-sizing: border-box;
+    margin-bottom: 19px;
+}
+.m-login2-form-submit {
+
+}
+.m-login2-form-verifyimage {
+    position: absolute;
+    right:0;
+    margin-top: -54px;
+    margin-right: 4px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.m-login2-form-submit {
+    background-color: #2673d4;
+    border:none;
+    border-radius: 3px;
+    line-height: 40px;
+    height:40px;
+    font-size:14px;
+    color:white;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+.m-login2-banner {
+    background: url(./banner.jpg) #23cad4 no-repeat;
+    background-size: 100%;
+    color:white;
+    text-align: center;
+    &:after{
+        content: " ";
+        display:inline-block;
+        width:0;
+        height:100%;
+        overflow:hidden;
+        margin-left:-1px;
+        font-size:0;
+        line-height:0;
+        vertical-align:middle;
+    }
+}
+.m-login2-banner-inner {
+    display: inline-block;
+    vertical-align:middle;
+}
+.m-login2-banner-title {
+    font-size:28px;
+    line-height: 68px;
+}
+.m-login2-banner-desc {
+    font-size:14px;
+    line-height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+.m-login2-banner-link {
+    display: inline-block;
+    font-size:14px;
+    color:white;
+    text-decoration: none;
+    border:1px solid white;
+    border-radius: 4px;
+    line-height: 40px;
+    height: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .m-login2-banner {
+        display: none;
+    }
+    .m-login2-form {
+        width: 100%;
+    }
+}

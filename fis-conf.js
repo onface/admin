@@ -74,6 +74,11 @@ var conf = {
                         </a>
                     </div>
                     <div class="mo-2-side-item">
+                        <a class="mo-2-side-item-hd" href="/m/login2/README.html" >
+                            <span class="fa fa-user"></span>登录2
+                        </a>
+                    </div>
+                    <div class="mo-2-side-item">
                         <a class="mo-2-side-item-hd" href="/m/1/README.html" >
                             <span class="fa fa-desktop"></span>布局1
                         </a>
