@@ -4,6 +4,7 @@
   "repository": "fast-flow/admin",
   "scripts": {
     "dev": "fis3 release -w -d ./output",
+    "dev:live": "fis3 release -wL -d ./output",
     "s": "nodemon -w mobe.js mobe.js",
     "update": "npm update --registry=https://registry.npm.taobao.org",
     "online": "fis3 release online -d ./output"

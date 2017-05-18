@@ -99,6 +99,11 @@ var conf = {
                         </a>
                     </div>
                     <div class="mo-2-side-item">
+                        <a class="mo-2-side-item-hd" href="/m/panel/README.html" >
+                            <span class="fa fa-desktop"></span>panel
+                        </a>
+                    </div>
+                    <div class="mo-2-side-item">
                         <div class="mo-2-side-item-hd">
                             <span class="fa fa-list-alt"></span>按钮和表单
                         </div>
