@@ -38,29 +38,52 @@
     font-size:14px;
 }
 .mo-4-side-nav-item {
-    height: 43px;
+    cursor: pointer;
+    min-height: 43px;
     line-height: 43px;
     text-decoration: none;
     display: block;
     color:white;
     position: relative;
     padding-left: 60px;
-    .fa {
-        font-size:18px;
+}
+html .mo-4-side-nav-item--folder {
+    &:before {
+        width: 6px;
+        height: 6px;
         position: absolute;
-        left:0;
-        top:0;
-        height: 43px;
-        line-height: 43px;
+        position: absolute;
+        right:10px;top:15px;
+        text-align: cetner;
+        content: " ";
         display: inline-block;
-        width:60px;
-        text-align: center;
+        border: 2px solid white;
+        border-top-width: 0;
+        border-right-width: 0;
+        -moz-transform: rotate(-46deg);
+        -o-transform: rotate(-46deg);
+        -webkit-transform: rotate(-46deg);
+        transform: rotate(-46deg);
     }
 }
+.mo-4-side-nav-item-icon {
+    font-size:18px;
+    position: absolute;
+    left:0;
+    top:0;
+    height: 43px;
+    line-height: 43px;
+    display: inline-block;
+    width:60px;
+    text-align: center;
+}
 html .mo-4-side-nav-item--on {
-    .fa {
+    .mo-4-side-nav-item-icon {
         color:#009bff;
         background: linear-gradient(to right, rgba(32,77,133,1), rgba(32,77,133,0));
+    }
+    .mo-4-side-nav-item-sub {
+        display: block;
     }
 }
 .mo-4-cnt {
@@ -106,4 +129,13 @@ html .mo-4-side-nav-item--on {
 }
 .mo-4-cnt-box {
     padding:10px;
+}
+
+.mo-4-side-nav-item-sub {
+    display: none;
+    text-decoration: none;
+    padding-left: 1em;
+    .fa {
+        margin-right: .3em;
+    }
 }
