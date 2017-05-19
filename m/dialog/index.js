@@ -18,6 +18,9 @@ $(function () {
     		if (data.dialogBase64) {
     			html = Base64.decode(html)
     		}
+            if (!/</.test(html)) {
+                html = '<div>' + html '</div>'
+            }
             $cloneELmeent = $(html)
             $target.data('__fast-admin-dialog-clone-element', $cloneELmeent)
         }
