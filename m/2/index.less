@@ -75,6 +75,7 @@
 .mo-2-side {
     position: absolute;
     left:0;
+    bottom:0;
     top:40px;
     width:260px;
     padding-bottom: 20px;
@@ -97,6 +98,15 @@
     color:white;
     text-decoration: none;
     display: block;
+    /*Element must have a height (not auto)*/
+    /*All filters must be placed together*/
+    background-image: -moz-linear-gradient(left, #000000, #222222);
+    background-image: -ms-linear-gradient(left, #000000, #222222);
+    background-image: -o-linear-gradient(left, #000000, #222222);
+    background-image: -webkit-gradient(linear, left top, right top, from(#000000), to(#222222));
+    background-image: -webkit-linear-gradient(left, #000000, #222222);
+    background-image: linear-gradient(left, #000000, #222222);
+    /*--IE9 DOES NOT SUPPORT GRADIENT BACKGROUNDS--*/
     &>.fa {
         color:#999;
     }
