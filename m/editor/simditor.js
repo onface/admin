@@ -1704,7 +1704,7 @@ return uploader;
 
 }));
 
-// 
+//
 /*!
 * Simditor v2.3.5
 * http://simditor.tower.im/
@@ -6042,7 +6042,7 @@ ImageButton = (function(superClass) {
           type: 'file',
           title: _this._t('uploadImage'),
           multiple: true,
-          accept: 'image/*'
+          accept: 'image/gif,image/jpeg,image/jpe,image/jpg,image/png,image/bmp'
         }).appendTo($uploadItem);
       };
     })(this);
