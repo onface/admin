@@ -5,13 +5,15 @@ import ReactDOM from 'react-dom';
 import TreeStore from "tree-store" ;
 import classNames from "classnames" ;
 import filter from '../filter/index';
-
-$('body').on('click','.tree-li-span',function(e){
-	e.stopPropagation();e.preventDefault();
-    let $this = $(this)
-    let $parent = $this.closest('.tree-li')
-    $parent.toggleClass('tree-li-true')
-    $parent.toggleClass('tree-li-false')
+// 呵呵呵
+$(function () {
+	$('body').on('click','.tree-li-span',function(e){
+		e.stopPropagation();e.preventDefault();
+	    let $this = $(this)
+	    let $parent = $this.closest('.tree-li')
+	    $parent.toggleClass('tree-li-true')
+	    $parent.toggleClass('tree-li-false')
+	})
 })
 
 class TreeNode extends Component {
@@ -31,12 +33,12 @@ class TreeNode extends Component {
 						if (item.child) {
 							node = (<TreeNode data={item.child} checked_ids={props.checked_ids} change={props.change} />)
                             btn = (
-                                <span className={'tree-li-span'} 
+                                <span className={'tree-li-span'}
                                 ></span>
                             )
 						}
 						return (
-							<li key={key} className={'tree-li tree-li-false'} 
+							<li key={key} className={'tree-li tree-li-false'}
 							>
                                 {btn}
 								<input type="checkbox" checked={checked} onChange={function (){
@@ -96,10 +98,10 @@ class TreeApp extends Component {
 		    checkedIds : self.state.checked_ids,
             autoLink : {
                 parent : self.props.treeLinkParent ,
-                child : self.props.treeLinkChild 
+                child : self.props.treeLinkChild
             }
 		})
-		
+
 		self.setState({
 			checked_ids: result.checked
 		})
