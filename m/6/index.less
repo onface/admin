@@ -1,0 +1,97 @@
+.mo-6 {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0;
+}
+.mo-6-side {
+    width:315px;
+    background-color: #32323a;
+    color:white;
+    vertical-align: top;
+}
+.mo-6-side-title {
+    font-size:34px;
+    line-height: 125px;
+    text-align: center;
+}
+.mo-6-side-nav {}
+.mo-6-side-nav-item {
+    border-bottom:1px solid #3b3b43;
+    text-decoration: none;
+}
+    .mo-6-side-nav-item--on {
+        .mo-6-side-nav-item-title {
+            color:white;
+            background-color: #4e97fb;
+            &:before {
+                border-color:white;
+                -moz-transform: rotate(-46deg);
+                -o-transform: rotate(-46deg);
+                -webkit-transform: rotate(-46deg);
+                transform: rotate(-46deg);
+            }
+        }
+        .mo-6-side-nav-item-sub {
+            display: block;
+        }
+    }
+.mo-6-side-nav-item-title {
+    color:#95a0aa;
+    height: 67px;
+    line-height: 67px;
+    font-size:22px;
+    position: relative;
+    cursor: pointer;
+    &:before {
+        content: ' ';
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        position: absolute;
+        right:20px;top:27px;
+        text-align: cetner;
+        content: " ";
+        display: inline-block;
+        border: 2px solid #8a939d;
+        border-top-width: 0;
+        border-right-width: 0;
+        -moz-transform: rotate(225deg);
+        -o-transform: rotate(225deg);
+        -webkit-transform: rotate(225deg);
+        transform: rotate(225deg);
+    }
+}
+.mo-6-side-nav-item-title>.fa {
+    margin-left: 31px;
+    margin-right: 31px;
+    font-size:24px;
+}
+.mo-6-side-nav-item-sub {
+    display: none;
+}
+.mo-6-side-nav-item-sub-item {
+    display: block;
+    text-decoration: none;
+    line-height:40px;
+    padding-left: 120px;
+    color:#ccc;
+    cursor: pointer;
+}
+    .mo-6-side-nav-item-sub-item--on {
+        color:#4e97fb;
+    }
+.mo-6-cnt {
+    vertical-align: top;
+}
+.mo-6-cnt-crumbs {
+    display: block;
+    border-bottom:1px solid #cccccc;
+    font-size:20px;
+    padding-left: 26px;
+    color:#1e79c6;
+    line-height: 60px;
+    background-color: white;
+}
+.mo-6-cnt-box {
+    padding: 10px;
+}

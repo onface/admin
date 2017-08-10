@@ -109,6 +109,11 @@ var conf = {
                         </a>
                     </div>
                     <div class="mo-2-side-item">
+                        <a class="mo-2-side-item-hd" href="/m/6/README.html" >
+                            <span class="fa fa-desktop"></span>布局6
+                        </a>
+                    </div>
+                    <div class="mo-2-side-item">
                         <a class="mo-2-side-item-hd" href="/m/panel/README.html" >
                             <span class="fa fa-desktop"></span>panel
                         </a>
