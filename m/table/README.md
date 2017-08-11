@@ -276,3 +276,73 @@
     </div>
 </div>
 ````
+
+## 信息
+
+
+````html
+<table class="mo-table-info">
+    <tbody>
+        <tr>
+            <td class="mo-table-info-F-label" >
+                编号
+            </td>
+            <td>
+                XJD_2321
+            </td>
+            <td class="mo-table-info-F-label" >
+                手机号
+            </td>
+            <td>
+                2312312
+            </td>
+            <td class="mo-table-info-F-label" >
+                借款人
+            </td>
+            <td>
+                21421512
+            </td>
+        </tr>
+        <tr>
+            <td class="mo-table-info-F-label" >
+                借款金额
+            </td>
+            <td>
+                123,23123
+            </td>
+            <td class="mo-table-info-F-label" >
+                利息
+            </td>
+            <td>
+                122
+            </td>
+            <td class="mo-table-info-F-label" >
+                管理费
+            </td>
+            <td>
+                8
+            </td>
+        </tr>
+        <tr>
+            <td class="mo-table-info-F-label" >
+                信审费
+            </td>
+            <td>
+                123,23123
+            </td>
+            <td class="mo-table-info-F-label" >
+                优惠券
+            </td>
+            <td>
+                122
+            </td>
+            <td class="mo-table-info-F-label" >
+                预期时间
+            </td>
+            <td>
+                8
+            </td>
+        </tr>
+    </tbody>
+</table>
+````
