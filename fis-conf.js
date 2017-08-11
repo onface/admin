@@ -93,9 +93,13 @@ var conf = {
                     </div>
                 </div>
                     <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/panel/README.html" >
-                            <span class="fa fa-info"></span>展示框
-                        </a>
+                        <div class="mo-2-side-item-hd">
+                            <span class="fa fa-info"></span>展示类
+                        </div>
+                        <div class="mo-2-side-item-bd">
+                            <a class="mo-2-side-item-bd-link" href="/m/panel/README.md" ><span class="fa fa-info"></span>统计面板</a>
+                            <a class="mo-2-side-item-bd-link" href="/m/step/README.md" ><span class="fa fa-braille"></span>步骤</a>
+                        </div>
                     </div>
                     <div class="mo-2-side-item">
                         <div class="mo-2-side-item-hd">
