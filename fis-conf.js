@@ -94,7 +94,7 @@ var conf = {
                 </div>
                     <div class="mo-2-side-item">
                         <a class="mo-2-side-item-hd" href="/m/panel/README.html" >
-                            <span class="fa fa-desktop"></span>展示框
+                            <span class="fa fa-info"></span>展示框
                         </a>
                     </div>
                     <div class="mo-2-side-item">

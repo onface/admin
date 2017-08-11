@@ -66,7 +66,7 @@ class TreeApp extends Component {
 
         let checked_ids = []
         if(/\S/.test(props.treeValue)){
-            let isChecked = props.treeValue.split(',')
+            let isChecked = String(props.treeValue).split(',')
             checked_ids = checked_ids.concat(isChecked)
             for(let key in isChecked){
                 checked_ids = checked_ids.concat(store.getParentAllIds(isChecked[key]))

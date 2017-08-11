@@ -56,66 +56,33 @@
 </div>
 ````
 
-<style>
-/* 用于演示的样式 */
-.mo-grid-1,
-.mo-grid-2,
-.mo-grid-3,
-.mo-grid-4,
-.mo-grid-5,
-.mo-grid-6,
-.mo-grid-7,
-.mo-grid-8,
-.mo-grid-9,
-.mo-grid-10,
-.mo-grid-11,
-.mo-grid-12,
-.mo-grid-13,
-.mo-grid-14,
-.mo-grid-15,
-.mo-grid-16,
-.mo-grid-17,
-.mo-grid-18,
-.mo-grid-19,
-.mo-grid-20,
-.mo-grid-21,
-.mo-grid-22,
-.mo-grid-23,
-.mo-grid-24 {
-    margin-bottom: 5px;
-    height: 20px;
-    line-height:20px;
-    color:white;
-    font-size:12px;
-}
-.mo-grid-1,
-.mo-grid-2,
-.mo-grid-3,
-.mo-grid-4,
-.mo-grid-5,
-.mo-grid-6,
-.mo-grid-7,
-.mo-grid-8,
-.mo-grid-9,
-.mo-grid-10,
-.mo-grid-11,
-.mo-grid-12 {
-    background-color:#99CCFF;
-    box-shadow:inset 0px 0px 5px #44a0fb;
-}
-.mo-grid-13,
-.mo-grid-14,
-.mo-grid-15,
-.mo-grid-16,
-.mo-grid-17,
-.mo-grid-18,
-.mo-grid-19,
-.mo-grid-20,
-.mo-grid-21,
-.mo-grid-22,
-.mo-grid-23,
-.mo-grid-24  {
-    background-color:#0099CC;
-    box-shadow:inset 0px 0px 5px #0A6586;
-}
-</style>
+## space
+
+````html
+<div class="mo-grid mo-grid--sapce">
+    <div class="mo-grid-3">
+        <div style="background-color:skyblue;height:10px;"></div>
+    </div>
+    <div class="mo-grid-3">
+        <div style="background-color:skyblue;height:10px;"></div>
+    </div>
+    <div class="mo-grid-3">
+        <div style="background-color:skyblue;height:10px;"></div>
+    </div>
+    <div class="mo-grid-3">
+        <div style="background-color:skyblue;height:10px;"></div>
+    </div>
+    <div class="mo-grid-3">
+        <div style="background-color:skyblue;height:10px;"></div>
+    </div>
+    <div class="mo-grid-3">
+        <div style="background-color:skyblue;height:10px;"></div>
+    </div>
+    <div class="mo-grid-3">
+        <div style="background-color:skyblue;height:10px;"></div>
+    </div>
+    <div class="mo-grid-3">
+        <div style="background-color:skyblue;height:10px;"></div>
+    </div>
+</div>
+````

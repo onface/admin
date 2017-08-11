@@ -1,4 +1,6 @@
-# panel
+# 展示框
+
+## basic
 
 ````html
 <div class="mo-panel">
@@ -26,5 +28,66 @@
     <a class="mo-panel-more" href="#" >
         查看更多
     </a>
+</div>
+````
+
+## stat
+
+````html
+<div class="mo-panel-stat">
+    <div class="mo-grid mo-grid--sapce">
+        <div class="mo-grid-6">
+            <div class="mo-panel-stat-item">
+                <div class="mo-panel-stat-item-icon">
+                    <span class="fa fa-list"></span>
+                </div>
+                <div class="mo-panel-stat-item-label">
+                    描述
+                </div>
+                <div class="mo-panel-stat-item-title">
+                    值
+                </div>
+            </div>
+        </div>
+        <div class="mo-grid-6">
+            <div class="mo-panel-stat-item">
+                <div class="mo-panel-stat-item-icon">
+                    <span class="fa fa-list"></span>
+                </div>
+                <div class="mo-panel-stat-item-label">
+                    描述
+                </div>
+                <div class="mo-panel-stat-item-title">
+                    值
+                </div>
+            </div>
+        </div>
+        <div class="mo-grid-6">
+            <div class="mo-panel-stat-item">
+                <div class="mo-panel-stat-item-icon">
+                    <span class="fa fa-list"></span>
+                </div>
+                <div class="mo-panel-stat-item-label">
+                    描述
+                </div>
+                <div class="mo-panel-stat-item-title">
+                    值
+                </div>
+            </div>
+        </div>
+        <div class="mo-grid-6">
+            <div class="mo-panel-stat-item">
+                <div class="mo-panel-stat-item-icon">
+                    <span class="fa fa-list"></span>
+                </div>
+                <div class="mo-panel-stat-item-label">
+                    描述
+                </div>
+                <div class="mo-panel-stat-item-title">
+                    值
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 ````

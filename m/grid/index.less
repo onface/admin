@@ -15,6 +15,19 @@
        height:0;
    }
 }
+.mo-grid--sapce {
+    &>* {
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
 .mo-grid-1,
 .mo-grid-2,
 .mo-grid-3,
