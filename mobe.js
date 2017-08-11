@@ -26,3 +26,6 @@ app.run({
         templateDir: './output/view/'
     }
 })
+app.app.get('/verify/', function (req, res) {
+    res.redirect('https://dummyimage.com/120/35')
+})

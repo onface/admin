@@ -68,54 +68,33 @@ var conf = {
                         <span class="fa fa-home"></span>首页
                     </a>
                 </div>
-                    <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/login/README.html" >
-                            <span class="fa fa-user"></span>登录
-                        </a>
+                <div class="mo-2-side-item">
+                    <div class="mo-2-side-item-hd">
+                        <span class="fa fa-user"></span>登录
                     </div>
-                    <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/login2/README.html" >
-                            <span class="fa fa-user"></span>登录2
-                        </a>
+                    <div class="mo-2-side-item-bd">
+                        <a class="mo-2-side-item-bd-link" href="/m/login/README.md" ><span class="fa fa-user"></span>登录1</a>
+                        <a class="mo-2-side-item-bd-link" href="/m/login2/README.md" ><span class="fa fa-user"></span>登录2</a>
+                        <a class="mo-2-side-item-bd-link" href="/m/login3/README.md" ><span class="fa fa-user"></span>登录3</a>
+                        <a class="mo-2-side-item-bd-link" href="/m/login4/README.md" ><span class="fa fa-user"></span>登录4</a>
                     </div>
-                    <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/login3/README.html" >
-                            <span class="fa fa-user"></span>登录3
-                        </a>
+                </div>
+                <div class="mo-2-side-item">
+                    <div class="mo-2-side-item-hd">
+                        <span class="fa fa-desktop"></span>布局
                     </div>
-                    <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/1/README.html" >
-                            <span class="fa fa-desktop"></span>布局1
-                        </a>
+                    <div class="mo-2-side-item-bd">
+                        <a class="mo-2-side-item-bd-link" href="/m/1/README.md" ><span class="fa fa-desktop"></span>布局1</a>
+                        <a class="mo-2-side-item-bd-link" href="/m/2/README.md" ><span class="fa fa-desktop"></span>布局2</a>
+                        <a class="mo-2-side-item-bd-link" href="/m/3/README.md" ><span class="fa fa-desktop"></span>布局3</a>
+                        <a class="mo-2-side-item-bd-link" href="/m/4/README.md" ><span class="fa fa-desktop"></span>布局4</a>
+                        <a class="mo-2-side-item-bd-link" href="/m/5/README.md" ><span class="fa fa-desktop"></span>布局5</a>
+                        <a class="mo-2-side-item-bd-link" href="/m/6/README.md" ><span class="fa fa-desktop"></span>布局6</a>
                     </div>
-                    <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/2/README.html" >
-                            <span class="fa fa-desktop"></span>布局2
-                        </a>
-                    </div>
-                    <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/3/README.html" >
-                            <span class="fa fa-desktop"></span>布局3
-                        </a>
-                    </div>
-                    <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/4/README.html" >
-                            <span class="fa fa-desktop"></span>布局4
-                        </a>
-                    </div>
-                    <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/5/README.html" >
-                            <span class="fa fa-desktop"></span>布局5
-                        </a>
-                    </div>
-                    <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/6/README.html" >
-                            <span class="fa fa-desktop"></span>布局6
-                        </a>
-                    </div>
+                </div>
                     <div class="mo-2-side-item">
                         <a class="mo-2-side-item-hd" href="/m/panel/README.html" >
-                            <span class="fa fa-desktop"></span>panel
+                            <span class="fa fa-desktop"></span>展示框
                         </a>
                     </div>
                     <div class="mo-2-side-item">
@@ -172,7 +151,7 @@ var conf = {
                     </div>
                     <div class="mo-2-side-item">
                         <a class="mo-2-side-item-hd" href="/m/grid/README.md" >
-                            <span class="fa fa-columns"></span>24等分布局
+                            <span class="fa fa-columns"></span>24等分排版
                         </a>
                     </div>
                 </div>
