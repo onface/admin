@@ -12,33 +12,97 @@
         background-color: #f2f2f2;
     }
     </style>
+
+    <h2> 初始默认 </h2>
+
     <div class="mo-login5">
-        <div class="mo-login5-title">登录</div>
-        <form data-form-ajax="true"  action="/m/json/ok-href.json" method="get"  class="mo-login5-form">
-            <div class="mo-login5-form-item">
-                <span class="fa fa-mortar-board "></span>
-                <select class="mo-login5-form-item-select" >
-                    <option value="empty" selected disabled>请选择学校</option>
-                    <option>学校1</option>
-                    <option>学校2</option>
-                    <option>学校3</option>
-                </select>
-            </div>
-            <div class="mo-login5-form-item">
-                <span class="fa fa-user"></span>
-                <input type="text" class="mo-login5-form-item-input" placeholder="用户名" />
-            </div>
-            <div class="mo-login5-form-item">
-                <span class="fa fa-lock"></span>
-                <input type="text" class="mo-login5-form-item-input" placeholder="密码" />
-            </div>
-            <div class="mo-login5-form-item">
-                <span class="fa fa-shield"></span>
-                <input type="text" class="mo-login5-form-item-input" placeholder="请输入右侧验证码" />
-                <img class="mo-login5-form-item-verifyimage" alt="点击刷新" data-login-verify-src="/verify/" alt="" />
-            </div>
-            <button class="mo-login5-form-submit" type="submit" >登  录</button>
-        </form>
+        <div class="mo-login5-mark" style="background-image: url('./bg.jpg')"></div>
+        <table class="mo-login5-F-table">
+            <tr>
+                <td>
+                    <div class="mo-login5-board">
+                        <img src="./phone.png" class="mo-login5-board-pic"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="mo-login5-box">
+                        <div class="mo-login5-box-title">登录</div>
+                        <form data-form-ajax="true"  action="/m/json/ok-href.json" method="get"  class="mo-login5-box-form">
+                            <div class="mo-login5-box-form-item">
+                                <span class="fa fa-mortar-board"></span>
+                                <select class="mo-login5-box-form-item-select" >
+                                    <option selected disabled>请选择学校</option>
+                                    <option>学校1</option>
+                                    <option>学校2</option>
+                                    <option>学校3</option>
+                                </select>
+                            </div>
+                            <div class="mo-login5-box-form-item">
+                                <span class="fa fa-user"></span>
+                                <input type="text" class="mo-login5-box-form-item-input" placeholder="用户名" />
+                            </div>
+                            <div class="mo-login5-box-form-item">
+                                <span class="fa fa-lock"></span>
+                                <input type="text" class="mo-login5-box-form-item-input" placeholder="密码" />
+                            </div>
+                            <div class="mo-login5-box-form-item">
+                                <span class="fa fa-shield"></span>
+                                <input type="text" class="mo-login5-box-form-item-input" placeholder="请输入右侧验证码" />
+                                <img class="mo-login5-box-form-item-verifyimage" alt="点击刷新" data-login-verify-src="/verify/" alt="" />
+                            </div>
+                            <button class="mo-login5-box-form-submit" type="submit" >登  录</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2> 选择学校后 </h2>
+
+    <div class="mo-login5">
+        <div class="mo-login5-mark" style="background-image: url('./bg_zhongnan.jpg')"></div>
+        <table class="mo-login5-F-table">
+            <tr>
+                <td>
+                    <div class="mo-login5-board">
+                        <img src="./zhongnan.png" class="mo-login5-board-pic"/>
+                        <div class="mo-login5-board-title">中南大学</div>
+                        <div class="mo-login5-board-hd">校训</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="mo-login5-box">
+                        <div class="mo-login5-box-title">登录</div>
+                        <form data-form-ajax="true"  action="/m/json/ok-href.json" method="get"  class="mo-login5-box-form">
+                            <div class="mo-login5-box-form-item">
+                                <span class="fa fa-mortar-board"></span>
+                                <select class="mo-login5-box-form-item-select" >
+                                    <option selected disabled>请选择学校</option>
+                                    <option>学校1</option>
+                                    <option>学校2</option>
+                                    <option>学校3</option>
+                                </select>
+                            </div>
+                            <div class="mo-login5-box-form-item">
+                                <span class="fa fa-user"></span>
+                                <input type="text" class="mo-login5-box-form-item-input" placeholder="用户名" />
+                            </div>
+                            <div class="mo-login5-box-form-item">
+                                <span class="fa fa-lock"></span>
+                                <input type="text" class="mo-login5-box-form-item-input" placeholder="密码" />
+                            </div>
+                            <div class="mo-login5-box-form-item">
+                                <span class="fa fa-shield"></span>
+                                <input type="text" class="mo-login5-box-form-item-input" placeholder="请输入右侧验证码" />
+                                <img class="mo-login5-box-form-item-verifyimage" alt="点击刷新" data-login-verify-src="/verify/" alt="" />
+                            </div>
+                            <button class="mo-login5-box-form-submit" type="submit" >登  录</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
     <script src="/fast-admin-deps.js"></script>
     <script src="/fast-admin.js"></script>
