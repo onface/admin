@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/fast-admin.less">
+</head>
+<body>
+    <style>
+    body {
+        background-color: #f2f2f2;
+    }
+    </style>
+    <div class="mo-login5">
+        <div class="mo-login5-title">登录</div>
+        <form data-form-ajax="true"  action="/m/json/ok-href.json" method="get"  class="mo-login5-form">
+            <div class="mo-login5-form-item">
+                <span class="mo-login5-form-item-icon fa fa-mortar-board "></span>
+                <select class="mo-login5-form-item-select" >
+                    <option value="empty" selected disabled>请选择学校</option>
+                    <option>学校1</option>
+                    <option>学校2</option>
+                    <option>学校3</option>
+                </select>
+            </div>
+            <div class="mo-login5-form-item">
+                <span class="mo-login5-form-item-icon fa fa-user"></span>
+                <input type="text" class="mo-login5-form-item-input" placeholder="用户名" />
+            </div>
+            <div class="mo-login5-form-item">
+                <span class="mo-login5-form-item-icon fa fa-lock"></span>
+                <input type="text" class="mo-login5-form-item-input" placeholder="密码" />
+            </div>
+            <button class="mo-login5-form-submit" type="submit" >登  录</button>
+        </form>
+    </div>
+    <script src="/fast-admin-deps.js"></script>
+    <script src="/fast-admin.js"></script>
+</body>
+</html>
