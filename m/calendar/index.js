@@ -13,7 +13,7 @@ class Calendar extends Component {
 	        date: new Date(props.date ),
 	        startWeekDay: props.weekday || '7' ,
 	        onChange: function (data) {
-	        	console.log('calData onChange')
+	        	// console.log('calData onChange')
 	        	self.getCheckInXhr(data)
 	        }
 	    })
@@ -46,12 +46,12 @@ class Calendar extends Component {
 				state.xhrBusy = false
 			break
 			default:
-				console.log('not find ',action.type) 
+				console.log('not find ',action.type)
 		}
 		self.setState(state)
 	}
 	getCheckInXhr = (data) => {
-		console.log('cgetCheckInXhr')
+		// console.log('cgetCheckInXhr')
 		data = extend(true,[],data)
         let date = ''
         data.some(function(item){
@@ -93,17 +93,14 @@ class Calendar extends Component {
 				}
 			}
 		}).always(function(){
-			setTimeout(function(){
-				self.ms({
-					type:'XHR_FREE'
-				})
-			},2000)
+			self.ms({
+				type:'XHR_FREE'
+			})
 		})
 
 	}
 	render(){
 		let self = this
-		console.log(self)
 		let dateObj = new Date(self.state.date)
 		return (
 			<div style={{'position':'relative'}}>
@@ -138,13 +135,13 @@ class Calendar extends Component {
 			            {
 			            	self.state.calData.map(function(item,index){
 			            		return (
-					                <span 	key={index} 
+					                <span 	key={index}
 					                		className={classNames({
 					                			"mo-calendar-cnt-bd-item" : true ,
 					                			"mo-calendar-cnt-bd-item--disable" : item.lastMonth || item.nextMonth ,
 					                			"mo-calendar-cnt-bd-item--on" : self.state.checkin.indexOf(String(item.day)) != -1
 					                		})}
-			                		>{item.day}</span> 
+			                		>{item.day}</span>
 		            			)
 			            	})
 			            }
