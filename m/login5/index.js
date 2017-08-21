@@ -3,7 +3,7 @@ let $ = require('jquery')
 $(function(){
 	function createTimestamp (ele) {
 		let $this = $(this)
-		let src = $this.data().loginVerifySrc
+		let src = $this.data('loginVerifySrc')
 		if (/\?/.test(src)) {
 			src = src + '&'
 		}
@@ -13,7 +13,7 @@ $(function(){
 		src = src + 'timestamp=' + new Date().getTime()
 		$this.attr('src', src)
 	}
-	let $code = $('.mo-login5-form-item-verifyimage')
+	let $code = $('.mo-login5-box-form-item-verifyimage')
 	$code.each(function () {
 		let $this = $(this)
 		createTimestamp.bind(this)()
