@@ -60,7 +60,7 @@
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "style-loader": "^0.13.1",
-    "tree-store": "^0.0.4",
+    "tree-store": "^0.0.5",
     "undoselect": "0.0.1",
     "url-loader": "^0.5.7"
   }

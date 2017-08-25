@@ -1557,11 +1557,11 @@ extend@^2.0.1:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/extend/download/extend-2.0.1.tgz#1ee8010689e7395ff9448241c98652bc759a8260"
 
-extend@^3.0.0, extend@~3.0.0:
+extend@^3.0.0:
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/extend/download/extend-3.0.0.tgz#5a474353b9f3353ddd8176dfd37b91c83a46f1d4"
 
-extend@^3.0.1:
+extend@^3.0.1, extend@~3.0.0:
   version "3.0.1"
   resolved "http://registry.npm.taobao.org/extend/download/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
 
@@ -3674,10 +3674,11 @@ tr46@~0.0.1:
   version "0.0.3"
   resolved "http://registry.npm.taobao.org/tr46/download/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
 
-tree-store@^0.0.4:
-  version "0.0.4"
-  resolved "http://registry.npm.taobao.org/tree-store/download/tree-store-0.0.4.tgz#b1261b5c2ce11065c5fb4dad91f04437616f6ed6"
+tree-store@^0.0.5:
+  version "0.0.5"
+  resolved "http://registry.npm.taobao.org/tree-store/download/tree-store-0.0.5.tgz#d51919803f0383dc8d0e0387480d6e6679f22668"
   dependencies:
+    extend "^3.0.1"
     uniq "^1.0.1"
 
 trim-right@^1.0.1:
