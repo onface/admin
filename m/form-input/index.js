@@ -76,6 +76,15 @@ $(function(){
 					location.href = res.data.href
 				}, hrefTimeout)
 			}
+			if (res.status === 'success') {
+				var fnKey = $this.data('formSuccessCallback').replace(/^@/,'')
+				if (typeof window[fnKey] === 'function') {
+					window[fnKey](res)
+				}
+				else {
+					alert('not find window[data-form-success-callback]')
+				}
+			}
         })
 		return false
 	})

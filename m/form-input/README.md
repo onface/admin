@@ -97,6 +97,34 @@
 </form>
 ````
 
+## success-callback
+
+````html
+<form
+    class="mo-form"
+    method="get"
+    action="/m/json/ok.json"
+    data-form-ajax="true"
+    data-form-success-callback="@successcb1"
+    >
+    <div class="mo-form-title">success</div>
+    <div class="mo-form-item">
+        <span class="mo-form-item-label">text</span>
+        <span class="mo-form-item-form">
+            <input type="text" name="user" class="mo-input" placeholder="输入用户名／邮箱">
+        </span>
+    </div>
+    <div class="mo-form-item">
+        <button class="mo-btn mo-btn--info"> 提交</button>
+    </div>
+</form>
+<script>
+function successcb1 (res) {
+    console.log('successCallback')
+    console.log(res)
+}    
+</script>
+````
 
 ## 默认（上下 有标签） & 尺寸
 
