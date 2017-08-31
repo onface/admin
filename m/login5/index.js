@@ -23,6 +23,10 @@ $(function(){
 		let $this = $(this) // this -> .mo-login5
 		let $originParent = $this.closest('.mo-login5')
 		let $selected = $this.children('option:selected')
+		if($selected.length == 0){
+			$this.children('option').eq(0).attr('selected','true')
+			$selected = $this.children('option:selected')
+		}
 
 		let bg = $selected.data('bg') || '/m/login5/bg.jpg'
 		$originParent.find('.mo-login5-mark').css("background-image","url('"+bg+"')")
@@ -38,6 +42,6 @@ $(function(){
 	let $login5Select = $('.mo-login5-box-form-item-select')
 	$login5Select.each(function () {
 		let $this = $(this)
-		changeSchoolTheme.bind(this)
+		changeSchoolTheme.bind(this)()
 	}).on('change',changeSchoolTheme)
 })
