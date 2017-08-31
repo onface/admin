@@ -1,6 +1,6 @@
 {
   "name": "fast-admin",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "repository": "fast-flow/admin",
   "scripts": {
     "dev": "fis3 release -w -d ./output",
