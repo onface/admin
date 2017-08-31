@@ -8,6 +8,7 @@ $(function () {
     $('body').on('click', '[data-dialog-content]', function () {
         let $this = $(this)
         let data = $this.data()
+        let render = data.dialogRender
         let $target = filter(this, $this.data('dialogContent'))
         let $cloneELmeent
         if ($target.data('__fast-admin-dialog-clone-element')) {
@@ -18,9 +19,7 @@ $(function () {
     		if (data.dialogBase64) {
     			html = Base64.decode(html)
     		}
-            if (!/</.test(html)) {
-                html = '<div>' + html + '</div>'
-            }
+            html = '<div>' + html + '</div>'
             $cloneELmeent = $(html)
             $target.data('__fast-admin-dialog-clone-element', $cloneELmeent)
         }
@@ -29,5 +28,14 @@ $(function () {
             title: $this.data('dialogTitle') || 'dialog',
             content: $cloneELmeent
         }).showModal()
+        if (render) {
+            var renderKey = render.replace(/^@/, '')
+            if (typeof window[renderKey] === 'function') {
+                window[renderKey].apply($this, $cloneELmeent)
+            }
+            else {
+                alert('not find window[data-dialog-render]')
+            }
+        }
     })
 })
