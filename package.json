@@ -25,6 +25,7 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.23.1",
     "date-logic": "^0.1.0",
+    "dialog.react": "^0.1.4",
     "dragula": "^3.7.1",
     "es3ify-loader": "^0.2.0",
     "exec": "^0.2.1",

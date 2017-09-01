@@ -77,6 +77,7 @@ var conf = {
                         <a class="mo-2-side-item-bd-link" href="/m/login2/README.md" ><span class="fa fa-user"></span>登录2</a>
                         <a class="mo-2-side-item-bd-link" href="/m/login3/README.md" ><span class="fa fa-user"></span>登录3</a>
                         <a class="mo-2-side-item-bd-link" href="/m/login4/README.md" ><span class="fa fa-user"></span>登录4</a>
+                        <a class="mo-2-side-item-bd-link" href="/m/login5/README.md" ><span class="fa fa-user"></span>登录5</a>
                     </div>
                 </div>
                 <div class="mo-2-side-item">
@@ -151,6 +152,7 @@ var conf = {
                             <a class="mo-2-side-item-bd-link"  href="/m/dialog/README.md" ><span class="fa fa-file-text-o"></span>弹窗</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/ajaxtable/README.md" ><span class="fa fa-table"></span>ajax table</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/ajaxselect/README.md" ><span class="fa fa-table"></span>ajax select</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/cascade/README.md" ><span class="fa fa-table"></span>cascade级联下拉框</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
