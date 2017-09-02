@@ -3692,9 +3692,9 @@ tr46@~0.0.1:
   version "0.0.3"
   resolved "http://registry.npm.taobao.org/tr46/download/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
 
-tree-store@^0.0.5:
-  version "0.0.5"
-  resolved "http://registry.npm.taobao.org/tree-store/download/tree-store-0.0.5.tgz#d51919803f0383dc8d0e0387480d6e6679f22668"
+tree-store@^0.0.7:
+  version "0.0.7"
+  resolved "http://registry.npm.taobao.org/tree-store/download/tree-store-0.0.7.tgz#2854bef43f89cc2a7110ef1ce5d3ed40165298c8"
   dependencies:
     extend "^3.0.1"
     uniq "^1.0.1"

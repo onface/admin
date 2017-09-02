@@ -13,7 +13,7 @@ import "./index.less"
 class Cascade extends Component {
     constructor(props){
         super(props)
-        console.log(props)
+        // console.log(props)
         // 树形数据源
         let data = TreeStore.treeMap( props.data.data  , 'child' , function ( item ) {
                         item.$id = item.id
@@ -35,19 +35,19 @@ class Cascade extends Component {
                             :   TreeStore(data).getChildLeftBranchIds().map(function(item){
                                     return item[0] || ''
                                 })
-        // 显示的级联下拉框个数 : number || undefined
+        // 显示的级联下拉框个数 : number || undefined (无限制显示)
         let showLength = Math.max( (props.data.column || [] ).length , hasCheckedValue ? props.cascadeValue.split(',').length : 0 )
             showLength = showLength ? showLength : undefined
         this.state = {
             checkedArray : checkedArray ,
             showLength : showLength ,
             data : data,
-            dialog :{
+            editDialog :props.editDialog,
+            xhrBusy:false,
+            message:{
+                title:'提示',
                 show:false,
-                title:'',
-                value:'',
-                type:'add',
-                value:''
+                content:'错误'
             }
         }
     }
@@ -58,9 +58,41 @@ class Cascade extends Component {
             case 'CHANGE_CHECK_ARRAY':
                 state.checkedArray = TreeStore(state.data).changeSelect(action.payload)
             break;
-            case 'CHANGE_DIALOG':
+            case 'CHANGE_EDIT_DIALOG':
                 for(let key in action.payload){
-                    state.dialog[key] = action.payload[key]
+                    state.editDialog[key] = action.payload[key]
+                }
+            break
+            case 'CHANGE_MESSAGE':
+                for(let key in action.payload){
+                    state.message[key] = action.payload[key]
+                }
+            break;
+            case 'CHANGE_XHR_BUSY':
+                state.xhrBusy = action.payload
+            break
+            case 'CHANGE_DATA':
+                // console.log('CHANGE_DATA : ',action.payload)
+                if(action.payload.operateType == 'add'){// 新增
+                    let parentId = action.payload.id.split(',')
+                        parentId.pop()
+                        parentId = parentId.join('-')
+                    let data = TreeStore.extendChild(state.data,parentId,[
+                        {
+                            id:action.payload.id,
+                            name:action.payload.name,
+                        }
+                    ])
+                    state.data = extend(true,[],data)
+                }else if(action.payload.operateType == 'update'){// 修改
+                    let data = TreeStore.treeMap(state.data,'child',function(item){
+                        if(item.id == action.payload.id){
+                            item.name = action.payload.name
+                        }
+                        return item
+                    })
+                    state.data = extend(true,[],data)
+                    // console.log(JSON.stringify(data))
                 }
             break
             default:
@@ -71,6 +103,77 @@ class Cascade extends Component {
     // ajax
     submit = () => {
         let self = this
+        let state = this.state
+        if(!/\S/.test(state.editDialog.name)){
+            self.ms({
+                type:'CHANGE_EDIT_DIALOG',
+                payload:{
+                    errMsg : '请填写'+state.editDialog.title
+                }
+            })
+            return false
+        }
+        if(state.xhrBusy){
+            return false
+        }
+        self.ms({
+            type:'CHANGE_XHR_BUSY',
+            payload:true
+        })
+        let data = {
+            name:state.editDialog.name ,
+            type:state.editDialog.type ,
+            id:state.editDialog.operateType == 'add' ? undefined : state.editDialog.id ,
+        }
+        $.ajax({
+            url:self.props.data.ajax[state.editDialog.operateType].action,
+            type:self.props.data.ajax[state.editDialog.operateType].method,
+            dataType:'json',
+            data:data
+        }).done(function(res){
+            if(res.status == 'success'){
+                let id = ''
+                if(state.editDialog.operateType == 'update'){// 修改
+                    id = state.editDialog.id.split(',').join('-')
+                }else if(state.editDialog.operateType == 'add'){// 新增
+                    if(state.editDialog.id == '' ){
+                        id = res.data.id
+                    }else{
+                        id = state.editDialog.id.split(',')
+                        id.push(res.data.id)
+                        id = id.join('-')
+                    }
+                }
+                self.ms({
+                    type:'CHANGE_DATA',
+                    payload: {
+                        operateType:state.editDialog.operateType,
+                        id:id,
+                        name:data.name
+                    }
+                })
+                self.ms({
+                    type:'CHANGE_EDIT_DIALOG',
+                    payload:{
+                        show:false,
+                        errMsg:''
+                    }
+                })
+            }else{
+                self.ms({
+                    type:'CHANGE_MESSAGE',
+                    payload:{
+                        show:true,
+                        content:res.msg || '提交失败'
+                    }
+                })
+            }
+        }).always(function(){
+            self.ms({
+                type:'CHANGE_XHR_BUSY',
+                payload:false
+            })
+        })
     }
     render () {
         let self = this
@@ -80,7 +183,7 @@ class Cascade extends Component {
             checked : state.checkedArray ,
             maxLength : state.showLength
         })
-        console.log(renderSelect)
+        // console.log(renderSelect)
 
         return (
             <div className="mo-cascade">
@@ -120,11 +223,19 @@ class Cascade extends Component {
                                             <div className="mo-cascade-item-tool-icon fa fa-plus"
                                                 onClick={function (){
                                                     self.ms({
-                                                        type:'CHANGE_DIALOG',
+                                                        type:'CHANGE_EDIT_DIALOG',
                                                         payload:{
                                                             show:true,
-                                                            type:'add',
-                                                            title:props.data.column[index].label
+                                                            operateType:'add',
+                                                            type:props.data.column[index].type,
+                                                            title:props.data.column[index].label,
+                                                            id:(function(){
+                                                                    let id = state.checkedArray[index].split('-')
+                                                                    id.pop()
+                                                                    id = id.join(',')
+                                                                    return id
+                                                                })(),
+                                                            name:''
                                                         }
                                                     })
                                                 }}
@@ -137,12 +248,22 @@ class Cascade extends Component {
                                         ? (
                                             <div className="mo-cascade-item-tool-icon fa fa-edit"
                                                 onClick={function (){
+                                                    let name = ''
+                                                    renderSelect[index].some(function(t,i){
+                                                        if(t.id == state.checkedArray[index]){
+                                                            name = t.name
+                                                            return true
+                                                        }
+                                                    })
                                                     self.ms({
-                                                        type:'CHANGE_DIALOG',
+                                                        type:'CHANGE_EDIT_DIALOG',
                                                         payload:{
                                                             show:true,
-                                                            type:'update',
-                                                            title:props.data.column[index].label
+                                                            operateType:'update',
+                                                            type:props.data.column[index].type,
+                                                            title:props.data.column[index].label,
+                                                            name:name,
+                                                            id:state.checkedArray[index].split('-').join(',')
                                                         }
                                                     })
                                                 }}
@@ -159,53 +280,90 @@ class Cascade extends Component {
                         value={state.checkedArray[state.checkedArray.length - 1].split('-').join(',')}
                         name={self.props.cascadeName || 'mo-cascade'}
                 />
-                {/* dialog */}
+                {/* editDialog */}
                 <Dialog
-                    title={state.dialog.type == 'add' ? '新增'+state.dialog.title : '修改'+state.dialog.title}
-                    show={state.dialog.show}
+                    title={state.editDialog.id ? '修改'+state.editDialog.title : '新增'+state.editDialog.title}
+                    show={state.editDialog.show}
                     style={{
                         width: 550
                     }}
                     onClose={function (){
                         self.ms({
-                            type:'CHANGE_DIALOG',
+                            type:'CHANGE_EDIT_DIALOG',
                             payload:{
-                                show:false
+                                show:false,
+                                errMsg:''
                             }
                         })
                     }}
                     tool={(
                         <div>
-                            <span className="r-dialog-btn"
+                            <span
+                                className={classNames({
+                                    "mo-cascade-btn mo-btn mo-btn--success":true,
+                                    "mo-btn--loading" : state.xhrBusy
+                                })}
                                 onClick={self.submit}
                             >确认</span>
-                            <span className="r-dialog-btn" data-r-dialog-close="true">取消</span>
+                            <span className="mo-cascade-btn mo-btn" data-r-dialog-close="true">取消</span>
                         </div>
                     )}
                 >
                     <div className="mo-cascade mo-cascade--expend">
                         <div className="mo-cascade-item">
                             <div className="mo-cascade-item-label">
-                                {state.dialog.title}
+                                {state.editDialog.title}
                             </div>
                             <div className="mo-cascade-item-cnt">
-                                <input className="mo-cascade-item-cnt-select" value={state.dialog.value}
+                                <input
+                                    className="mo-cascade-item-cnt-select"
+                                    value={state.editDialog.name}
                                     onChange={function (e){
                                         self.ms({
-                                            type:'CHANGE_DIALOG',
+                                            type:'CHANGE_EDIT_DIALOG',
                                             payload:{
-                                                value:e.target.value
+                                                name:e.target.value
                                             }
                                         })
                                     }}
                                  />
+                                 {
+                                     state.editDialog.errMsg ? (<div className="mo-cascade-F-highlight">{state.editDialog.errMsg}</div>) : null
+                                 }
                             </div>
                         </div>
                     </div>
                 </Dialog>
+                {/* message */}
+                <Dialog
+                    title={state.message.title}
+                    show={state.message.show}
+                    onClose={function (){
+                        self.ms({
+                            type:'CHANGE_MESSAGE',
+                            payload:{
+                                show:false
+                            }
+                        })
+                    }}
+                 >
+                    <div>{state.message.content}</div>
+                </Dialog>
             </div>
         )
     }
+}
+
+Cascade.defaultProps = {
+    editDialog :{
+        show:false,
+        title:'',
+        name:'',
+        operateType:'add',
+        type:'',
+        id:'',
+        errMsg:''
+    },
 }
 
 $(function () {
