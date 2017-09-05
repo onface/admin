@@ -38,6 +38,11 @@ class Cascade extends Component {
         // 显示的级联下拉框个数 : number || undefined (无限制显示)
         let showLength = Math.max( (props.data.column || [] ).length , hasCheckedValue ? props.cascadeValue.split(',').length : 0 )
             showLength = showLength ? showLength : undefined
+
+        if(checkedArray.length < showLength){
+            checkedArray.push('')
+        }
+
         this.state = {
             checkedArray : checkedArray ,
             showLength : showLength ,
@@ -58,6 +63,9 @@ class Cascade extends Component {
         switch (action.type) {
             case 'CHANGE_CHECK_ARRAY':
                 state.checkedArray = TreeStore(state.data).changeSelect(action.payload)
+                if(state.checkedArray.length < state.showLength){
+                    state.checkedArray.push('')
+                }
             break;
             case 'CHANGE_EDIT_DIALOG':
                 for(let key in action.payload){
@@ -93,6 +101,9 @@ class Cascade extends Component {
                 state.data = extend(true,[],movedata)
                 // console.log(movedata)
                 state.checkedArray = state.moveDialog.checkedArray
+                if(state.checkedArray < state.showLength){
+                    state.checkedArray.push('')
+                }
             break
             case 'CHANGE_XHR_BUSY':
                 state.xhrBusy = action.payload
@@ -299,11 +310,19 @@ class Cascade extends Component {
                                         ? (
                                             <div className="mo-cascade-item-tool-icon fa fa-plus"
                                                 onClick={function (){
-                                                    let ids = state.checkedArray[index]
-                                                    let curId = ids.split('-').reverse()[0]
-                                                    let pathIds = ids.split('-')
+                                                    let ids = ''
+                                                    let curId = ''
+                                                    let pathIds = ''
+
+                                                    if(state.checkedArray[index]){
+                                                        ids = state.checkedArray[index]
+                                                        pathIds = ids.split('-')
                                                         pathIds.pop()
                                                         pathIds = pathIds.join(',')
+                                                    }else{
+                                                        ids = state.checkedArray[index - 1]
+                                                        pathIds = ids.split('-').join(',')
+                                                    }
                                                     self.ms({
                                                         type:'CHANGE_EDIT_DIALOG',
                                                         payload:{
@@ -313,7 +332,7 @@ class Cascade extends Component {
                                                             title:props.data.column[index].label,
                                                             path:pathIds,
                                                             id:curId,
-                                                            $ids:state.checkedArray[index],
+                                                            $ids:ids,
                                                             name:''
                                                         }
                                                     })

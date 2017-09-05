@@ -39,102 +39,7 @@
         }
     ],
     "_data" : "级联下拉框所需所有数据" ,
-    "data" : [
-        {
-            "name":"系别a",
-            "id":"a",
-            "child":[
-                {
-                    "name":"专业a-a",
-                    "id":"a",
-                    "child":[
-                        {
-                            "name":"班级a-a-a",
-                            "id":"a",
-                            "child":[
-                                {
-                                    "name":"测试第四级数据a-a-a-a",
-                                    "id":"a"
-                                },{
-                                    "name":"测试第四级数据a-a-a-b",
-                                    "id":"b"
-                                }
-                            ]
-                        },{
-                            "name":"班级a-a-b",
-                            "id":"b",
-                            "child":[
-                                {
-                                    "name":"测试第四级数据a-a-b-a",
-                                    "id":"a"
-                                },{
-                                    "name":"测试第四级数据a-a-b-b",
-                                    "id":"b"
-                                }
-                            ]
-                        }
-                    ]
-                },{
-                    "name":"专业a-b",
-                    "id":"b",
-                    "child":[
-                        {
-                            "name":"班级a-b-a",
-                            "id":"a"
-                        },{
-                            "name":"班级a-b-b",
-                            "id":"b"
-                        }
-                    ]
-                }
-            ]
-        },{
-            "name":"系别b",
-            "id":"b",
-            "child":[
-                {
-                    "name":"专业b-a",
-                    "id":"a",
-                    "child":[
-                        {
-                            "name":"班级b-a-a",
-                            "id":"a"
-                        },{
-                            "name":"班级b-a-b",
-                            "id":"b"
-                        }
-                    ]
-                },{
-                    "name":"专业b-b",
-                    "id":"b",
-                    "child":[
-                        {
-                            "name":"班级b-b-a",
-                            "id":"a"
-                        },{
-                            "name":"班级b-b-b",
-                            "id":"b"
-                        }
-                    ]
-                }
-            ]
-        },{
-            "name":"系别c",
-            "id":"c",
-            "child":[
-                {
-                    "name":"专业c-a(没有第三级数据测试)",
-                    "id":"a"
-                },{
-                    "name":"专业c-b(没有第三级数据测试)",
-                    "id":"b"
-                }
-            ]
-        },{
-            "name":"系别d(没有第二级数据测试)",
-            "id":"d"
-        }
-    ]
+    "data" : []
 }
 </script>
 ````
@@ -163,6 +68,12 @@
 ````
 
 ```js
+/request
+{
+    type:'class',
+    id:'currentId',
+    path:'deptId,majorId'
+}
 /m/json/ajaxcascade.json
 {
     "status": "success",
