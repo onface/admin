@@ -43,6 +43,7 @@ class Cascade extends Component {
             showLength : showLength ,
             data : data,
             editDialog :props.editDialog,
+            moveDialog :props.moveDialog,
             xhrBusy:false,
             message:{
                 title:'提示',
@@ -63,31 +64,59 @@ class Cascade extends Component {
                     state.editDialog[key] = action.payload[key]
                 }
             break
+            case 'CHANGE_MOVE_DIALOG':
+                for(let key in action.payload){
+                    state.moveDialog[key] = action.payload[key]
+                }
+            break
+            case 'CHANGE_MOVE_DIALOG_CHECK_ARRAY':
+                let checkedArray = TreeStore(state.data).changeSelect(action.payload)
+                state.moveDialog.checkedArray = extend(true,[],checkedArray)
+            break
             case 'CHANGE_MESSAGE':
                 for(let key in action.payload){
                     state.message[key] = action.payload[key]
                 }
             break;
+            case 'CHANGE_MOVE':
+                let curArray = []
+                let parentId = state.moveDialog.checkedArray[state.moveDialog.showLength - 1]
+                let deletedata = TreeStore.treeFilter(state.data,'child',function(item){
+                        let isIt = item.id == state.moveDialog.$ids
+                        if(isIt){
+                            let temp = extend(true,{},item)
+                            curArray.push(temp)
+                        }
+                        return !isIt
+                    })
+                let movedata = TreeStore.extendChild(deletedata,parentId,curArray)
+                state.data = extend(true,[],movedata)
+                // console.log(movedata)
+                state.checkedArray = state.moveDialog.checkedArray
+            break
             case 'CHANGE_XHR_BUSY':
                 state.xhrBusy = action.payload
             break
             case 'CHANGE_DATA':
                 // console.log('CHANGE_DATA : ',action.payload)
-                if(action.payload.operateType == 'add'){// 新增
-                    let parentId = action.payload.id.split(',')
-                        parentId.pop()
-                        parentId = parentId.join('-')
+                if(state.editDialog.operateType == 'add'){// 新增
+                    let parentId = state.editDialog.path
+                    let curId = action.payload.id || state.editDialog.id
+                    let $id = parentId.split(',')
+                        $id.push(curId)
+                        $id = $id.join('-')
                     let data = TreeStore.extendChild(state.data,parentId,[
                         {
-                            id:action.payload.id,
-                            name:action.payload.name,
+                            id:curId,
+                            $id:$id,
+                            name:state.editDialog.name,
                         }
                     ])
                     state.data = extend(true,[],data)
-                }else if(action.payload.operateType == 'update'){// 修改
+                }else if(state.editDialog.operateType == 'update'){// 修改
                     let data = TreeStore.treeMap(state.data,'child',function(item){
-                        if(item.id == action.payload.id){
-                            item.name = action.payload.name
+                        if(item.id == state.editDialog.$ids){
+                            item.name = state.editDialog.name
                         }
                         return item
                     })
@@ -124,6 +153,7 @@ class Cascade extends Component {
             name:state.editDialog.name ,
             type:state.editDialog.type ,
             id:state.editDialog.operateType == 'add' ? undefined : state.editDialog.id ,
+            path:state.editDialog.path
         }
         $.ajax({
             url:self.props.data.ajax[state.editDialog.operateType].action,
@@ -132,24 +162,10 @@ class Cascade extends Component {
             data:data
         }).done(function(res){
             if(res.status == 'success'){
-                let id = ''
-                if(state.editDialog.operateType == 'update'){// 修改
-                    id = state.editDialog.id.split(',').join('-')
-                }else if(state.editDialog.operateType == 'add'){// 新增
-                    if(state.editDialog.id == '' ){
-                        id = res.data.id
-                    }else{
-                        id = state.editDialog.id.split(',')
-                        id.push(res.data.id)
-                        id = id.join('-')
-                    }
-                }
                 self.ms({
                     type:'CHANGE_DATA',
                     payload: {
-                        operateType:state.editDialog.operateType,
-                        id:id,
-                        name:data.name
+                        id:res.data.id || '' ,
                     }
                 })
                 self.ms({
@@ -175,6 +191,58 @@ class Cascade extends Component {
             })
         })
     }
+    // ajax move
+    submitMove = () => {
+        let self = this
+        let state = this.state
+        if(state.checkedArray.join(',') === state.moveDialog.checkedArray.join(',') ){
+            self.ms({
+                type:'CHANGE_MOVE_DIALOG',
+                payload:{
+                    errMsg : '您没有修改位置!'
+                }
+            })
+            return false
+        }
+        if(state.xhrBusy){
+            return false
+        }
+        self.ms({
+            type:'CHANGE_XHR_BUSY',
+            payload:true
+        })
+        let data = {
+            id:state.moveDialog.id ,
+            old_path:state.moveDialog.old_path ,
+            path:state.moveDialog.checkedArray[state.moveDialog.showLength - 1].split('-').join(',')
+        }
+        $.ajax({
+            url:self.props.data.ajax.move.action,
+            type:self.props.data.ajax.move.method,
+            dataType:'json',
+            data:data
+        }).done(function(res){
+            if(res.status == 'success'){
+                self.ms({
+                    type:'CHANGE_MOVE',
+                })
+            }else{
+                self.ms({
+                    type:'CHANGE_MESSAGE',
+                    payload:{
+                        show:true,
+                        content:res.msg || '提交失败'
+                    }
+                })
+            }
+        }).always(function(){
+            self.ms({
+                type:'CHANGE_XHR_BUSY',
+                payload:false
+            })
+        })
+
+    }
     render () {
         let self = this
         let state = self.state
@@ -184,6 +252,15 @@ class Cascade extends Component {
             maxLength : state.showLength
         })
         // console.log(renderSelect)
+
+        let moveDialogSelect = []
+        if(state.moveDialog.show){
+            moveDialogSelect= TreeStore(state.data).renderSelect({
+                checked : state.moveDialog.checkedArray ,
+                maxLength : state.moveDialog.showLength
+            })
+        }
+        // console.log(moveDialogSelect)
 
         return (
             <div className="mo-cascade">
@@ -222,6 +299,11 @@ class Cascade extends Component {
                                         ? (
                                             <div className="mo-cascade-item-tool-icon fa fa-plus"
                                                 onClick={function (){
+                                                    let ids = state.checkedArray[index]
+                                                    let curId = ids.split('-').reverse()[0]
+                                                    let pathIds = ids.split('-')
+                                                        pathIds.pop()
+                                                        pathIds = pathIds.join(',')
                                                     self.ms({
                                                         type:'CHANGE_EDIT_DIALOG',
                                                         payload:{
@@ -229,12 +311,9 @@ class Cascade extends Component {
                                                             operateType:'add',
                                                             type:props.data.column[index].type,
                                                             title:props.data.column[index].label,
-                                                            id:(function(){
-                                                                    let id = state.checkedArray[index].split('-')
-                                                                    id.pop()
-                                                                    id = id.join(',')
-                                                                    return id
-                                                                })(),
+                                                            path:pathIds,
+                                                            id:curId,
+                                                            $ids:state.checkedArray[index],
                                                             name:''
                                                         }
                                                     })
@@ -248,13 +327,20 @@ class Cascade extends Component {
                                         ? (
                                             <div className="mo-cascade-item-tool-icon fa fa-edit"
                                                 onClick={function (){
-                                                    let name = ''
+                                                    let curName = ''
                                                     renderSelect[index].some(function(t,i){
                                                         if(t.id == state.checkedArray[index]){
-                                                            name = t.name
+                                                            curName = t.name
                                                             return true
                                                         }
                                                     })
+
+                                                    let ids = state.checkedArray[index]
+                                                    let curId = ids.split('-').reverse()[0]
+                                                    let pathIds = ids.split('-')
+                                                        pathIds.pop()
+                                                        pathIds = pathIds.join(',')
+
                                                     self.ms({
                                                         type:'CHANGE_EDIT_DIALOG',
                                                         payload:{
@@ -262,11 +348,43 @@ class Cascade extends Component {
                                                             operateType:'update',
                                                             type:props.data.column[index].type,
                                                             title:props.data.column[index].label,
-                                                            name:name,
-                                                            id:state.checkedArray[index].split('-').join(',')
+                                                            name:curName,
+                                                            id:curId,
+                                                            $ids:state.checkedArray[index],
+                                                            path:pathIds,
                                                         }
                                                     })
                                                 }}
+                                            ></div>
+                                        ) : null
+                                    }
+                                    {/* 如果有ajax.move接口才显示按钮 */}
+                                    {
+                                        props.data.ajax.move && index
+                                        ? (
+                                            <div className="mo-cascade-item-tool-icon fa fa-arrows"
+                                                 onClick={function (){
+                                                    // console.log('移动')
+                                                    let ids = state.checkedArray[index]
+                                                    let curId = ids.split('-').reverse()[0]
+                                                    let pathIds = ids.split('-')
+                                                        pathIds.pop()
+                                                        pathIds = pathIds.join(',')
+
+                                                    self.ms({
+                                                        type:'CHANGE_MOVE_DIALOG',
+                                                        payload:{
+                                                            show:true,
+                                                            type:props.data.column[index].type,
+                                                            title:props.data.column[index].label,
+                                                            checkedArray:state.checkedArray ,
+                                                            showLength:index,
+                                                            $ids:ids,
+                                                            id:curId,
+                                                            old_path:pathIds,
+                                                        }
+                                                    })
+                                                 }}
                                             ></div>
                                         ) : null
                                     }
@@ -282,11 +400,9 @@ class Cascade extends Component {
                 />
                 {/* editDialog */}
                 <Dialog
-                    title={state.editDialog.id ? '修改'+state.editDialog.title : '新增'+state.editDialog.title}
+                    title={state.editDialog.operateType == 'update' ? '修改'+state.editDialog.title : '新增'+state.editDialog.title}
                     show={state.editDialog.show}
-                    style={{
-                        width: 550
-                    }}
+                    style={{width: 550}}
                     onClose={function (){
                         self.ms({
                             type:'CHANGE_EDIT_DIALOG',
@@ -334,6 +450,78 @@ class Cascade extends Component {
                         </div>
                     </div>
                 </Dialog>
+                {/* moveDialog */}
+                <Dialog
+                    title={'移动'+state.moveDialog.title+"到"}
+                    show={state.moveDialog.show}
+                    style={{width: 550}}
+                    onClose={function (){
+                        self.ms({
+                            type:'CHANGE_MOVE_DIALOG',
+                            payload:{
+                                show:false,
+                                errMsg:''
+                            }
+                        })
+                    }}
+                    tool={(
+                        <div>
+                            <span
+                                className={classNames({
+                                    "mo-cascade-btn mo-btn mo-btn--success":true,
+                                    "mo-btn--loading" : state.xhrBusy
+                                })}
+                                onClick={self.submitMove}
+                            >确认</span>
+                            <span className="mo-cascade-btn mo-btn" data-r-dialog-close="true">取消</span>
+                        </div>
+                    )}
+                >
+                    <div className="mo-cascade mo-cascade--expend">
+                        {
+                            moveDialogSelect.map(function(item,index){
+                                return (
+                                    <div key={index} className="mo-cascade-item">
+                                        <div className="mo-cascade-item-label">
+                                            {props.data.column[index].label + ' : '}
+                                        </div>
+                                        <div className="mo-cascade-item-cnt">
+                                            <select
+                                                className="mo-cascade-item-cnt-select"
+                                                value={state.moveDialog.checkedArray[index] || ''}
+                                                onChange={function(e){
+                                                    // console.log(e.target.value)
+                                                    self.ms({
+                                                        type:'CHANGE_MOVE_DIALOG_CHECK_ARRAY',
+                                                        payload:e.target.value
+                                                    })
+                                                }}
+                                            >
+                                                {
+                                                    ( moveDialogSelect[index] || [] ).map(function(selItem,selIndex){
+                                                        return (
+                                                            <option key={selIndex} value={selItem.id} >{selItem.name}</option>
+                                                        )
+                                                    })
+                                                }
+                                            </select>
+                                       </div>
+                                   </div>
+                               )
+                           })
+                       }
+                       {
+                           state.moveDialog.errMsg
+                           ? (
+                               <div className="mo-cascade-item">
+                                   <div className="mo-cascade-item-cnt">
+                                       <div className="mo-cascade-F-highlight">{state.moveDialog.errMsg}</div>
+                                   </div>
+                               </div>
+                           ) : null
+                       }
+                    </div>
+                </Dialog>
                 {/* message */}
                 <Dialog
                     title={state.message.title}
@@ -361,9 +549,22 @@ Cascade.defaultProps = {
         name:'',
         operateType:'add',
         type:'',
-        id:'',
+        path:'', // 所有父id
+        id:'', // 编辑时当前id,
+        $ids:'', // 树id封装标识
         errMsg:''
     },
+    moveDialog:{
+        show:false,
+        title:'',
+        type:'',
+        showLength:0,
+        checkedArray:[],
+        id:'', // 编辑时当前id,
+        $ids:'', // 树id封装标识
+        old_path:'', // 原始位置,
+        errMsg:''
+    }
 }
 
 $(function () {

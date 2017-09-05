@@ -17,6 +17,10 @@
         "update" : {
             "action" : "/m/json/ajaxcascade.json",
             "method" : "post"
+        },
+        "move" : {
+            "action" : "/m/json/ajaxcascade.json",
+            "method" : "post"
         }
     },
     "_column":"级联下拉框每级对应,没有此数据,则data数据有几级显示几级",
