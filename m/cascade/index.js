@@ -30,14 +30,17 @@ class Cascade extends Component {
 
         // 初始选中值 : 后端给到 || 默认选中第一个
         let hasCheckedValue = /\S/.test(props.cascadeValue || '' )
+        // console.log(hasCheckedValue)
         let checkedArray = hasCheckedValue
                             ?   props.cascadeValue.split(',')
                             :   TreeStore(data).getChildLeftBranchIds().map(function(item){
                                     return item[0] || ''
                                 })
+            console.log(JSON.stringify(checkedArray))
+            checkedArray = TreeStore(data).changeSelect(checkedArray.reverse()[0] )
+            console.log(JSON.stringify(checkedArray))
         // 显示的级联下拉框个数 : number || undefined (无限制显示)
-        let showLength = Math.max( (props.data.column || [] ).length , hasCheckedValue ? props.cascadeValue.split(',').length : 0 )
-            showLength = showLength ? showLength : undefined
+        let showLength = props.data.column ? props.data.column.length : undefined
 
 
         this.state = {
@@ -102,7 +105,7 @@ class Cascade extends Component {
             case 'CHANGE_DATA':
                 // console.log('CHANGE_DATA : ',action.payload)
                 if(state.editDialog.operateType == 'add'){// 新增
-                    let parentId = state.editDialog.path
+                    let parentId = state.editDialog.path.split(',').join('-')
                     let curId = action.payload.id
                     let $id = parentId.split(',')
                         $id.push(curId)
@@ -284,7 +287,7 @@ class Cascade extends Component {
                 }
             })
         }
-        
+
         return checkedArrayStr
     }
     render () {
@@ -295,10 +298,10 @@ class Cascade extends Component {
             checked : state.checkedArray ,
             maxLength : state.showLength
         })
-        if(renderSelect.length < state.showLength){
+        if(renderSelect.length < state.showLength && renderSelect[0].length ){
             renderSelect.push([])
         }
-        console.log(renderSelect)
+        // console.log(renderSelect)
 
         let moveDialogSelect = []
         if(state.moveDialog.show){
@@ -351,7 +354,7 @@ class Cascade extends Component {
                                                     let curId = ''
                                                     let pathIds = ''
 
-                                                    if(state.checkedArray[index]){
+                                                    if(state.checkedArray[index] && /\S/.test(state.checkedArray[index]) ){
                                                         ids = state.checkedArray[index]
                                                         $ids = state.checkedArray[index]
                                                         curId = ids.split('-').reverse()[0]
@@ -359,7 +362,7 @@ class Cascade extends Component {
                                                         pathIds.pop()
                                                         pathIds = pathIds.join(',')
                                                     }else{
-                                                        ids = state.checkedArray[index - 1]
+                                                        ids = state.checkedArray[index - 1] || ''
                                                         pathIds = ids.split('-').join(',')
                                                     }
                                                     self.ms({
@@ -382,7 +385,7 @@ class Cascade extends Component {
                                     }
                                     {/* 如果有ajax.update接口才显示按钮 */}
                                     {
-                                        props.data.ajax.update
+                                        props.data.ajax.update && state.checkedArray[index]
                                         ? (
                                             <div className="mo-cascade-item-tool-icon fa fa-edit"
                                                 onClick={function (){
@@ -414,7 +417,7 @@ class Cascade extends Component {
                                     }
                                     {/* 如果有ajax.move接口才显示按钮 */}
                                     {
-                                        props.data.ajax.move && index
+                                        props.data.ajax.move && index && state.checkedArray[index]
                                         ? (
                                             <div className="mo-cascade-item-tool-icon fa fa-arrows"
                                                  onClick={function (){

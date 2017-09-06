@@ -26,6 +26,10 @@
     "_column":"级联下拉框每级对应,没有此数据,则data数据有几级显示几级",
     "column":[
         {
+            "label" : "学院",
+            "type" : "college"
+        },
+        {
             "label" : "系别",
             "type" : "dept"
         },
@@ -41,97 +45,97 @@
     "_data" : "级联下拉框所需所有数据" ,
     "data" : [
         {
-            "name":"系别a",
+            "name":"学院a",
             "id":"a",
             "child":[
                 {
-                    "name":"专业a-a",
+                    "name":"系别a-a",
                     "id":"a",
                     "child":[
                         {
-                            "name":"班级a-a-a",
+                            "name":"专业a-a-a",
                             "id":"a",
                             "child":[
                                 {
-                                    "name":"测试第四级数据a-a-a-a",
+                                    "name":"班级a-a-a-a",
                                     "id":"a"
                                 },{
-                                    "name":"测试第四级数据a-a-a-b",
+                                    "name":"班级a-a-a-b",
                                     "id":"b"
                                 }
                             ]
                         },{
-                            "name":"班级a-a-b",
+                            "name":"专业a-a-b",
                             "id":"b",
                             "child":[
                                 {
-                                    "name":"测试第四级数据a-a-b-a",
+                                    "name":"班级a-a-b-a",
                                     "id":"a"
                                 },{
-                                    "name":"测试第四级数据a-a-b-b",
+                                    "name":"班级a-a-b-b",
                                     "id":"b"
                                 }
                             ]
                         }
                     ]
                 },{
-                    "name":"专业a-b",
+                    "name":"系别a-b",
                     "id":"b",
                     "child":[
                         {
-                            "name":"班级a-b-a",
+                            "name":"专业a-b-a",
                             "id":"a"
                         },{
-                            "name":"班级a-b-b",
+                            "name":"专业a-b-b",
                             "id":"b"
                         }
                     ]
                 }
             ]
         },{
-            "name":"系别b",
+            "name":"学院b",
             "id":"b",
             "child":[
                 {
-                    "name":"专业b-a",
+                    "name":"系别b-a",
                     "id":"a",
                     "child":[
                         {
-                            "name":"班级b-a-a",
+                            "name":"专业b-a-a",
                             "id":"a"
                         },{
-                            "name":"班级b-a-b",
+                            "name":"专业b-a-b",
                             "id":"b"
                         }
                     ]
                 },{
-                    "name":"专业b-b",
+                    "name":"系别b-b",
                     "id":"b",
                     "child":[
                         {
-                            "name":"班级b-b-a",
+                            "name":"专业b-b-a",
                             "id":"a"
                         },{
-                            "name":"班级b-b-b",
+                            "name":"专业b-b-b",
                             "id":"b"
                         }
                     ]
                 }
             ]
         },{
-            "name":"系别c",
+            "name":"学院c",
             "id":"c",
             "child":[
                 {
-                    "name":"专业c-a(没有第三级数据测试)",
+                    "name":"系别c-a(没有第三级数据测试)",
                     "id":"a"
                 },{
-                    "name":"专业c-b(没有第三级数据测试)",
+                    "name":"系别c-b(没有第三级数据测试)",
                     "id":"b"
                 }
             ]
         },{
-            "name":"系别d(没有第二级数据测试)",
+            "name":"学院d(没有第二级数据测试)",
             "id":"d"
         }
     ]
@@ -148,7 +152,7 @@
     <div
         class="mo-cascade"
         data-cascade-name="school"
-        data-cascade-value="a,a-a,a-a-b"
+        data-cascade-value="a,a-a"
         data-cascade-options="#cascadeJSON"
     ></div>
     <hr />
