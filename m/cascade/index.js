@@ -39,9 +39,6 @@ class Cascade extends Component {
         let showLength = Math.max( (props.data.column || [] ).length , hasCheckedValue ? props.cascadeValue.split(',').length : 0 )
             showLength = showLength ? showLength : undefined
 
-        if(checkedArray.length < showLength){
-            checkedArray.push('')
-        }
 
         this.state = {
             checkedArray : checkedArray ,
@@ -63,9 +60,6 @@ class Cascade extends Component {
         switch (action.type) {
             case 'CHANGE_CHECK_ARRAY':
                 state.checkedArray = TreeStore(state.data).changeSelect(action.payload)
-                if(state.checkedArray.length < state.showLength){
-                    state.checkedArray.push('')
-                }
             break;
             case 'CHANGE_EDIT_DIALOG':
                 for(let key in action.payload){
@@ -100,10 +94,7 @@ class Cascade extends Component {
                 let movedata = TreeStore.extendChild(deletedata,parentId,curArray)
                 state.data = extend(true,[],movedata)
                 // console.log(movedata)
-                state.checkedArray = state.moveDialog.checkedArray
-                if(state.checkedArray < state.showLength){
-                    state.checkedArray.push('')
-                }
+                state.checkedArray = TreeStore(state.data).changeSelect(state.moveDialog.$ids)
             break
             case 'CHANGE_XHR_BUSY':
                 state.xhrBusy = action.payload
@@ -112,18 +103,19 @@ class Cascade extends Component {
                 // console.log('CHANGE_DATA : ',action.payload)
                 if(state.editDialog.operateType == 'add'){// 新增
                     let parentId = state.editDialog.path
-                    let curId = action.payload.id || state.editDialog.id
+                    let curId = action.payload.id
                     let $id = parentId.split(',')
                         $id.push(curId)
                         $id = $id.join('-')
                     let data = TreeStore.extendChild(state.data,parentId,[
                         {
-                            id:curId,
-                            $id:$id,
+                            id: $id,
+                            $id: curId,
                             name:state.editDialog.name,
                         }
                     ])
                     state.data = extend(true,[],data)
+                    state.checkedArray = TreeStore(state.data).changeSelect($id)
                 }else if(state.editDialog.operateType == 'update'){// 修改
                     let data = TreeStore.treeMap(state.data,'child',function(item){
                         if(item.id == state.editDialog.$ids){
@@ -186,6 +178,13 @@ class Cascade extends Component {
                         errMsg:''
                     }
                 })
+                self.ms({
+                    type:'CHANGE_MESSAGE',
+                    payload:{
+                        show:true,
+                        content:'提交成功'
+                    }
+                })
             }else{
                 self.ms({
                     type:'CHANGE_MESSAGE',
@@ -237,6 +236,20 @@ class Cascade extends Component {
                 self.ms({
                     type:'CHANGE_MOVE',
                 })
+                self.ms({
+                    type:'CHANGE_MOVE_DIALOG',
+                    payload:{
+                        show:false,
+                        errMsg:''
+                    }
+                })
+                self.ms({
+                    type:'CHANGE_MESSAGE',
+                    payload:{
+                        show:true,
+                        content:'移动成功'
+                    }
+                })
             }else{
                 self.ms({
                     type:'CHANGE_MESSAGE',
@@ -254,6 +267,26 @@ class Cascade extends Component {
         })
 
     }
+    /* {string} key */
+    getCheckedArrayString = (checkedArray , key) => {
+        checkedArray = extend(true,[],checkedArray)
+        let self = this
+        let state = self.state
+        let checkedArrayStr = []
+
+        if(checkedArray.length == 0 || checkedArray[0] == '' ){
+
+        }else{
+            TreeStore.treeMap(state.data,'child',function(item){
+                let index = checkedArray.indexOf(item.id)
+                if( index != -1 ){
+                    checkedArrayStr[index] = item[key]
+                }
+            })
+        }
+        
+        return checkedArrayStr
+    }
     render () {
         let self = this
         let state = self.state
@@ -262,7 +295,10 @@ class Cascade extends Component {
             checked : state.checkedArray ,
             maxLength : state.showLength
         })
-        // console.log(renderSelect)
+        if(renderSelect.length < state.showLength){
+            renderSelect.push([])
+        }
+        console.log(renderSelect)
 
         let moveDialogSelect = []
         if(state.moveDialog.show){
@@ -311,11 +347,14 @@ class Cascade extends Component {
                                             <div className="mo-cascade-item-tool-icon fa fa-plus"
                                                 onClick={function (){
                                                     let ids = ''
+                                                    let $ids = ''
                                                     let curId = ''
                                                     let pathIds = ''
 
                                                     if(state.checkedArray[index]){
                                                         ids = state.checkedArray[index]
+                                                        $ids = state.checkedArray[index]
+                                                        curId = ids.split('-').reverse()[0]
                                                         pathIds = ids.split('-')
                                                         pathIds.pop()
                                                         pathIds = pathIds.join(',')
@@ -331,8 +370,9 @@ class Cascade extends Component {
                                                             type:props.data.column[index].type,
                                                             title:props.data.column[index].label,
                                                             path:pathIds,
+                                                            tip:self.getCheckedArrayString(state.checkedArray.slice(0,index),'name').join(','),
                                                             id:curId,
-                                                            $ids:ids,
+                                                            $ids:$ids,
                                                             name:''
                                                         }
                                                     })
@@ -346,13 +386,7 @@ class Cascade extends Component {
                                         ? (
                                             <div className="mo-cascade-item-tool-icon fa fa-edit"
                                                 onClick={function (){
-                                                    let curName = ''
-                                                    renderSelect[index].some(function(t,i){
-                                                        if(t.id == state.checkedArray[index]){
-                                                            curName = t.name
-                                                            return true
-                                                        }
-                                                    })
+                                                    let curName = self.getCheckedArrayString(state.checkedArray,'name')[index]
 
                                                     let ids = state.checkedArray[index]
                                                     let curId = ids.split('-').reverse()[0]
@@ -371,6 +405,7 @@ class Cascade extends Component {
                                                             id:curId,
                                                             $ids:state.checkedArray[index],
                                                             path:pathIds,
+                                                            tip:self.getCheckedArrayString(state.checkedArray.slice(0,index),'name').join(','),
                                                         }
                                                     })
                                                 }}
@@ -401,6 +436,7 @@ class Cascade extends Component {
                                                             $ids:ids,
                                                             id:curId,
                                                             old_path:pathIds,
+                                                            tip:self.getCheckedArrayString(state.checkedArray.slice(0,index),'name').join(','),
                                                         }
                                                     })
                                                  }}
@@ -419,7 +455,18 @@ class Cascade extends Component {
                 />
                 {/* editDialog */}
                 <Dialog
-                    title={state.editDialog.operateType == 'update' ? '修改'+state.editDialog.title : '新增'+state.editDialog.title}
+                    title={(function(){
+                        let showString = state.editDialog.title
+                        if(state.editDialog.operateType == 'update'){
+                            showString = '修改' + showString
+                        }else{
+                            showString = '新增' + showString
+                        }
+                        if(/\S/.test(state.editDialog.tip) && state.editDialog.tip){
+                            showString += ' ( '+state.editDialog.tip+' )'
+                        }
+                        return showString
+                    })()}
                     show={state.editDialog.show}
                     style={{width: 550}}
                     onClose={function (){
@@ -471,7 +518,13 @@ class Cascade extends Component {
                 </Dialog>
                 {/* moveDialog */}
                 <Dialog
-                    title={'移动'+state.moveDialog.title+"到"}
+                    title={(function(){
+                        let showString = '移动'+state.moveDialog.title+"到"
+                        if(/\S/.test(state.moveDialog.tip) && state.moveDialog.tip){
+                            showString = ' ( 从 '+state.moveDialog.tip+' 下 ) ' + showString
+                        }
+                        return showString
+                    })()}
                     show={state.moveDialog.show}
                     style={{width: 550}}
                     onClose={function (){
@@ -545,6 +598,7 @@ class Cascade extends Component {
                 <Dialog
                     title={state.message.title}
                     show={state.message.show}
+                    style={{width: 200}}
                     onClose={function (){
                         self.ms({
                             type:'CHANGE_MESSAGE',
