@@ -36,9 +36,11 @@ class Cascade extends Component {
                             :   TreeStore(data).getChildLeftBranchIds().map(function(item){
                                     return item[0] || ''
                                 })
-            console.log(JSON.stringify(checkedArray))
-            checkedArray = TreeStore(data).changeSelect(checkedArray.reverse()[0] )
-            console.log(JSON.stringify(checkedArray))
+            // console.log(JSON.stringify(checkedArray))
+            if(checkedArray[0]){
+                checkedArray = TreeStore(data).changeSelect(checkedArray.reverse()[0] )
+            }
+            // console.log(JSON.stringify(checkedArray))
         // 显示的级联下拉框个数 : number || undefined (无限制显示)
         let showLength = props.data.column ? props.data.column.length : undefined
 
@@ -77,6 +79,13 @@ class Cascade extends Component {
             case 'CHANGE_MOVE_DIALOG_CHECK_ARRAY':
                 let checkedArray = TreeStore(state.data).changeSelect(action.payload)
                 state.moveDialog.checkedArray = extend(true,[],checkedArray)
+                if(state.moveDialog.old_path){
+                    if(state.moveDialog.checkedArray.length < state.moveDialog.old_path.split(',').length ){
+                        state.moveDialog.errMsg = '您没有移动到正确位置!'
+                    }else{
+                        state.moveDialog.errMsg = ''
+                    }
+                }
             break
             case 'CHANGE_MESSAGE':
                 for(let key in action.payload){
@@ -106,10 +115,12 @@ class Cascade extends Component {
                 // console.log('CHANGE_DATA : ',action.payload)
                 if(state.editDialog.operateType == 'add'){// 新增
                     let parentId = state.editDialog.path.split(',').join('-')
+                    // console.log(parentId)
                     let curId = action.payload.id
-                    let $id = parentId.split(',')
+                    let $id = parentId ? parentId.split(',') : []
                         $id.push(curId)
                         $id = $id.join('-')
+                        // console.log($id)
                     let data = TreeStore.extendChild(state.data,parentId,[
                         {
                             id: $id,
@@ -157,6 +168,7 @@ class Cascade extends Component {
         })
         let data = {
             name:state.editDialog.name ,
+            operateType:state.editDialog.operateType,
             type:state.editDialog.type ,
             id:state.editDialog.operateType == 'add' ? undefined : state.editDialog.id ,
             path:state.editDialog.path
@@ -208,11 +220,22 @@ class Cascade extends Component {
     submitMove = () => {
         let self = this
         let state = this.state
+        // 没有移动位置 报错提示
         if(state.checkedArray.join(',') === state.moveDialog.checkedArray.join(',') ){
             self.ms({
                 type:'CHANGE_MOVE_DIALOG',
                 payload:{
                     errMsg : '您没有修改位置!'
+                }
+            })
+            return false
+        }
+        // 没有移动到同等级位置 报错提示
+        if(state.moveDialog.checkedArray.length < state.moveDialog.old_path.split(',').length ){
+            self.ms({
+                type:'CHANGE_MOVE_DIALOG',
+                payload:{
+                    errMsg : '您没有移动到正确位置!'
                 }
             })
             return false
@@ -227,7 +250,9 @@ class Cascade extends Component {
         let data = {
             id:state.moveDialog.id ,
             old_path:state.moveDialog.old_path ,
-            path:state.moveDialog.checkedArray[state.moveDialog.showLength - 1].split('-').join(',')
+            path:state.moveDialog.checkedArray[state.moveDialog.showLength - 1].split('-').join(','),
+            operateType:state.moveDialog.operateType,
+            type:state.moveDialog.type ,
         }
         $.ajax({
             url:self.props.data.ajax.move.action,
@@ -452,10 +477,10 @@ class Cascade extends Component {
                     })
                 }
                 {/* 表单隐藏input 组合form组件使用 */}
-                <input  type="hidden"
+                {/* <input  type="hidden"
                         value={state.checkedArray[state.checkedArray.length - 1].split('-').join(',')}
                         name={self.props.cascadeName || 'mo-cascade'}
-                />
+                />*/}
                 {/* editDialog */}
                 <Dialog
                     title={(function(){
@@ -634,6 +659,7 @@ Cascade.defaultProps = {
         show:false,
         title:'',
         type:'',
+        operateType:'move',
         showLength:0,
         checkedArray:[],
         id:'', // 编辑时当前id,

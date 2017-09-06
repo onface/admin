@@ -7,7 +7,7 @@ console.log('Start copy admin file:')
 glob('output/**/**.*', function (err, files) {
     var copyCount = 0
     files.forEach(function (path) {
-        var destPath = path.replace(/^output/, '../../../svn/xiaopin/Admin/static')
+        var destPath = path.replace(/^output/, '../../../svn/xiaopin/Admin/static/')
         var stat = fs.lstatSync(path)
         var rHtmlFile = /\.htm(l)?$/
         if (!stat.isDirectory() && !rHtmlFile.test(path)) {
@@ -23,7 +23,7 @@ console.log('Start copy school file:')
 glob('output/**/**.*', function (err, files) {
     var copyCount = 0
     files.forEach(function (path) {
-        var destPath = path.replace(/^output/, '../../../svn/xiaopin/School/static')
+        var destPath = path.replace(/^output/, '../../../svn/xiaopin/School/static/')
         var stat = fs.lstatSync(path)
         var rHtmlFile = /\.htm(l)?$/
         if (!stat.isDirectory() && !rHtmlFile.test(path)) {
@@ -39,7 +39,7 @@ console.log('Start copy template file:')
 glob('output/**/**.*', function (err, files) {
     var copyCount = 0
     files.forEach(function (path) {
-        var destPath = path.replace(/^output/, '../../../svn/xiaopin/static')
+        var destPath = path.replace(/^output/, '../../../svn/xiaopin/static/')
         var stat = fs.lstatSync(path)
         var rHtmlFile = /\.htm(l)?$/
         if (!stat.isDirectory() && !rHtmlFile.test(path)) {
