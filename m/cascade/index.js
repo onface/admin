@@ -344,7 +344,7 @@ class Cascade extends Component {
                         return (
                             <div key={index} className="mo-cascade-item">
                                 <div className="mo-cascade-item-label">
-                                    {props.data.column[index].label + ' : '}
+                                    {props.data.column[index].label}
                                 </div>
                                 <div className="mo-cascade-item-cnt">
                                     <select
