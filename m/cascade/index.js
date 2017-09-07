@@ -30,9 +30,9 @@ class Cascade extends Component {
 
         // 初始选中值 : 后端给到 || 默认选中第一个
         let hasCheckedValue = /\S/.test(props.cascadeValue || '' )
-        // console.log(hasCheckedValue)
+        // console.log(hasCheckedValue,props.cascadeValue)
         let checkedArray = hasCheckedValue
-                            ?   TreeStore(data).changeSelect(props.cascadeValue.split(',').join('-'))
+                            ?   TreeStore(data).changeSelect(String(props.cascadeValue).split(',').join('-'))
                             :   TreeStore(data).getChildLeftBranchIds().map(function(item){
                                     return item[0] || ''
                                 })
@@ -323,13 +323,8 @@ class Cascade extends Component {
             checked : state.checkedArray ,
             maxLength : state.showLength
         })
-        if(renderSelect.length < state.showLength && renderSelect[0].length ){
-            let checkedArray = extend(true,[],state.checkedArray)
-            if(checkedArray.reverse()[0].split('-').reverse()[0]){
-
-            }else{
-                renderSelect.push([])
-            }
+        while(renderSelect.length < state.showLength){
+            renderSelect.push([])
         }
         // console.log(renderSelect)
 
@@ -386,7 +381,7 @@ class Cascade extends Component {
                                 <div className="mo-cascade-item-tool">
                                     {/* 如果有ajax.add接口才显示按钮 */}
                                     {
-                                        props.data.ajax.add
+                                        props.data.ajax.add && index <= state.checkedArray.length
                                         ? (
                                             <div className="mo-cascade-item-tool-icon fa fa-plus"
                                                 onClick={function (){
