@@ -32,14 +32,14 @@ class Cascade extends Component {
         let hasCheckedValue = /\S/.test(props.cascadeValue || '' )
         // console.log(hasCheckedValue)
         let checkedArray = hasCheckedValue
-                            ?   props.cascadeValue.split(',')
+                            ?   TreeStore(data).changeSelect(props.cascadeValue.split(',').join('-'))
                             :   TreeStore(data).getChildLeftBranchIds().map(function(item){
                                     return item[0] || ''
                                 })
             // console.log(JSON.stringify(checkedArray))
-            if(checkedArray[0]){
-                checkedArray = TreeStore(data).changeSelect(checkedArray.reverse()[0] )
-            }
+            // if(checkedArray[0]){
+            //     checkedArray = TreeStore(data).changeSelect(checkedArray.reverse()[0] )
+            // }
             // console.log(JSON.stringify(checkedArray))
         // 显示的级联下拉框个数 : number || undefined (无限制显示)
         let showLength = props.data.column ? props.data.column.length : undefined

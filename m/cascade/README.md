@@ -152,7 +152,7 @@
     <div
         class="mo-cascade"
         data-cascade-name="school"
-        data-cascade-value="a,a-a"
+        data-cascade-value="a,a"
         data-cascade-options="#cascadeJSON"
     ></div>
     <hr />
