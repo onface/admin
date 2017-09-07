@@ -324,7 +324,12 @@ class Cascade extends Component {
             maxLength : state.showLength
         })
         if(renderSelect.length < state.showLength && renderSelect[0].length ){
-            renderSelect.push([])
+            let checkedArray = extend(true,[],state.checkedArray)
+            if(checkedArray.reverse()[0].split('-').reverse()[0]){
+
+            }else{
+                renderSelect.push([])
+            }
         }
         // console.log(renderSelect)
 
@@ -357,7 +362,18 @@ class Cascade extends Component {
                                             })
                                         }}
                                     >
-                                        <option value="" disabled>请选择</option>
+                                        {
+                                            (function(){
+                                                let placeholder = null ;
+                                                ( renderSelect[index] || [] ).some(function(tempItem,tempIndex){
+                                                    if(tempItem.$id != '0'){
+                                                        placeholder = (<option key="0" value="" disabled>请选择</option>)
+                                                    }
+                                                    return true
+                                                })
+                                                return placeholder
+                                            })()
+                                        }
                                         {
                                             ( renderSelect[index] || [] ).map(function(selItem,selIndex){
                                                 return (
@@ -477,10 +493,18 @@ class Cascade extends Component {
                     })
                 }
                 {/* 表单隐藏input 组合form组件使用 */}
-                {/* <input  type="hidden"
-                        value={state.checkedArray[state.checkedArray.length - 1].split('-').join(',')}
+                <input  type="hidden"
+                        value={(function(){
+                            if( state.checkedArray[state.checkedArray.length - 1] ){
+                                return state.checkedArray[state.checkedArray.length - 1].split('-').join(',')
+                            }
+                            if( state.checkedArray[state.checkedArray.length - 2] ){
+                                return state.checkedArray[state.checkedArray.length - 2].split('-').join(',')
+                            }
+                            return ''
+                        })()}
                         name={self.props.cascadeName || 'mo-cascade'}
-                />*/}
+                />
                 {/* editDialog */}
                 <Dialog
                     title={(function(){
