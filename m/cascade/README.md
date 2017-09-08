@@ -155,12 +155,6 @@
         data-cascade-value="d"
         data-cascade-options="#cascadeJSON"
     ></div>
-    <hr />
-    <!-- <div
-        class="mo-cascade"
-        data-cascade-value=""
-        data-cascade-options="#cascadeJSON"
-    ></div> -->
 
     <button type="submit" name="button">提交</button>
 </form>
@@ -194,51 +188,51 @@
     "column":[
         {
             "label" : "学院",
-            "type" : "college"
+            "type" : "college",
+            "filObj" : {
+                "id":"0",
+                "name":"选择所有学院"
+            }
         },
         {
             "label" : "系别",
-            "type" : "dept"
+            "type" : "dept",
+            "filObj" : {
+                "id":"0",
+                "name":"选择所有系别"
+            }
         },
         {
             "label" : "专业",
-            "type" : "major"
+            "type" : "major",
+            "filObj" : {
+                "id":"0",
+                "name":"选择所有专业"
+            }
         },
         {
             "label" : "班级",
-            "type" : "class"
+            "type" : "class",
+            "filObj" : {
+                "id":"0",
+                "name":"选择所有班级"
+            }
         }
     ],
     "_data" : "级联下拉框所需所有数据" ,
     "data" : [
         {
-            "name":"请选择",
-            "id":"0"
-        },
-        {
             "name":"学院a",
             "id":"a",
             "child":[
-                {
-                    "name":"请选择",
-                    "id":"0"
-                },
                 {
                     "name":"系别a-a",
                     "id":"a",
                     "child":[
                         {
-                            "name":"请选择",
-                            "id":"0"
-                        },
-                        {
                             "name":"专业a-a-a",
                             "id":"a",
                             "child":[
-                                {
-                                    "name":"请选择",
-                                    "id":"0"
-                                },
                                 {
                                     "name":"班级a-a-a-a",
                                     "id":"a"
@@ -251,10 +245,6 @@
                             "name":"专业a-a-b",
                             "id":"b",
                             "child":[
-                                {
-                                    "name":"请选择",
-                                    "id":"0"
-                                },
                                 {
                                     "name":"班级a-a-b-a",
                                     "id":"a"
@@ -270,10 +260,6 @@
                     "id":"b",
                     "child":[
                         {
-                            "name":"请选择",
-                            "id":"0"
-                        },
-                        {
                             "name":"专业a-b-a",
                             "id":"a"
                         },{
@@ -288,17 +274,9 @@
             "id":"b",
             "child":[
                 {
-                    "name":"请选择",
-                    "id":"0"
-                },
-                {
                     "name":"系别b-a",
                     "id":"a",
                     "child":[
-                        {
-                            "name":"请选择",
-                            "id":"0"
-                        },
                         {
                             "name":"专业b-a-a",
                             "id":"a"
@@ -311,10 +289,6 @@
                     "name":"系别b-b",
                     "id":"b",
                     "child":[
-                        {
-                            "name":"请选择",
-                            "id":"0"
-                        },
                         {
                             "name":"专业b-b-a",
                             "id":"a"
@@ -329,10 +303,6 @@
             "name":"学院c",
             "id":"c",
             "child":[
-                {
-                    "name":"请选择",
-                    "id":"0"
-                },
                 {
                     "name":"系别c-a(没有第三级数据测试)",
                     "id":"a"
@@ -359,7 +329,7 @@
     <div
         class="mo-cascade"
         data-cascade-name="school"
-        data-cascade-value=""
+        data-cascade-value="c"
         data-cascade-options="#cascadeJSON2"
     ></div>
 

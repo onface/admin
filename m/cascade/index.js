@@ -31,11 +31,16 @@ class Cascade extends Component {
         // 初始选中值 : 后端给到 || 默认选中第一个
         let hasCheckedValue = /\S/.test(props.cascadeValue || '' )
         // console.log(hasCheckedValue,props.cascadeValue)
-        let checkedArray = hasCheckedValue
-                            ?   TreeStore(data).changeSelect(String(props.cascadeValue).split(',').join('-'))
-                            :   TreeStore(data).getChildLeftBranchIds().map(function(item){
-                                    return item[0] || ''
-                                })
+        let checkedArray = []
+        if(hasCheckedValue){
+            checkedArray = TreeStore(data).changeSelect(String(props.cascadeValue).split(',').join('-'))
+            // console.log(checkedArray)
+            // console.log( TreeStore(data).changeSelect(checkedArray.reverse()[0]))
+        }else{
+            checkedArray = TreeStore(data).getChildLeftBranchIds().map(function(item){
+                return item[0] || ''
+            })
+        }
             // console.log(JSON.stringify(checkedArray))
             // if(checkedArray[0]){
             //     checkedArray = TreeStore(data).changeSelect(checkedArray.reverse()[0] )
@@ -319,13 +324,18 @@ class Cascade extends Component {
         let self = this
         let state = self.state
         let props = self.props
-        let renderSelect = TreeStore(state.data).renderSelect({
+
+        let renderObj = {
             checked : state.checkedArray ,
-            maxLength : state.showLength
-        })
-        while(renderSelect.length < state.showLength){
-            renderSelect.push([])
+            maxLength : state.showLength ,
+            minLength : state.showLength
         }
+        if(typeof props.data.column != 'undefined'){
+            if(typeof props.data.column[0].filObj != 'undefined'){
+                renderObj.filObj = props.data.column[0].filObj
+            }
+        }
+        let renderSelect = TreeStore(state.data).renderSelect(renderObj)
         // console.log(renderSelect)
 
         let moveDialogSelect = []
@@ -349,7 +359,17 @@ class Cascade extends Component {
                                 <div className="mo-cascade-item-cnt">
                                     <select
                                         className="mo-cascade-item-cnt-select"
-                                        value={state.checkedArray[index] || ''}
+                                        value={(function(){
+                                            let value = state.checkedArray[index] || ''
+                                            if(index != 0 && !value ){
+                                                if(typeof props.data.column != 'undefined'){
+                                                    if(typeof props.data.column[0].filObj != 'undefined'){
+                                                        value = '0'
+                                                    }
+                                                }
+                                            }
+                                            return value
+                                        })()}
                                         onChange={function(e){
                                             self.ms({
                                                 type:'CHANGE_CHECK_ARRAY',
@@ -362,17 +382,24 @@ class Cascade extends Component {
                                                 let placeholder = null ;
                                                 ( renderSelect[index] || [] ).some(function(tempItem,tempIndex){
                                                     if(tempItem.$id != '0'){
-                                                        placeholder = (<option key="0" value="" disabled>请选择</option>)
+                                                        placeholder = (<option  value="" disabled >请选择</option>)
                                                     }
                                                     return true
                                                 })
+                                                if(( renderSelect[index] || [] ).length == 0){
+                                                    placeholder = (<option  value="" disabled >请选择</option>)
+                                                }
                                                 return placeholder
                                             })()
                                         }
                                         {
                                             ( renderSelect[index] || [] ).map(function(selItem,selIndex){
+                                                let name = selItem.name
+                                                if(selItem.id == '0'){
+                                                    name =  props.data.column[index].filObj.name
+                                                }
                                                 return (
-                                                    <option key={selIndex} value={selItem.id} >{selItem.name}</option>
+                                                    <option key={selIndex} value={selItem.id} >{name}</option>
                                                 )
                                             })
                                         }
