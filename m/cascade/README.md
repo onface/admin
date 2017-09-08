@@ -176,9 +176,9 @@
 }
 ```
 
-## placeholder 可选
+## filObj
 
-### placeholder 可选 - 数据
+### filObj - 数据
 
 ````html
 <script id="cascadeJSON2" type="text/json">
@@ -188,11 +188,7 @@
     "column":[
         {
             "label" : "学院",
-            "type" : "college",
-            "filObj" : {
-                "id":"0",
-                "name":"选择所有学院"
-            }
+            "type" : "college"
         },
         {
             "label" : "系别",
@@ -320,7 +316,7 @@
 </script>
 ````
 
-### placeholder 可选 - demo
+### filObj - demo
 
 ````html
 <form data-form-ajax="true"  action="/m/json/ok.json" method="post">
@@ -332,6 +328,27 @@
         data-cascade-value="c"
         data-cascade-options="#cascadeJSON2"
     ></div>
+
+    <button type="submit" name="button">提交</button>
+</form>
+````
+
+## css themes : horizontal
+## disabled
+
+
+````html
+<form data-form-ajax="true"  action="/m/json/ok.json" method="post">
+
+
+    <span
+        class="mo-cascade"
+        data-themes="horizontal"
+        data-disabled="false,true,true,true"
+        data-cascade-name="school"
+        data-cascade-value="c"
+        data-cascade-options="#cascadeJSON2"
+    ></span>
 
     <button type="submit" name="button">提交</button>
 </form>

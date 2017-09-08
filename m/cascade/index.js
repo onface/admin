@@ -331,9 +331,12 @@ class Cascade extends Component {
             minLength : state.showLength
         }
         if(typeof props.data.column != 'undefined'){
-            if(typeof props.data.column[0].filObj != 'undefined'){
-                renderObj.filObj = props.data.column[0].filObj
-            }
+            props.data.column.some(function(item){
+                if(typeof item.filObj != 'undefined'){
+                    renderObj.filObj = item.filObj
+                    return true
+                }
+            })
         }
         let renderSelect = TreeStore(state.data).renderSelect(renderObj)
         // console.log(renderSelect)
@@ -348,9 +351,32 @@ class Cascade extends Component {
         // console.log(moveDialogSelect)
 
         return (
-            <div className="mo-cascade">
+            <div className={`mo-cascade mo-cascade--themes-${props.themes}`}>
                 {
                     renderSelect.map(function(item,index){
+                        let config = {
+                            value : state.checkedArray[index] || ''
+                        }
+                        // 判断是否禁用
+                        if(props.disabled.split(',')[index] == 'true' ){
+                            config.disabled = 'disabled'
+                        }
+                        /* 判断value值
+                            1. 有disable -> '0'
+                            2. 无value值 & 有配置filObj -> '0'
+                        */
+                        if(typeof config.disabled != 'undefined'){
+                            config.value = '0'
+                        }else{
+                            if(!config.value){
+                                if(typeof props.data.column != 'undefined'){
+                                    if(typeof props.data.column[index].filObj != 'undefined'){
+                                        config.value = '0'
+                                    }
+                                }
+                            }
+                        }
+
                         return (
                             <div key={index} className="mo-cascade-item">
                                 <div className="mo-cascade-item-label">
@@ -359,23 +385,13 @@ class Cascade extends Component {
                                 <div className="mo-cascade-item-cnt">
                                     <select
                                         className="mo-cascade-item-cnt-select"
-                                        value={(function(){
-                                            let value = state.checkedArray[index] || ''
-                                            if(index != 0 && !value ){
-                                                if(typeof props.data.column != 'undefined'){
-                                                    if(typeof props.data.column[0].filObj != 'undefined'){
-                                                        value = '0'
-                                                    }
-                                                }
-                                            }
-                                            return value
-                                        })()}
                                         onChange={function(e){
                                             self.ms({
                                                 type:'CHANGE_CHECK_ARRAY',
                                                 payload:e.target.value
                                             })
                                         }}
+                                        {...config}
                                     >
                                         {
                                             (function(){
@@ -394,13 +410,14 @@ class Cascade extends Component {
                                         }
                                         {
                                             ( renderSelect[index] || [] ).map(function(selItem,selIndex){
-                                                let name = selItem.name
-                                                if(selItem.id == '0'){
-                                                    name =  props.data.column[index].filObj.name
+                                                let node = null
+                                                if(selItem.id == '0' && typeof props.data.column[index].filObj != 'undefined'){
+                                                    node = ( <option key={selIndex} value={selItem.id} >{props.data.column[index].filObj.name}</option> )
                                                 }
-                                                return (
-                                                    <option key={selIndex} value={selItem.id} >{name}</option>
-                                                )
+                                                if(selItem.id != '0'){
+                                                    node = ( <option key={selIndex} value={selItem.id} >{selItem.name}</option> )
+                                                }
+                                                return node
                                             })
                                         }
                                     </select>
@@ -712,7 +729,9 @@ Cascade.defaultProps = {
         $ids:'', // 树id封装标识
         old_path:'', // 原始位置,
         errMsg:''
-    }
+    },
+    themes:'default',
+    disabled:'false,false,false,false'
 }
 
 $(function () {
