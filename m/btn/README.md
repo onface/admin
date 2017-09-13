@@ -28,6 +28,7 @@
 <span class="mo-btn mo-btn--info" >mo-btn--info</span>
 <span class="mo-btn mo-btn--warning" >mo-btn--warning</span>
 <span class="mo-btn mo-btn--danger" >mo-btn--danger</span>
+<span class="mo-btn mo-btn--notice" >mo-btn--notice</span>
 ````
 ````html
 <span class="mo-btn mo-btn--primary2" >mo-btn--primary2</span>
@@ -35,6 +36,7 @@
 <span class="mo-btn mo-btn--info2" >mo-btn--info2</span>
 <span class="mo-btn mo-btn--warning2" >mo-btn--warning2</span>
 <span class="mo-btn mo-btn--danger2" >mo-btn--danger2</span>
+<span class="mo-btn mo-btn--notice2" >mo-btn--notice2</span>
 ````
 
 ## size
