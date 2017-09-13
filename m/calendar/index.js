@@ -134,12 +134,20 @@ class Calendar extends Component {
 		            <div className="mo-calendar-cnt-bd">
 			            {
 			            	self.state.calData.map(function(item,index){
+								let checkin = false
+								self.state.checkin.some(function(checkItem){
+									let dateArray = checkItem.split('-')
+									if( Number(dateArray[0]) == Number(item.year) && Number(dateArray[1]) == Number(item.month) && Number(dateArray[2]) == Number(item.day) ){
+										checkin = true
+										return true
+									}
+								})
 			            		return (
 					                <span 	key={index}
 					                		className={classNames({
 					                			"mo-calendar-cnt-bd-item" : true ,
 					                			"mo-calendar-cnt-bd-item--disable" : item.lastMonth || item.nextMonth ,
-					                			"mo-calendar-cnt-bd-item--on" : self.state.checkin.indexOf(String(item.day)) != -1
+					                			"mo-calendar-cnt-bd-item--on" : checkin
 					                		})}
 			                		>{item.day}</span>
 		            			)

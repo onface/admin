@@ -153,6 +153,7 @@ var conf = {
                             <a class="mo-2-side-item-bd-link"  href="/m/ajaxtable/README.md" ><span class="fa fa-table"></span>ajax table</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/ajaxselect/README.md" ><span class="fa fa-table"></span>ajax select</a>
                             <a class="mo-2-side-item-bd-link"  href="/m/cascade/README.md" ><span class="fa fa-table"></span>cascade级联下拉框</a>
+                            <a class="mo-2-side-item-bd-link"  href="/m/calendar/README.md" ><span class="fa fa-table"></span>日历</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">

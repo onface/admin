@@ -8,7 +8,7 @@
 <div class="mo-calendar"
     data-ajaxcalendar-url="/m/json/ajaxcalendar.json"
     data-ajaxcalendar-method="get"
-    data-checkin="3,6,12,21"
+    data-checkin="2017-03-3,2017-03-6,2017-03-12,2017-03-21"
     data-date="2017-03"
 >
 </div>
@@ -29,7 +29,7 @@
 <div class="mo-calendar"
     data-ajaxcalendar-url="/m/json/ajaxcalendar.json"
     data-ajaxcalendar-method="get"
-    data-checkin="10,11,14,18,21"
+    data-checkin="2017-03-10,2017-03-11,2017-03-14,2017-03-18,2017-03-21"
     data-date="2017-03"
     data-weekcolumn="F,S,S,M,T,W,T"
     data-weekday="5"
