@@ -34,7 +34,7 @@ $(function(){
 		let text = /请选择/.test($selected.text()) ? '' : $selected.text()
 		let motto = $selected.data('motto') || ''
 		$originParent.find('.mo-login5-board').html(`
-            <img src="`+$selected.data('logo')+`" class="mo-login5-board-pic"/>
+            <img src="`+$selected.data('logo')+`" class="mo-login5-board-pic-logo"/>
             <div class="mo-login5-board-title">`+text+`</div>
             <div class="mo-login5-board-hd">`+motto+`</div>
 		`)
@@ -42,6 +42,6 @@ $(function(){
 	let $login5Select = $('.mo-login5-box-form-item-select')
 	$login5Select.each(function () {
 		let $this = $(this)
-		changeSchoolTheme.bind(this)()
+		changeSchoolTheme.bind(this)
 	}).on('change',changeSchoolTheme)
 })
