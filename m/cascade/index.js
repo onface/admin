@@ -28,7 +28,11 @@ class Cascade extends Component {
                         return item
                     } , true )
 
-        // 初始选中值 : 后端给到 || 默认选中第一个
+        /* 初始选中值 : 
+         *   1. 后端给到 
+         *   2. 有插入0数据 
+         *   3. 默认选中第一个
+         */
         let hasCheckedValue = /\S/.test(props.cascadeValue || '' )
         // console.log(hasCheckedValue,props.cascadeValue)
         let checkedArray = []
@@ -39,6 +43,13 @@ class Cascade extends Component {
         }else{
             checkedArray = TreeStore(data).getChildLeftBranchIds().map(function(item){
                 return item[0] || ''
+            })
+            props.data.column.some(function(item,index){
+                if(typeof item.filObj != 'undefined'){
+                    checkedArray[index] = '0'
+                    checkedArray = checkedArray.slice(0,index+1)
+                    return true
+                }
             })
         }
             // console.log(JSON.stringify(checkedArray))
@@ -69,7 +80,19 @@ class Cascade extends Component {
         let state = this.state
         switch (action.type) {
             case 'CHANGE_CHECK_ARRAY':
-                state.checkedArray = TreeStore(state.data).changeSelect(action.payload)
+                if(action.payload.value == '0'){
+                    let changeCheckedArray = extend(true,[],state.checkedArray)
+                    changeCheckedArray = changeCheckedArray.map(function(item,index){
+                        if(index < action.payload.index){
+                            return item 
+                        }else{
+                            return '0'
+                        }
+                    })
+                    state.checkedArray = changeCheckedArray
+                }else{
+                    state.checkedArray = TreeStore(state.data).changeSelect(action.payload.value)
+                }
             break;
             case 'CHANGE_EDIT_DIALOG':
                 for(let key in action.payload){
@@ -388,7 +411,10 @@ class Cascade extends Component {
                                         onChange={function(e){
                                             self.ms({
                                                 type:'CHANGE_CHECK_ARRAY',
-                                                payload:e.target.value
+                                                payload:{
+                                                    index:index,
+                                                    value:e.target.value
+                                                }
                                             })
                                         }}
                                         {...config}
