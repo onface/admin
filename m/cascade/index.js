@@ -46,7 +46,7 @@ class Cascade extends Component {
             })
             props.data.column.some(function(item,index){
                 if(typeof item.filObj != 'undefined'){
-                    checkedArray[index] = '0'
+                    // checkedArray[index] = '0'
                     checkedArray = checkedArray.slice(0,index+1)
                     return true
                 }
@@ -90,9 +90,17 @@ class Cascade extends Component {
                         }
                     })
                     state.checkedArray = changeCheckedArray
+                    // state.checkedArray = state.checkedArray.slice(0,action.payload.index+1)
                 }else{
                     state.checkedArray = TreeStore(state.data).changeSelect(action.payload.value)
                 }
+                self.props.data.column.some(function(item,index){
+                    if(typeof item.filObj != 'undefined' && index >= action.payload.index ){
+                         // state.checkedArray[index] = '0'
+                         state.checkedArray =  state.checkedArray.slice(0,action.payload.index + 1)
+                        return true
+                    }
+                })
             break;
             case 'CHANGE_EDIT_DIALOG':
                 for(let key in action.payload){
@@ -348,8 +356,13 @@ class Cascade extends Component {
         let state = self.state
         let props = self.props
 
+        let showCheckedArray = extend(true,[],state.checkedArray)
+        showCheckedArray = TreeStore(state.data).changeSelect(showCheckedArray.reverse()[0])
+        // console.log(JSON.stringify(showCheckedArray))
+        showCheckedArray = showCheckedArray.slice(0,state.checkedArray.length + 1)
+        // console.log(JSON.stringify(showCheckedArray))
         let renderObj = {
-            checked : state.checkedArray ,
+            checked : showCheckedArray ,
             maxLength : state.showLength ,
             minLength : state.showLength
         }
