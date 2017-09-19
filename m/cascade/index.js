@@ -36,27 +36,30 @@ class Cascade extends Component {
         let hasCheckedValue = /\S/.test(props.cascadeValue || '' )
         // console.log(hasCheckedValue,props.cascadeValue)
         let checkedArray = []
+        let propsCheckedArray = []
         if(hasCheckedValue){
+            propsCheckedArray = extend(true,[],String(props.cascadeValue).split(','))
             checkedArray = TreeStore(data).changeSelect(String(props.cascadeValue).split(',').join('-'))
-            // console.log(checkedArray)
+            // console.log('hasCheckedValue : ',JSON.stringify(checkedArray),JSON.stringify(propsCheckedArray))
             // console.log( TreeStore(data).changeSelect(checkedArray.reverse()[0]))
         }else{
             checkedArray = TreeStore(data).getChildLeftBranchIds().map(function(item){
                 return item[0] || ''
             })
-            props.data.column.some(function(item,index){
-                if(typeof item.filObj != 'undefined'){
-                    // checkedArray[index] = '0'
-                    checkedArray = checkedArray.slice(0,index+1)
-                    return true
-                }
-            })
+            // console.log('noCheckedValue : ',JSON.stringify(checkedArray),JSON.stringify(propsCheckedArray))
         }
-            // console.log(JSON.stringify(checkedArray))
-            // if(checkedArray[0]){
-            //     checkedArray = TreeStore(data).changeSelect(checkedArray.reverse()[0] )
-            // }
-            // console.log(JSON.stringify(checkedArray))
+        // 有column数据 改为0 (不覆盖后端给到数据)
+        props.data.column.some(function(item,index){
+            if(typeof item.filObj != 'undefined' && index >= propsCheckedArray.length ){
+                // checkedArray[index] = '0'
+                checkedArray = checkedArray.slice(0,index)
+                // console.log(JSON.stringify(item),index)
+                return true
+            }
+        })
+        // console.log('CheckedValue : ',JSON.stringify(checkedArray))
+
+
         // 显示的级联下拉框个数 : number || undefined (无限制显示)
         let showLength = props.data.column ? props.data.column.length : undefined
 
@@ -360,7 +363,7 @@ class Cascade extends Component {
         showCheckedArray = TreeStore(state.data).changeSelect(showCheckedArray.reverse()[0])
         // console.log(JSON.stringify(showCheckedArray))
         showCheckedArray = showCheckedArray.slice(0,state.checkedArray.length + 1)
-        // console.log(JSON.stringify(showCheckedArray))
+        console.log('showCheckedArray :',JSON.stringify(showCheckedArray))
         let renderObj = {
             checked : showCheckedArray ,
             maxLength : state.showLength ,
@@ -375,7 +378,7 @@ class Cascade extends Component {
             })
         }
         let renderSelect = TreeStore(state.data).renderSelect(renderObj)
-        // console.log(renderSelect)
+        console.log(renderSelect)
 
         let moveDialogSelect = []
         if(state.moveDialog.show){
