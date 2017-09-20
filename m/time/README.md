@@ -6,6 +6,7 @@
 
 ````html
 <span
+	data-time-placeholder="请输入时间"
 	data-time-name="date"
  ></span>
 ````

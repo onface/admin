@@ -60,6 +60,7 @@ class Time extends React.Component {
                 onChange={this.change.bind(this)}
                  />)
         }
+        console.log(self.props.timePlaceholder)
         return (
             <DatePicker
                 calendar={calendar}
@@ -67,7 +68,7 @@ class Time extends React.Component {
             {
                function () {
                    return (
-                       <input className="mo-input" style={{width: self.props.timeWidth}}  type="text" name={self.props.timeName} readOnly={true} value={self.state.value} />
+                       <input className="mo-input" placeholder={self.props.timePlaceholder} style={{width: self.props.timeWidth}}  type="text" name={self.props.timeName} readOnly={true} value={self.state.value} />
                    )
                }
            }
