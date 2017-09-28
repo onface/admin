@@ -38,6 +38,10 @@ $(function(){
 				return
 			}
 		}
+		var $submit = $this.find('button[type="submit"]')
+		$submit.addClass("mo-btn--loading")
+		$submit.data('text', $submit.html())
+		$submit.html($submit.html() + '中...')
 		$.ajax({
             url: url,
             type: method,
@@ -88,7 +92,10 @@ $(function(){
 				}
 
 			}
-        })
+        }).always(function () {
+			$submit.html($submit.data('text'))
+			$submit.removeClass("mo-btn--loading")
+		})
 		return false
 	})
 })
