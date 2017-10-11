@@ -75,6 +75,11 @@ class Cascade extends Component {
                 title:'提示',
                 show:false,
                 content:'错误'
+            },
+            removeComfirmDialog:{
+                title:'提示',
+                show:false,
+                content:'确认删除？'
             }
         }
     }
@@ -108,6 +113,11 @@ class Cascade extends Component {
             case 'CHANGE_EDIT_DIALOG':
                 for(let key in action.payload){
                     state.editDialog[key] = action.payload[key]
+                }
+            break
+            case 'CHANGE_REMOVE_COFIRM_DIALOG':
+                for(let key in action.payload){
+                    state.removeComfirmDialog[key] = action.payload[key]
                 }
             break
             case 'CHANGE_MOVE_DIALOG':
@@ -179,6 +189,25 @@ class Cascade extends Component {
                     state.data = extend(true,[],data)
                     // console.log(JSON.stringify(data))
                 }
+            break
+            case 'CHANGE_REMOVE':
+                // console.log('removeData data : ',JSON.stringify(state.data))
+                let removeData = TreeStore.treeFilter(state.data,'child',function(item){
+                    return item.id != state.removeComfirmDialog.id
+                })
+                    // console.log('removeData : ',JSON.stringify(removeData))
+                state.data = extend(true,[],removeData)
+                if(state.removeComfirmDialog.parentId == ''){
+                    state.checkedArray = TreeStore(state.data).getChildLeftBranchIds().map(function(item){
+                        return item[0] || ''
+                    })
+                    if(state.checkedArray[0] == ''){
+                        state.checkedArray = []
+                    }
+                }else{
+                    state.checkedArray = TreeStore(state.data).changeSelect(state.removeComfirmDialog.parentId)
+                }
+                // console.log('removeData checkedArray : ',JSON.stringify(state.checkedArray))
             break
             default:
                 console.log('not find ',action.type)
@@ -333,6 +362,61 @@ class Cascade extends Component {
             })
         })
 
+    }
+    // ajax remove 
+    submitRemove = () => {
+        let self = this
+        let state = this.state
+        if(state.xhrBusy){
+            return false
+        }
+        self.ms({
+            type:'CHANGE_XHR_BUSY',
+            payload:true
+        })
+        let data = {
+            operateType:state.removeComfirmDialog.operateType,
+            type:state.removeComfirmDialog.type ,
+            id:state.removeComfirmDialog.id.split(',')
+        }
+        $.ajax({
+            url:self.props.data.ajax.remove.action,
+            type:self.props.data.ajax.remove.method,
+            dataType:'json',
+            data:data
+        }).done(function(res){
+            if(res.status == 'success'){
+                self.ms({
+                    type:'CHANGE_REMOVE',
+                })
+                self.ms({
+                    type:'CHANGE_REMOVE_COFIRM_DIALOG',
+                    payload:{
+                        show:false
+                    }
+                })
+                self.ms({
+                    type:'CHANGE_MESSAGE',
+                    payload:{
+                        show:true,
+                        content:'删除成功'
+                    }
+                })
+            }else{
+                self.ms({
+                    type:'CHANGE_MESSAGE',
+                    payload:{
+                        show:true,
+                        content:res.msg || '删除失败'
+                    }
+                })
+            }
+        }).always(function(){
+            self.ms({
+                type:'CHANGE_XHR_BUSY',
+                payload:false
+            })
+        })
     }
     /* {string} key */
     getCheckedArrayString = (checkedArray , key) => {
@@ -568,6 +652,37 @@ class Cascade extends Component {
                                             ></div>
                                         ) : null
                                     }
+                                    {/* 如果有ajax.remove接口才显示按钮 */}
+                                    {
+                                        props.data.ajax.remove && state.checkedArray[index]
+                                        ? (
+                                            <div className="mo-cascade-item-tool-icon fa fa-trash-o"
+                                                 onClick={function (){
+                                                    // console.log('删除')
+                                                    let ids = state.checkedArray[index]
+                                                    let curId = ids.split('-').reverse()[0]
+                                                    let curName = self.getCheckedArrayString(state.checkedArray.slice(0,index + 1),'name').reverse()[0]
+                                                    let parentId = ids.split('-')
+                                                        parentId.pop()
+                                                        parentId = parentId.join('-')
+                                                    // console.log('ids,curId,curName : ',ids,curId,curName,parentId)
+
+                                                    self.ms({
+                                                        type:'CHANGE_REMOVE_COFIRM_DIALOG',
+                                                        payload:{
+                                                            show:true,
+                                                            $ids:curId,
+                                                            id:ids,
+                                                            content:'确认删除“'+curName+'”吗？',
+                                                            operateType:'remove',
+                                                            type:props.data.column[index].type,
+                                                            parentId:parentId,
+                                                        }
+                                                    })
+                                                 }}
+                                            ></div>
+                                        ) : null
+                                    }
                                 </div>
                             </div>
                         )
@@ -726,6 +841,34 @@ class Cascade extends Component {
                            ) : null
                        }
                     </div>
+                </Dialog>
+                {/* removeComfirmDialog */}
+                <Dialog
+                    title={self.state.removeComfirmDialog.title}
+                    show={self.state.removeComfirmDialog.show}
+                    style={{width: 350}}
+                    onClose={function (){
+                        self.ms({
+                            type:'CHANGE_REMOVE_COFIRM_DIALOG',
+                            payload:{
+                                show:false
+                            }
+                        })
+                    }}
+                    tool={(
+                        <div>
+                            <span
+                                className={classNames({
+                                    "mo-cascade-btn mo-btn mo-btn--success":true,
+                                    "mo-btn--loading" : state.xhrBusy
+                                })}
+                                onClick={self.submitRemove}
+                            >确认</span>
+                            <span className="mo-cascade-btn mo-btn" data-r-dialog-close="true">取消</span>
+                        </div>
+                    )}
+                >
+                    <div>{self.state.removeComfirmDialog.content}</div>
                 </Dialog>
                 {/* message */}
                 <Dialog
