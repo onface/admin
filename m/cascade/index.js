@@ -28,9 +28,9 @@ class Cascade extends Component {
                         return item
                     } , true )
 
-        /* 初始选中值 : 
-         *   1. 后端给到 
-         *   2. 有插入0数据 
+        /* 初始选中值 :
+         *   1. 后端给到
+         *   2. 有插入0数据
          *   3. 默认选中第一个
          */
         let hasCheckedValue = /\S/.test(props.cascadeValue || '' )
@@ -92,7 +92,7 @@ class Cascade extends Component {
                     let changeCheckedArray = extend(true,[],state.checkedArray)
                     changeCheckedArray = changeCheckedArray.map(function(item,index){
                         if(index < action.payload.index){
-                            return item 
+                            return item
                         }else{
                             return '0'
                         }
@@ -363,7 +363,7 @@ class Cascade extends Component {
         })
 
     }
-    // ajax remove 
+    // ajax remove
     submitRemove = () => {
         let self = this
         let state = this.state
@@ -377,7 +377,7 @@ class Cascade extends Component {
         let data = {
             operateType:state.removeComfirmDialog.operateType,
             type:state.removeComfirmDialog.type ,
-            id:state.removeComfirmDialog.id.split(',')
+            id:state.removeComfirmDialog.$ids
         }
         $.ajax({
             url:self.props.data.ajax.remove.action,
