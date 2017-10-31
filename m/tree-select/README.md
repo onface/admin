@@ -87,7 +87,7 @@
     data-ts-options="prev"
 ></span>
 <br>
-编辑
+赋值
 <span
     data-ts-name="someedit"
     data-ts-value="2-1,2-2"
