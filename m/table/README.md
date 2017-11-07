@@ -18,7 +18,7 @@
                             <i
                                 class="fa fa-ellipsis-h mo-table-column"
                                 id="mo-table-column-1"
-                                data-show-column-index='0,4' <!-- 初始默认显示的列 -->
+                                data-show-column-index='0,4' 
 
                                 data-dialog-title="显示表头列" 
                                 data-dialog-content="closest&th&find&.js-html"

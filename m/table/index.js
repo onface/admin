@@ -48,12 +48,13 @@ $(function () {
         }
         */
         data.showColumnIndex = data.showColumnIndex ? data.showColumnIndex.split(',') : []
-        if(data.showColumnIndex.length == 0 && data.id){
+        // 有缓存读缓存
+        if(data.id){
             if(localStorage){
                 let showColumnIndex = localStorage.getItem(data.id)
                 if(showColumnIndex){
-                    data.showColumnIndex = showColumnIndex
-                    $this.data('show-column-index',showColumnIndex.join(','))
+                    $this.data('show-column-index',showColumnIndex)
+                    data.showColumnIndex = showColumnIndex.split(',')
                 }
             }
         }
