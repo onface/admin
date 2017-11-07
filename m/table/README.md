@@ -15,15 +15,52 @@
                 <thead>
                     <tr>
                         <th>
+                            <i
+                                class="fa fa-ellipsis-h mo-table-column"
+                                id="mo-table-column-1"
+                                data-show-column-index='0,4' <!-- 初始默认显示的列 -->
+
+                                data-dialog-title="显示表头列" 
+                                data-dialog-content="closest&th&find&.js-html"
+                            ></i>
+                            <script type="text/dialogtpl" class="js-html mo-hide" >
+                                <form onsubmit="return false">
+                                    <label class="mo-hide">
+                                        <input type="checkbox" name="column" value="0" checked/>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="column" value="1" />
+                                        用户名
+                                    </label><br/>
+                                    <label>
+                                        <input type="checkbox" name="column" value="2" />
+                                        id
+                                    </label><br/>
+                                    <label>
+                                        <input type="checkbox" name="column" value="3" />
+                                        标题
+                                    </label><br/>
+                                    <label class="mo-hide">
+                                        <input type="checkbox" name="column" value="4" checked />
+                                        操作
+                                    </label>
+                                    <button
+                                        class="mo-table-column-submit"
+                                        data-id="mo-table-column-1" 
+                                    >确定</button>
+                                </form>
+                            </script>
+                        </th>
+                        <th class="mo-hide">
                             用户名
                         </th>
-                        <th>
+                        <th class="mo-hide">
                             id
                         </th>
-                        <th>
+                        <th class="mo-hide">
                             标题
                         </th>
-                        <th>
+                        <th class="mo-hide">
                             操作
                         </th>
                     </tr>
@@ -31,15 +68,17 @@
                 <tbody>
                     <tr>
                         <td>
+                        </td>
+                        <td class="mo-hide">
                             nimo
                         </td>
-                        <td>
+                        <td class="mo-hide">
                             离离原上草，一岁一枯荣。
                         </td>
-                        <td>
+                        <td class="mo-hide">
                             523623
                         </td>
-                        <td>
+                        <td class="mo-hide">
                             <a class="mo-btn mo-btn--link"><i class="fa fa-edit"></i>编辑</a>
                             <a class="mo-btn mo-btn--link">修改</a>
                             <button type="button" class="mo-btn mo-btn--success">登录</button>
@@ -47,15 +86,17 @@
                     </tr>
                     <tr>
                         <td>
+                        </td>
+                        <td class="mo-hide">
                             nimo
                         </td>
-                        <td>
+                        <td class="mo-hide">
                             野火烧不尽，春风吹又生。
                         </td>
-                        <td>
+                        <td class="mo-hide">
                             523623
                         </td>
-                        <td>
+                        <td class="mo-hide">
                             <a class="mo-btn mo-btn--link"><i class="fa fa-edit"></i>编辑</a>
                             <a class="mo-btn mo-btn--link">修改</a>
                             <button type="button" class="mo-btn mo-btn--success">登录</button>
