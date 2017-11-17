@@ -155,6 +155,8 @@ data-ajax-url="/some.php"
 
 AJAX响应的JSON中存在 `data.href` ，且 `status` 等于 `success` 时候会根据 `data.href` 的地址跳转。
 
+> `data.href` 返回 `"refresh"` 则刷新当前页面
+
 
 ### timeout
 

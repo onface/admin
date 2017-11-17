@@ -57,12 +57,17 @@ $(function () {
 
 			var hrefTimeout = 0
 			if (res.data.href) {
+				var refresh = false
+				if (res.data.href === 'refresh') {
+					res.data.href = location.href
+					refresh = true
+				}
 				if (res.data.timeout) {
 					hrefTimeout = parseInt(res.data.timeout, 10)
 				}
 				var timeoutSecond = hrefTimeout/1000
 				noty({
-					text: timeoutSecond + '秒后，跳转至' + res.data.href,
+					text: timeoutSecond + '秒后，' + refresh ?'刷新页面': '跳转至' + res.data.href,
 					type:'success'
 				})
 				setTimeout(function () {

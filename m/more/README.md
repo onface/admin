@@ -1,0 +1,12 @@
+# more
+
+````html
+<div style="width:100px;" >
+    <div class="mo-more" style="height:2.8em;border:1px solid red;" >
+    离离原上草，一岁一枯荣。
+    野火烧不尽，春风吹又生。
+    远芳侵古道，晴翠接荒城。
+    又送王孙去，萋萋满别情。
+    </div>
+</div>
+````
