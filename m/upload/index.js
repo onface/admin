@@ -20,7 +20,7 @@ class Upload extends Component {
     }
     componentDidMount () {
         let self = this
-        new FastUpload({
+        self.upload = new FastUpload({
             trigger: self.refs.picker,
             name: self.props.uploadPostname,
             action: self.props.uploadUrl,
@@ -58,6 +58,7 @@ class Upload extends Component {
         })
     }
     clear () {
+        this.upload._uploaders[0].input[0].value = ''
         this.setState({
             id: '',
             src: '',
