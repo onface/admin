@@ -40,18 +40,16 @@
  ></span>
 ````
 
-<!--
 
 ### 开始结束时间
 
 ````html
+empty:<span
+	data-timerange-name="date"
+ ></span>
+ value:
 <span
-	data-time-name="date"
-	data-time-type="range"
-	data-time-min="2016-12-02"
-	data-time-max="2016-12-28"
-	data-time-value="2016-12-06~2016-12-20"
+	data-timerange-name="date"
+	data-timerange-value="2016-12-06~2016-12-20"
  ></span>
 ````
-
--->

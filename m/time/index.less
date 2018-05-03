@@ -1,0 +1,28 @@
+html .mo-timerange {
+    position: relative;
+    &:after {
+        z-index: 2;
+        content: '~';
+        position: absolute;
+        top:50%;
+        left:50%;
+        margin-left: -.5em;
+        margin-top: -1.2em;
+        line-height: 34px;
+    }
+    .mo-input{
+        line-height: 32px;
+        height: 32px;
+
+    }
+    .mo-timerange-first {
+        border-right: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .mo-timerange-last {
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}

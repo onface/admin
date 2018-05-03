@@ -60,7 +60,6 @@ class Time extends React.Component {
                 onChange={this.change.bind(this)}
                  />)
         }
-        console.log(self.props.timePlaceholder)
         return (
             <DatePicker
                 calendar={calendar}
