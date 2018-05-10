@@ -4,7 +4,7 @@
 ````html
 <div
     data-upload-title="上传头像"
-    data-upload-url="/m/json/ok-upload.json"
+    data-upload-url="./m/json/ok-upload.json"
     data-upload-name="pic"
     data-upload-width="200"
     data-upload-height="200"
@@ -13,7 +13,7 @@
 <div
     data-upload-title="上传文件"
     data-upload-type="file"
-    data-upload-url="/m/json/ok-upload-file.json"
+    data-upload-url="./m/json/ok-upload-file.json"
     data-upload-name="file"
     data-upload-width="200"
     data-upload-height="200"
@@ -34,7 +34,7 @@
 </script>
 <div
     data-upload-title="上传图片"
-    data-upload-url="/m/json/ok-upload.json"
+    data-upload-url="./m/json/ok-upload.json"
     data-upload-name="pic"
     data-upload-value="prev"
 >
@@ -48,7 +48,7 @@
 <div
     data-upload-title="上传文件"
     data-upload-type="file"
-    data-upload-url="/m/json/ok-upload-file.json"
+    data-upload-url="./m/json/ok-upload-file.json"
     data-upload-name="file"
     data-upload-value="prev"
 >
@@ -59,10 +59,10 @@
 # 多图上传
 
 ````html
-<form class="mo-form" data-form-ajax="true" action="/m/json/ok.json" method="get">
+<form class="mo-form" data-form-ajax="true" action="./m/json/ok.json" method="get">
 <div id="copyuploadbox" class="mo-clear" >
     <div  class="js-upload-clone"
-        data-upload-url="/m/json/ok-upload.json"
+        data-upload-url="./m/json/ok-upload.json"
         data-upload-name="pics[]"
     >
     </div>
@@ -77,10 +77,10 @@
 
 ````html
 
-<form class="mo-form" data-form-ajax="true" action="/m/json/ok.json" method="get">
+<form class="mo-form" data-form-ajax="true" action="./m/json/ok.json" method="get">
 <div id="max6box" class="mo-clear" >
     <div  class="js-max6-clone"
-        data-upload-url="/m/json/ok-upload.json"
+        data-upload-url="./m/json/ok-upload.json"
         data-upload-name="pics[]"
     >
     </div>

@@ -18,7 +18,7 @@
 
 ````html
 <div class="mo-login">
-    <form class="mo-login-form mo-form" data-form-ajax="true"  action="/m/json/ok-href.json" method="get">
+    <form class="mo-login-form mo-form" data-form-ajax="true"  action="./m/json/ok-href.json" method="get">
     <div class="mo-login-title">后台管理</div>
 
     <div class="mo-login-item">

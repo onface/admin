@@ -7,7 +7,7 @@
 
 ### ajax-成功
 ````html
-<form class="mo-form"  method="get" action="/m/json/ok.json" data-form-ajax="true" >
+<form class="mo-form"  method="get" action="./m/json/ok.json" data-form-ajax="true" >
     <div class="mo-form-title">success</div>
     <div class="mo-form-item">
         <span class="mo-form-item-label">text</span>
@@ -24,7 +24,7 @@
 ### ajax-错误
 
 ````html
-<form class="mo-form" method="get" action="/m/json/err.json" data-form-ajax="true" >
+<form class="mo-form" method="get" action="./m/json/err.json" data-form-ajax="true" >
     <div class="mo-form-title">error</div>
     <div class="mo-form-item">
         <span class="mo-form-item-label">text</span>
@@ -53,7 +53,7 @@
 ```
 
 ````html
-<form class="mo-form" method="get" action="/m/json/ok-href.json" data-form-ajax="true" data-form-timeout="2000" >
+<form class="mo-form" method="get" action="./m/json/ok-href.json" data-form-ajax="true" data-form-timeout="2000" >
     <div class="mo-form-title">href</div>
     <div class="mo-form-item">
         <span class="mo-form-item-label">text</span>
@@ -83,7 +83,7 @@
 响应的JSON中存在 `data.timeout` 则会延迟跳转到 `data.href`，延迟的时间是 `timeout` 的值
 
 ````html
-<form class="mo-form" method="get" action="/m/json/ok-href-timeout.json" data-form-ajax="true" data-form-timeout="2000" >
+<form class="mo-form" method="get" action="./m/json/ok-href-timeout.json" data-form-ajax="true" data-form-timeout="2000" >
     <div class="mo-form-title">timeout</div>
     <div class="mo-form-item">
         <span class="mo-form-item-label">text</span>
@@ -103,7 +103,7 @@
 <form
     class="mo-form"
     method="get"
-    action="/m/json/ok.json"
+    action="./m/json/ok.json"
     data-form-ajax="true"
     data-form-success-callback="@successcb1"
     >
@@ -288,11 +288,11 @@ function successcb1 (res) {
 ## onBlur & Shift enter (失去焦点或 Shift + Enter 时提交)
 
 ````html
-<form method="get" action="/m/json/ok.json" data-form-ajax="true" data-form-autosubmit
+<form method="get" action="./m/json/ok.json" data-form-ajax="true" data-form-autosubmit
 ="true" data-form-confirm="确认修改？" style="display:inline-block;" >
     <input type="text" name="user" class="mo-input" placeholder="失去焦点 和 Shift + Eneter提交">
 </form>
-<form method="get" action="/m/json/ok.json" data-form-ajax="true" data-form-autosubmit
+<form method="get" action="./m/json/ok.json" data-form-ajax="true" data-form-autosubmit
 ="true" data-form-confirm="修改？" style="display:inline-block;" >
     <input type="text" name="user" class="mo-input" placeholder="2">
 </form>

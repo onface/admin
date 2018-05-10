@@ -11,7 +11,7 @@
                 <h1>123123123</h1>
                 <div style="width:1000px;border:1px solid red;"  >box</div>
                 <hr>
-                <div data-ajaxtable-url="/m/json/ajaxtable.json?type=1" ></div>
+                <div data-ajaxtable-url="./m/json/ajaxtable.json?type=1" ></div>
             </script>
         </td>
     </tr>

@@ -5,6 +5,9 @@ fis.hook('relative');
 fis.media('online').match('**', {
     domain: 'http://onface.cc/admin'
 })
+fis.match('docs', {
+    release: false
+}, 9999)
 var conf = {
     // require 被替换的全局变量
     webpackExternals: {
@@ -302,6 +305,13 @@ fis.media('online').match('*.js', {
 
 fis.media('online').match('*.css', {
   optimizer: fis.plugin('clean-css')
+});
+fis.media('online').match('*.less', {
+  optimizer: fis.plugin('clean-css')
+});
+
+fis.media('online').match('/README.md', {
+    release: '/index.html'
 });
 
 fis.media('online').match('*.png', {

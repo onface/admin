@@ -11,19 +11,19 @@
 {
     "ajax" : {
         "add" : {
-            "action" : "/m/json/ajaxcascade.json",
+            "action" : "./m/json/ajaxcascade.json",
             "method" : "post"
         },
         "update" : {
-            "action" : "/m/json/ajaxcascade.json",
+            "action" : "./m/json/ajaxcascade.json",
             "method" : "post"
         },
         "move" : {
-            "action" : "/m/json/ajaxcascade.json",
+            "action" : "./m/json/ajaxcascade.json",
             "method" : "post"
         },
         "remove" : {
-            "action" : "/m/json/ajaxcascade.json",
+            "action" : "./m/json/ajaxcascade.json",
             "method" : "post"
         }
     },
@@ -150,7 +150,7 @@
 ### 基础 - demo
 
 ````html
-<form data-form-ajax="true"  action="/m/json/ok.json" method="post">
+<form data-form-ajax="true"  action="./m/json/ok.json" method="post">
 
 
     <div
@@ -323,7 +323,7 @@
 ### filObj - demo
 
 ````html
-<form data-form-ajax="true"  action="/m/json/ok.json" method="post">
+<form data-form-ajax="true"  action="./m/json/ok.json" method="post">
 
 
     <div
@@ -342,7 +342,7 @@
 
 
 ````html
-<form data-form-ajax="true"  action="/m/json/ok.json" method="post">
+<form data-form-ajax="true"  action="./m/json/ok.json" method="post">
 
 
     <span

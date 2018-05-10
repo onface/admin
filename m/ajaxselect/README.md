@@ -5,7 +5,7 @@
 ````html
 ok.json<select
     name="state"
-    data-ajaxselect-url="/m/json/ok.json"
+    data-ajaxselect-url="./m/json/ok.json"
     data-ajaxselect-method="get"
     >
     <option value="success">成功</option>
@@ -14,7 +14,7 @@ ok.json<select
 </select>
 err.json<select
     name="state"
-    data-ajaxselect-url="/m/json/err.json"
+    data-ajaxselect-url="./m/json/err.json"
     data-ajaxselect-method="get"
     >
     <option value="success">成功</option>
@@ -28,7 +28,7 @@ err.json<select
 ````html
 <select
     name="state"
-    data-ajaxselect-url="/m/json/ok.json"
+    data-ajaxselect-url="./m/json/ok.json"
     data-ajaxselect-method="get"
     data-ajaxselect-confirm="确认修改状态为%text?"
     >
@@ -55,7 +55,7 @@ prompt + 对应 value
 ````html
 ok.json<select
     name="state"
-    data-ajaxselect-url="/m/json/ok.json"
+    data-ajaxselect-url="./m/json/ok.json"
     data-ajaxselect-method="get"
     data-ajaxselect-confirm="确认修改状态为%text?"
     data-ajaxselect-prompterror="error_msg|错误原因="
@@ -66,7 +66,7 @@ ok.json<select
 </select>
 err.json<select
     name="state"
-    data-ajaxselect-url="/m/json/err.json"
+    data-ajaxselect-url="./m/json/err.json"
     data-ajaxselect-method="get"
     data-ajaxselect-confirm="确认修改状态为%text?"
     data-ajaxselect-prompterror="error_msg|错误原因="
@@ -84,7 +84,7 @@ err.json<select
 ````html
 ok.json<select
     name="state"
-    data-ajaxselect-url="/m/json/ok.json"
+    data-ajaxselect-url="./m/json/ok.json"
     data-ajaxselect-method="get"
     data-ajaxselect-confirm="确认修改状态为%text?"
     data-ajaxselect-prompt="error_msg|错误原因="
@@ -95,7 +95,7 @@ ok.json<select
 </select>
 err.json<select
     name="state"
-    data-ajaxselect-url="/m/json/err.json"
+    data-ajaxselect-url="./m/json/err.json"
     data-ajaxselect-method="get"
     data-ajaxselect-confirm="确认修改状态为%text?"
     data-ajaxselect-prompt="error_msg|错误原因="

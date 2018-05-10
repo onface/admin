@@ -1,0 +1,1 @@
+var $=require("jquery");$(function(){$("body").on("click",".mo-alert-close",function(){var e=$(this);e.closest(".mo-alert").fadeOut()})});

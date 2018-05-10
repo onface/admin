@@ -26,13 +26,13 @@
 ## data-ajax
 
 ````html
-<span class="mo-btn mo-btn--info" data-ajax-url="/m/json/ok.json" data-ajax-data="id=2&type=del" data-ajax-method="post" >审核通过</span>
+<span class="mo-btn mo-btn--info" data-ajax-url="./m/json/ok.json" data-ajax-data="id=2&type=del" data-ajax-method="post" >审核通过</span>
 ````
 
 ## data-form
 
 ````html
-<form class="mo-form"  method="get" action="/m/json/ok.json" data-form-ajax="true" >
+<form class="mo-form"  method="get" action="./m/json/ok.json" data-form-ajax="true" >
     <div class="mo-form-item">
         <span class="mo-form-item-label">text</span>
         <span class="mo-form-item-form">
@@ -49,7 +49,7 @@
 
 ````html
 <div
-    data-upload-url="/m/json/ok-upload.json"
+    data-upload-url="./m/json/ok-upload.json"
     data-upload-name="pic"
     data-upload-title="上传头像"
     data-upload-width="200"
@@ -146,7 +146,7 @@
 ## data-copy
 
 ````html
-<form class="mo-form"  method="get" action="/m/json/ok.json" data-form-ajax="true" >
+<form class="mo-form"  method="get" action="./m/json/ok.json" data-form-ajax="true" >
     <div class="mo-form-item js-copydemo1"  >
         <span class="mo-form-item-label">email</span>
         <span class="mo-form-item-form">

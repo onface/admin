@@ -103,7 +103,7 @@
 > 注意 `data-linkage-options` 用的是 `#linkageJSON`
 
 ````html
-<form class="mo-form" data-form-ajax="true" action="/m/json/ok.json" method="get">
+<form class="mo-form" data-form-ajax="true" action="./m/json/ok.json" method="get">
     <div id="linkagecopybox">
         <span class="js-linkage-copy"
         data-linkage-name="city[]"

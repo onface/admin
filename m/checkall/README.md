@@ -11,7 +11,7 @@
             <tr>
                 <th>
                     <input data-checkall=".js-listcheck"  type="checkbox" />
-                    <span class="mo-btn mo-btn--danger" data-ajax-url="/m/json/ok.json" data-ajax-checkbox=".js-listcheck:checked" data-ajax-remove=".js-listcheck:checked&closest&tr" >删除选中项目</span>
+                    <span class="mo-btn mo-btn--danger" data-ajax-url="./m/json/ok.json" data-ajax-checkbox=".js-listcheck:checked" data-ajax-remove=".js-listcheck:checked&closest&tr" >删除选中项目</span>
                 </th>
                 <th>
                     用户名

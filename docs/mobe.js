@@ -1,0 +1,1 @@
+var app=require("fms");app.run({"static":"./output",port:"61214",read:[""],urlRewrite:["/","/README.html"],view:{server:"http://127.0.0.1:2009",templateDir:"./output/view/"}}),app.app.get("/verify/",function(t,e){e.redirect("https://dummyimage.com/120/35")});
