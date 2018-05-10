@@ -1,6 +1,9 @@
 fis.hook('relative');
-fis.match('**', {
-  relative: true
+// fis.match('**', {
+//   relative: true
+// })
+fis.media('online').match('**', {
+    domain: 'http://onface.cc/admin'
 })
 var conf = {
     // require 被替换的全局变量
@@ -45,7 +48,7 @@ var conf = {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <link rel="stylesheet" href="/fast-admin.less">
+            <link rel="stylesheet" href="/admin.less">
             <link rel="stylesheet" href="/m/doc/index.less" />
             <title> <%- title %></title>
         </head>
@@ -174,8 +177,8 @@ var conf = {
                     </div>
                 </div>
             </div>
-            <script src="/fast-admin-deps.js"></script>
-            <script src="/fast-admin.js"></script>
+            <script src="/admin-deps.js"></script>
+            <script src="/admin.js"></script>
             <script>
             ;(function ($) {
                 var $currentItem = $('.mo-2-side-item-bd-link,.mo-2-side-item-hd').filter('[href="' + location.pathname + '"]')
@@ -271,20 +274,20 @@ fis.match('*.md', {
 })
 
 conf.webpack.externals = conf.webpackExternals
-fis.match('/fast-admin.js', {
+fis.match('/admin.js', {
     release: true,
     parser: [
         fis.plugin('webpack', conf.webpack),
         fis.plugin('inlinecss')
     ]
 })
-fis.match('/fast-admin.less', {
+fis.match('/admin.less', {
     relative: true
 })
 fis.match('{**.less,**.css}', {
     release: false
 })
-fis.match('{/fast-admin.less,/m/doc/index.less,/fast-admin-deps.js}', {
+fis.match('{/admin.less,/m/doc/index.less,/admin-deps.js}', {
     release: true
 })
 

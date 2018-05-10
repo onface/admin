@@ -11,8 +11,8 @@ $(function () {
         let render = data.dialogRender
         let $target = filter(this, $this.data('dialogContent'))
         let $cloneELmeent
-        if ($target.data('__fast-admin-dialog-clone-element')) {
-            $cloneELmeent = $target.data('__fast-admin-dialog-clone-element')
+        if ($target.data('__admin-dialog-clone-element')) {
+            $cloneELmeent = $target.data('__admin-dialog-clone-element')
         }
         else {
             let html = $target.eq(0).html()
@@ -21,7 +21,7 @@ $(function () {
     		}
             html = '<div>' + html + '</div>'
             $cloneELmeent = $(html)
-            $target.data('__fast-admin-dialog-clone-element', $cloneELmeent)
+            $target.data('__admin-dialog-clone-element', $cloneELmeent)
         }
         dialog({
             quickClose: true,

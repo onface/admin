@@ -14,6 +14,8 @@ $(function () {
         }
         $('.mo-2-side').height($('.mo-2-cnt').height())
     }
-    syncCnt()
-    $(window).on('resize', syncCnt)
+    requestAnimationFrame(function callee() {
+            syncCnt()
+        requestAnimationFrame(callee)
+    })
 })
