@@ -70,7 +70,7 @@ var conf = {
                 </div>
                 <div class="mo-2-side">
                 <div class="mo-2-side-item">
-                    <a class="mo-2-side-item-hd" href="/" >
+                    <a class="mo-2-side-item-hd" href="/admin/" >
                         <span class="fa fa-home"></span>首页
                     </a>
                 </div>
@@ -79,11 +79,11 @@ var conf = {
                         <span class="fa fa-user"></span>登录
                     </div>
                     <div class="mo-2-side-item-bd">
-                        <a class="mo-2-side-item-bd-link" href="/m/login/README.md" ><span class="fa fa-user"></span>登录1</a>
-                        <a class="mo-2-side-item-bd-link" href="/m/login2/README.md" ><span class="fa fa-user"></span>登录2</a>
-                        <a class="mo-2-side-item-bd-link" href="/m/login3/README.md" ><span class="fa fa-user"></span>登录3</a>
-                        <a class="mo-2-side-item-bd-link" href="/m/login4/README.md" ><span class="fa fa-user"></span>登录4</a>
-                        <a class="mo-2-side-item-bd-link" href="/m/login5/README.md" ><span class="fa fa-user"></span>登录5</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/login/README.md" ><span class="fa fa-user"></span>登录1</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/login2/README.md" ><span class="fa fa-user"></span>登录2</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/login3/README.md" ><span class="fa fa-user"></span>登录3</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/login4/README.md" ><span class="fa fa-user"></span>登录4</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/login5/README.md" ><span class="fa fa-user"></span>登录5</a>
                     </div>
                 </div>
                 <div class="mo-2-side-item">
@@ -91,12 +91,12 @@ var conf = {
                         <span class="fa fa-desktop"></span>布局
                     </div>
                     <div class="mo-2-side-item-bd">
-                        <a class="mo-2-side-item-bd-link" href="/m/1/README.md" ><span class="fa fa-desktop"></span>布局1</a>
-                        <a class="mo-2-side-item-bd-link" href="/m/2/README.md" ><span class="fa fa-desktop"></span>布局2</a>
-                        <a class="mo-2-side-item-bd-link" href="/m/3/README.md" ><span class="fa fa-desktop"></span>布局3</a>
-                        <a class="mo-2-side-item-bd-link" href="/m/4/README.md" ><span class="fa fa-desktop"></span>布局4</a>
-                        <a class="mo-2-side-item-bd-link" href="/m/5/README.md" ><span class="fa fa-desktop"></span>布局5</a>
-                        <a class="mo-2-side-item-bd-link" href="/m/6/README.md" ><span class="fa fa-desktop"></span>布局6</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/1/README.md" ><span class="fa fa-desktop"></span>布局1</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/2/README.md" ><span class="fa fa-desktop"></span>布局2</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/3/README.md" ><span class="fa fa-desktop"></span>布局3</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/4/README.md" ><span class="fa fa-desktop"></span>布局4</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/5/README.md" ><span class="fa fa-desktop"></span>布局5</a>
+                        <a class="mo-2-side-item-bd-link" href="/admin/m/6/README.md" ><span class="fa fa-desktop"></span>布局6</a>
                     </div>
                 </div>
                     <div class="mo-2-side-item">
@@ -104,8 +104,8 @@ var conf = {
                             <span class="fa fa-info"></span>展示类
                         </div>
                         <div class="mo-2-side-item-bd">
-                            <a class="mo-2-side-item-bd-link" href="/m/panel/README.md" ><span class="fa fa-info"></span>统计面板</a>
-                            <a class="mo-2-side-item-bd-link" href="/m/step/README.md" ><span class="fa fa-braille"></span>步骤</a>
+                            <a class="mo-2-side-item-bd-link" href="/admin/m/panel/README.md" ><span class="fa fa-info"></span>统计面板</a>
+                            <a class="mo-2-side-item-bd-link" href="/admin/m/step/README.md" ><span class="fa fa-braille"></span>步骤</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
@@ -113,10 +113,10 @@ var conf = {
                             <span class="fa fa-list-alt"></span>按钮和表单
                         </div>
                         <div class="mo-2-side-item-bd">
-                            <a class="mo-2-side-item-bd-link" href="/m/btn/README.md" ><span class="fa fa-edit"></span>按钮</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/form-input/README.md" ><span class="fa fa-list"></span>表单</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/time/README.md" ><span class="fa fa-arrows"></span>日期</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/editor/README.md" ><span class="fa fa-edit"></span>编辑器</a>
+                            <a class="mo-2-side-item-bd-link" href="/admin/m/btn/README.md" ><span class="fa fa-edit"></span>按钮</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/form-input/README.md" ><span class="fa fa-list"></span>表单</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/time/README.md" ><span class="fa fa-arrows"></span>日期</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/editor/README.md" ><span class="fa fa-edit"></span>编辑器</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
@@ -124,11 +124,11 @@ var conf = {
                             <span class="fa fa-list"></span>盒子/列表/面包屑/分页
                         </div>
                         <div class="mo-2-side-item-bd">
-                            <a class="mo-2-side-item-bd-link" href="/m/box/README.md" ><span class="fa fa-edit"></span>盒子</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/table/README.md" ><span class="fa fa-list"></span>列表</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/crumb/README.md" ><span class="fa fa-info-circle"></span>面包屑</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/tab/README.md" ><span class="fa fa-info-circle"></span>tab切换</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/paging/README.md" ><span class="fa fa-list"></span>分页</a>
+                            <a class="mo-2-side-item-bd-link" href="/admin/m/box/README.md" ><span class="fa fa-edit"></span>盒子</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/table/README.md" ><span class="fa fa-list"></span>列表</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/crumb/README.md" ><span class="fa fa-info-circle"></span>面包屑</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/tab/README.md" ><span class="fa fa-info-circle"></span>tab切换</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/paging/README.md" ><span class="fa fa-list"></span>分页</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
@@ -136,8 +136,8 @@ var conf = {
                             <span class="fa fa-tags"></span>提示和标签
                         </div>
                         <div class="mo-2-side-item-bd">
-                            <a class="mo-2-side-item-bd-link" href="/m/alert/README.md" ><span class="fa fa-edit"></span>提示条</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/tipbox/README.md" ><span class="fa fa-list"></span>提示框</a>
+                            <a class="mo-2-side-item-bd-link" href="/admin/m/alert/README.md" ><span class="fa fa-edit"></span>提示条</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/tipbox/README.md" ><span class="fa fa-list"></span>提示框</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
@@ -145,25 +145,25 @@ var conf = {
                             <span class="fa fa-rocket"></span>功能组件
                         </div>
                         <div class="mo-2-side-item-bd">
-                            <a class="mo-2-side-item-bd-link" href="/m/ajax/README.md" ><span class="fa fa-edit"></span>ajax</a>
-                            <a class="mo-2-side-item-bd-link" href="/m/edit/README.md" ><span class="fa fa-edit"></span>编辑文字</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/upload/README.md" ><span class="fa fa-list"></span>图片上传</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/linkage/README.md" ><span class="fa fa-list"></span>层级选择</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/copy/README.md" ><span class="fa fa-copy"></span>复制组件</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/remove/README.md" ><span class="fa fa-remove"></span>删除功能</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/filter/README.md" ><span class="fa fa-search"></span>filter</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/sort/README.md" ><span class="fa fa-arrows"></span>排序</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/tree/README.md" ><span class="fa fa-tree"></span>树级菜单</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/tree-select/README.md" ><span class="fa fa-tree"></span>树级下拉菜单</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/dialog/README.md" ><span class="fa fa-file-text-o"></span>弹窗</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/ajaxtable/README.md" ><span class="fa fa-table"></span>ajax table</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/ajaxselect/README.md" ><span class="fa fa-table"></span>ajax select</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/cascade/README.md" ><span class="fa fa-table"></span>cascade级联下拉框</a>
-                            <a class="mo-2-side-item-bd-link"  href="/m/calendar/README.md" ><span class="fa fa-table"></span>日历</a>
+                            <a class="mo-2-side-item-bd-link" href="/admin/m/ajax/README.md" ><span class="fa fa-edit"></span>ajax</a>
+                            <a class="mo-2-side-item-bd-link" href="/admin/m/edit/README.md" ><span class="fa fa-edit"></span>编辑文字</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/upload/README.md" ><span class="fa fa-list"></span>图片上传</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/linkage/README.md" ><span class="fa fa-list"></span>层级选择</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/copy/README.md" ><span class="fa fa-copy"></span>复制组件</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/remove/README.md" ><span class="fa fa-remove"></span>删除功能</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/filter/README.md" ><span class="fa fa-search"></span>filter</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/sort/README.md" ><span class="fa fa-arrows"></span>排序</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/tree/README.md" ><span class="fa fa-tree"></span>树级菜单</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/tree-select/README.md" ><span class="fa fa-tree"></span>树级下拉菜单</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/dialog/README.md" ><span class="fa fa-file-text-o"></span>弹窗</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/ajaxtable/README.md" ><span class="fa fa-table"></span>ajax table</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/ajaxselect/README.md" ><span class="fa fa-table"></span>ajax select</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/cascade/README.md" ><span class="fa fa-table"></span>cascade级联下拉框</a>
+                            <a class="mo-2-side-item-bd-link"  href="/admin/m/calendar/README.md" ><span class="fa fa-table"></span>日历</a>
                         </div>
                     </div>
                     <div class="mo-2-side-item">
-                        <a class="mo-2-side-item-hd" href="/m/grid/README.md" >
+                        <a class="mo-2-side-item-hd" href="/admin/m/grid/README.md" >
                             <span class="fa fa-columns"></span>24等分排版
                         </a>
                     </div>
