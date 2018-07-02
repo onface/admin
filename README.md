@@ -9,13 +9,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="http://onface.cc/admin/admin.css" />
+    <link rel="stylesheet" href="https://onface.live/admin/admin.css" />
     <title>______</title>
 </head>
 <body>
     ________
-    <script src="http://onface.cc/admin/admin-deps.js"></script>
-    <script src="http://onface.cc/admin/admin.js"></script>
+    <script src="https://onface.live/admin/admin-deps.js"></script>
+    <script src="https://onface.live/admin/admin.js"></script>
 </body>
 </html>
 ```

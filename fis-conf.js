@@ -3,10 +3,10 @@ fis.hook('relative');
 //   relative: true
 // })
 fis.media('online').match('**', {
-    domain: 'http://onface.cc/admin'
+    domain: 'https://onface.live/admin'
 })
 fis.match('docs', {
-    release: false
+    release: true
 }, 9999)
 var conf = {
     // require 被替换的全局变量
@@ -58,7 +58,7 @@ var conf = {
         <body class="mo-2-sub-body" >
             <div class="mo-2">
                 <div class="mo-2-head">
-                    <div class="mo-2-head-logo"><img class="mo-2-head-logo-pic" src="http://oajxfbadi.bkt.clouddn.com/admin/images/flow-logo-white.png" alt="">管理后台</div>
+                    <div class="mo-2-head-logo"><img class="mo-2-head-logo-pic" src="https://avatars1.githubusercontent.com/u/20395258?s=200&v=4" alt="">管理后台</div>
                     <div class="mo-2-head-more">
                         <a class="mo-2-head-more-link" href="#" >
                             <span class="fa fa-user"></span>Hi,admin
