@@ -16,7 +16,8 @@ class Upload extends Component {
     state = {
         src: this.props.uploadValue.src || '',
         id: this.props.uploadValue.id || '',
-        filename: this.props.uploadValue.filename || ''
+        filename: this.props.uploadValue.filename || '',
+        download: this.props.uploadValue.download || ''
     }
     componentDidMount () {
         let self = this
@@ -36,7 +37,8 @@ class Upload extends Component {
                 if (res.status === 'success') {
                     let newState = {
                         id: res.data.id,
-                        src: res.data.src
+                        src: res.data.src,
+                        download: res.data.download
                     }
                     if (res.data.filename) {
                         newState.filename = res.data.filename
@@ -62,7 +64,8 @@ class Upload extends Component {
         this.setState({
             id: '',
             src: '',
-            filename: ''
+            filename: '',
+            download: ''
         })
     }
     render () {
@@ -87,13 +90,20 @@ class Upload extends Component {
 
                     </div>
                     <div className="mo-upload-bd-preview" style={controlSize} >
-                        <img src={self.state.src} alt="" className={cls({
-                            'mo-hide': self.props.uploadType === 'file'
-                        })}/>
+                        <a  href={self.state.src} target="_blank">
+                            <img alt="点击查看大图" src={self.state.src} alt="" className={cls({
+                                'mo-hide': self.props.uploadType === 'file'
+                            })}/>
+                        </a>
                         <span className={cls({
                             'mo-hide': self.props.uploadType !== 'file'
                         })}>
-                        {self.state.filename}
+                        {
+                            self.state.download?
+                            (
+                                <a href={self.state.download} target="_blank">{self.state.filename}</a>
+                            ):self.state.filename
+                        }
                         </span>
                     </div>
                 </div>

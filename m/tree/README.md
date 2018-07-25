@@ -74,15 +74,15 @@
     }
 ]
 </script>
-<div 
+<div
 	data-tree-name="some"
 	data-tree-options="prev"
  >
 </div>
 
-<div 
+<div
     data-tree-name="edit"
-    data-tree-options="#treeJSON" 
+    data-tree-options="#treeJSON"
     data-tree-value="2-2-2,1-2-2"
     data-tree-link-parent=false
     data-tree-link-child=false

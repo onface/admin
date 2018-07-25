@@ -2,6 +2,7 @@
     "status": "success",
     "data": {
         "id": "G3fp6kSzi",
-        "filename": "文件名.jpg"
+        "filename": "文件名.jpg",
+        "download": "?可下载的文件路径，非必须"
     }
 }

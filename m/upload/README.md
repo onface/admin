@@ -42,7 +42,8 @@
 <script type="text/json" >
 {
     "id": "1",
-    "filename": "文件名.jpg"
+    "filename": "文件名.jpg",
+    "download": "?可下载的文件路径 (非必须)"
 }
 </script>
 <div
