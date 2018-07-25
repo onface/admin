@@ -65,6 +65,9 @@ class Cascade extends Component {
 
 
         this.state = {
+            multiple : props.multiple.split(',').map(function(item){
+                return item == 'true' 
+            }),
             checkedArray : checkedArray ,
             showLength : showLength ,
             data : data,
@@ -444,9 +447,9 @@ class Cascade extends Component {
         let props = self.props
 
         let showCheckedArray = extend(true,[],state.checkedArray)
-        showCheckedArray = TreeStore(state.data).changeSelect(showCheckedArray.reverse()[0])
-        // console.log(JSON.stringify(showCheckedArray))
-        showCheckedArray = showCheckedArray.slice(0,state.checkedArray.length + 1)
+            showCheckedArray = TreeStore(state.data).changeSelect(showCheckedArray.reverse()[0])
+            // console.log(JSON.stringify(showCheckedArray))
+            showCheckedArray = showCheckedArray.slice(0,state.checkedArray.length + 1)
         console.log('showCheckedArray :',JSON.stringify(showCheckedArray))
         let renderObj = {
             checked : showCheckedArray ,
@@ -916,7 +919,8 @@ Cascade.defaultProps = {
         errMsg:''
     },
     themes:'default',
-    disabled:'false,false,false,false'
+    disabled:'false,false,false,false',
+    multiple:'false,false,false,false'
 }
 
 $(function () {
