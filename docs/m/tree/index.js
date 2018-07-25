@@ -41,10 +41,12 @@ class TreeNode extends Component {
 							<li key={key} className={'tree-li tree-li-false'}
 							>
                                 {btn}
-								<input type="checkbox" checked={checked} onChange={function (){
-									props.change(item.id,checked)
-								}} />
-								{item.value}
+								<label>
+									<input type="checkbox" checked={checked} onChange={function (){
+										props.change(item.id,checked)
+									}} />
+									{item.value}
+								</label>
 								{node}
 							</li>
 						)
@@ -129,7 +131,7 @@ TreeApp.defaultProps = {
 mo.tree = function (target) {
 	var $target = $(target)
 	$target.each(function () {
-		$target.addClass('mo-tree').addClass('mo-loading--off')
+		$target.addClass('').addClass('mo-loading--off')
 		let $this = $(this)
 		let data = $this.data()
 		let $options = filter(this,data.treeOptions)

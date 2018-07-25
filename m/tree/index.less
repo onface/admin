@@ -1,48 +1,74 @@
-.tree ul {
-    padding-left: 0;
+.mo-tree {
+    border: 1px solid #efefef;
+    background-color: white;
+    padding:.5em;
+    border-radius: .3em;
+    margin-bottom: .5em;
 }
-.tree ul,
-.tree li {
+
+.mo-tree ul {
+    padding: 0;
+    margin: 0;
+}
+
+.mo-tree ul,
+.mo-tree li {
     list-style-type:none;
+    color:#333;
+    label {
+        cursor: pointer;
+        color:black;
+        &:hover {
+            color:#09c;
+        }
+        input {
+            margin-right: .3em;
+            margin-left: .3em;
+        }
+    }
 }
-.tree-li-false {
+.mo-tree-li-false {
     height:24px;
     line-height: 24px;
     overflow-y:hidden;
     padding-left: 18px;
     position: relative;
 }
-.tree-li-true {
+.mo-tree-li-true {
     height:auto;
     padding-left: 18px;
     line-height: 24px;
     position: relative;
 }
-.tree-li-span{
-    width:12px;
-    height:12px;
-    line-height:12px;
-    font-size: 12px;
+.mo-tree-li-span{
+    border-radius: .3em;
+    width:1.3em;
+    height: 1.3em;
+    line-height: 1.3em;
+    vertical-align: top;
     position:absolute;
-    top: 7px;
+    top: 3px;
     left: 0;
     display:inline-block;
     vertical-align: middle;
+    &:hover {
+        background-color: #efefef;
+    }
 }
-.tree-li-span:before {
-    position:absolute;
-    top:0px;
-    left:0px;
+.mo-tree-li-span:before {
     cursor:pointer;
     display:inline-block;
-    border:1px solid black;
+    // border:1px solid #888;
+    color:#888;
+    border-radius: .3em;
     height:100%;
     width:100%;
     text-align:center;
+    font-weight: bold;
 }
-.tree-li-false > .tree-li-span:before{
+.mo-tree-li-false > .mo-tree-li-span:before{
     content:'+';
 }
-.tree-li-true > .tree-li-span:before{
+.mo-tree-li-true > .mo-tree-li-span:before{
     content:'-';
 }

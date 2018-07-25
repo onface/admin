@@ -7,12 +7,12 @@ import classNames from "classnames" ;
 import filter from '../filter/index';
 // 呵呵呵
 $(function () {
-	$('body').on('click','.tree-li-span',function(e){
+	$('body').on('click','.mo-tree-li-span',function(e){
 		e.stopPropagation();e.preventDefault();
 	    let $this = $(this)
-	    let $parent = $this.closest('.tree-li')
-	    $parent.toggleClass('tree-li-true')
-	    $parent.toggleClass('tree-li-false')
+	    let $parent = $this.closest('.mo-tree-li')
+	    $parent.toggleClass('mo-tree-li-true')
+	    $parent.toggleClass('mo-tree-li-false')
 	})
 })
 
@@ -33,18 +33,20 @@ class TreeNode extends Component {
 						if (item.child) {
 							node = (<TreeNode data={item.child} checked_ids={props.checked_ids} change={props.change} />)
                             btn = (
-                                <span className={'tree-li-span'}
+                                <span className={'mo-tree-li-span'}
                                 ></span>
                             )
 						}
 						return (
-							<li key={key} className={'tree-li tree-li-false'}
+							<li key={key} className={'mo-tree-li mo-tree-li-false'}
 							>
                                 {btn}
-								<input type="checkbox" checked={checked} onChange={function (){
-									props.change(item.id,checked)
-								}} />
-								{item.value}
+								<label>
+									<input type="checkbox" checked={checked} onChange={function (){
+										props.change(item.id,checked)
+									}} />
+									{item.value}
+								</label>
 								{node}
 							</li>
 						)
@@ -110,7 +112,7 @@ class TreeApp extends Component {
 		let self = this
 		let state = this.state
 		return (
-			<div className="tree">
+			<div className="mo-tree">
 				<TreeNode data={state.data} checked_ids={state.checked_ids}  change={this.change.bind(this)} />
                 <input name={self.props.treeName} type="hidden" value={self.state.checked_ids.join(',')} />
 			</div>
@@ -129,7 +131,7 @@ TreeApp.defaultProps = {
 mo.tree = function (target) {
 	var $target = $(target)
 	$target.each(function () {
-		$target.addClass('mo-tree').addClass('mo-loading--off')
+		$target.addClass('').addClass('mo-loading--off')
 		let $this = $(this)
 		let data = $this.data()
 		let $options = filter(this,data.treeOptions)
