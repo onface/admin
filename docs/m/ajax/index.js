@@ -67,7 +67,7 @@ $(function () {
 				}
 				var timeoutSecond = hrefTimeout/1000
 				noty({
-					text: timeoutSecond + '秒后，' + refresh ?'刷新页面': '跳转至' + res.data.href,
+					text: timeoutSecond + '秒后，' + (refresh ?'刷新页面': '跳转至 ' + res.data.href),
 					type:'success'
 				})
 				setTimeout(function () {
