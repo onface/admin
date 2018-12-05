@@ -92,7 +92,7 @@ class Upload extends Component {
                     <div className="mo-upload-bd-preview" style={controlSize} >
                         <a  href={self.state.src} target="_blank">
                             <img alt="点击查看大图" src={self.state.src} alt="" className={cls({
-                                'mo-hide': self.props.uploadType === 'file'
+                                'mo-hide': !self.state.src
                             })}/>
                         </a>
                         <span className={cls({

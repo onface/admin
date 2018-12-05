@@ -13,7 +13,7 @@
 <div
     data-upload-title="上传文件"
     data-upload-type="file"
-    data-upload-url="./m/json/ok-upload-file.json"
+    data-upload-url="/m/json/ok-upload-file.json"
     data-upload-name="file"
     data-upload-width="200"
     data-upload-height="200"
