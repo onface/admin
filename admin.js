@@ -1,6 +1,6 @@
 window.mo = {}
 mo.$ = require('jquery')
-function FAST_ADMIN_FILLDATA (res) {
+window.FAST_ADMIN_FILLDATA = function  (res) {
   if (typeof res === 'object') {
     switch(res.type) {
       case 'pass':
