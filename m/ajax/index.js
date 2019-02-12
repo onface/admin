@@ -41,7 +41,7 @@ $(function () {
 			data: data.ajaxData,
 			type: data.ajaxMethod,
 			dataType: 'json'
-		}).done(function (res) {
+		}).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
 			res.data = res.data || {}
 			if (!res.msg) {
 				if (res.status === 'success') {

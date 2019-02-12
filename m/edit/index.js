@@ -15,7 +15,7 @@ var blur = function () {
         url: data.editUrl,
         data: data.editData,
         dataType: 'json'
-    }).done(function (res) {
+    }).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
         if (res.status === 'success') {
             $this.data('moEditServerValue')
             noty({

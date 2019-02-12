@@ -51,7 +51,7 @@ mo.sort = function (target) {
 				type: 'post',
 				dataType: 'json',
 				data: sendData
-			}).done(function (res) {
+			}).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
 				if (res.status === 'success') {
 					noty({
 						text: '排序成功',

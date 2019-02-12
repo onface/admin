@@ -12,6 +12,7 @@ __inline('/m/editor/simditor.js')
         // 为避免与其他框架冲突不取消全局变量
         // window[variableName] = null
     }
+    __FAST_ADMIN_EXTERNALS_.jQuery
 })(
     [
         'jQuery',

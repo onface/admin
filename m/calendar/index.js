@@ -75,7 +75,7 @@ class Calendar extends Component {
 			data:{
 				date:date
 			}
-		}).done(function(res){
+		}).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
 			if(res.data){
 				if(res.data.checkin){
 			        self.ms({

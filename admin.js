@@ -1,5 +1,22 @@
 window.mo = {}
 mo.$ = require('jquery')
+function FAST_ADMIN_FILLDATA (res) {
+  if (typeof res === 'object') {
+    switch(res.type) {
+      case 'pass':
+        res.status = 'success'
+      break
+      case 'fail':
+        res.status = 'error'
+      break
+      default:
+      if (res.type) {
+        res.status = res.type
+      }
+    }
+  }
+  return res
+}
 mo._allowCopy = []
 mo._ajax = []
 require('./m/linkage/index.js')

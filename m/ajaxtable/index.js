@@ -38,7 +38,7 @@ class AJAXTable extends Component {
                 p: self.state.current
             },
             dataType: 'json'
-        }).done(function (res) {
+        }).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
             self.ms({
                 type: 'RENDER_DATA',
                 data: res.data

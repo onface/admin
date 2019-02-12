@@ -249,7 +249,7 @@ class Cascade extends Component {
             type:self.props.data.ajax[state.editDialog.operateType].method,
             dataType:'json',
             data:data
-        }).done(function(res){
+        }).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
             if(res.status == 'success'){
                 self.ms({
                     type:'CHANGE_DATA',
@@ -330,7 +330,7 @@ class Cascade extends Component {
             type:self.props.data.ajax.move.method,
             dataType:'json',
             data:data
-        }).done(function(res){
+        }).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
             if(res.status == 'success'){
                 self.ms({
                     type:'CHANGE_MOVE',
@@ -387,7 +387,7 @@ class Cascade extends Component {
             type:self.props.data.ajax.remove.method,
             dataType:'json',
             data:data
-        }).done(function(res){
+        }).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
             if(res.status == 'success'){
                 self.ms({
                     type:'CHANGE_REMOVE',

@@ -47,7 +47,7 @@ $(function(){
             type: method,
             data: data,
             dataType: 'json'
-        }).done(function (res) {
+        }).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
 			var timeout = data.formTimeout || 0
 			if (!res.msg) {
 				if (res.status === 'success') {

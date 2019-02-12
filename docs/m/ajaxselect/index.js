@@ -84,7 +84,7 @@ $('body').on('change', '[data-ajaxselect-url]', function (e) {
         data: sendData,
         type: data.ajaxselectMethod,
         dataType: 'json'
-    }).done(function (res) {
+    }).done(function (res){;res=FAST_ADMIN_FILLDATA(res);
         let message = noty({
 			text: ''
 		})
